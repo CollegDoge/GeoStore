@@ -1,0 +1,23 @@
+@import "https://www.nerdfonts.com/assets/css/webfont.css";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    font-family: "Google Sans Flex", "NerdFontsSymbols Nerd Font", Arial, sans-serif;
+    font-style: normal;
+    overflow-x: hidden;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
