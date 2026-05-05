@@ -1,23 +1,94 @@
 @import "https://www.nerdfonts.com/assets/css/webfont.css";
 
+
+/* font */
+:root {
+    --flex-weight: 400;
+    --flex-slnt: 0;
+    --flex-wdth: 100;
+    --flex-grad: 0;
+    --flex-rond: 0;
+}
+
+.font-gsansflex {
+    font-family: "Google Sans Flex", "NerdFontsSymbols Nerd Font", Arial, sans-serif;
+    font-optical-sizing: auto;
+    font-weight: var(--flex-weight);
+    font-variation-settings:
+        "slnt" var(--flex-slnt),
+        "wdth" var(--flex-wdth),
+        "GRAD" var(--flex-grad),
+        "ROND" var(--flex-rond);
+}
+
+.font-hround {
+    --flex-rond: 600;
+    --flex-weight: 900;
+}
+.font-hsharp {
+    --flex-rond: 0;
+    --flex-weight: 900;
+}
+
 * {
     margin: 0;
     padding: 0;
 }
 html {
     font-family: "Google Sans Flex", "NerdFontsSymbols Nerd Font", Arial, sans-serif;
-    font-style: normal;
     overflow-x: hidden;
 }
 body {
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     min-height: 100vh;
 }
 
-h1 {
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+header {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    margin: auto;
+    position: fixed;
+    background-color: #eaeaea;
+    color: #000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px;
+    transition: background-color 0.3s ease;
+    z-index: 999;
+}
+.header-left {
+    display: flex;
+    align-items: center;
+}
+.header-left img { 
+    height: 50px;
+    width: auto;
+}
+.header-left h2 {
+    padding-left: 10px;
+}
+.header-center {
+    position: absolute; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    height: 100%;
+}
+.header-right {
+    display: flex;
+    align-items: center;
+}
+header .hamburger {
+    display: none;
 }
