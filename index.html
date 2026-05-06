@@ -7,7 +7,7 @@
     <title>Home Page - GeoStore</title>
     <link rel="icon" type="image/x-icon" href="./assets/favicon.png">
     <link href="./style.css" rel="stylesheet" type="text/css">
-    <script src="./scripts.js" defer type="text/javascript" ></script>
+    <script src="./script.js" defer type="text/javascript" ></script>
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght,GRAD,ROND,slnt@400..900,0..100,0..100,-10..0&display=swap" rel="stylesheet">
@@ -26,15 +26,18 @@
                 <div class="nav-item"><p>BY PRODUCT</p></div>
             </div>
             <div class="header-right">
-                <a class="nf-oct-search"></a>
+                <section id="menuswitch">
+                    <a class="nf-oct-search"></a> 
+                    <a class="nf-oct-three_bars"></a>
+                </section>
                 <a class="nf-oct-person"></a>
                 <a class="nf-md-cart_variant"></a>
-                <a class="nf-oct-moon"></a> <!-- or nf-oct-sun-->
+                <section id="themeswitch">
+                    <a class="nf-oct-moon"></a> 
+                    <a class="nf-fa-sun"></a>
+                </section>
                 <!-- nf-oct-three_bars collapsed -->
             </div>
         </div>
     </header>
-
-    <h1 class="font-gsansflex font-hround nf-md-square_rounded"> rounded</h1>
-    <h1 class="font-gsansflex font-hsharp nf-md-square"> not rounded</h1>
 </body>
