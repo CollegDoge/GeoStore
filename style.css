@@ -26,18 +26,30 @@
     --flex-rond: 0;
     --flex-weight: 900;
 }
+.font-hwide {
+    --flex-slnt: -10;
+    --flex-weight: 800;
+}
 
 /* colors */
 :root { /* epic video https://www.youtube.com/watch?v=_gKEUYarehE  */
   --text-color: #000;
   --text-secondary: #333;
   --primary-color: #ffffff;
+  --primary-item: #dcdcdc;
+  --accent-primary: #b5e2fa;
+  --accent-primary-dim: rgba(181, 226, 250, 0.5);
+  --accent-secondary: #EDDEA4;
   --banner: rgb(220,220,220,0.5);
 }
 .darkmode {
   --text-color: #fff;
   --text-secondary: #ccc;
   --primary-color: #101010;
+  --primary-item: #303030;
+  --accent-primary: #4791b9;
+  --accent-primary-dim: rgba(71, 145, 185, 0.5);
+  --accent-secondary: #F7A072;
   --banner: rgba(50,50,50,0.5);
 }
 
@@ -72,6 +84,7 @@ header {
     align-items: center;
     position: fixed;
     background-color: var(--banner);
+    backdrop-filter: blur(20px);
     color: var(--text-color);
     top: 0;
     width: 100%;
@@ -135,7 +148,7 @@ header .hamburger {
     flex-direction: column;
     align-items: center;
     padding: 50px;
-    padding-top: 150px;
+    padding-top: 100px;
     z-index: 1;
 }
 
@@ -146,7 +159,7 @@ footer {
     margin-top: auto;
     width: 100%;
     height: 150px;
-    background-color: var(--banner);
+    background-color: var(--primary-item);
 }
 .footer-container {
     display: flex;
