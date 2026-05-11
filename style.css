@@ -158,20 +158,20 @@ footer {
     align-items: center;
     margin-top: auto;
     width: 100%;
-    height: 150px;
+    height: 180px;
     background-color: var(--primary-item);
 }
 .footer-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-direction: row;
-    width: 1280px;
-    padding: 8px;
+    width: 100%;
+    margin: 50px;
 }
-.footer-main {
+.footer-left {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
+    align-items: left;
     gap: 10px;
     flex: 1;
 }
@@ -180,9 +180,9 @@ footer {
     flex-direction: column;
     gap: 5px;
 }
-.footer-access a {
-    font-size: 30px;
-    padding-left: 10px;
+.footer-access {
+    padding-top: 20px;
+    font-size: 20px;
 }
 .footer-social a {
     font-size: 30px;
