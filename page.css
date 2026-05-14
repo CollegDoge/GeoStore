@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 .home-banner-main {
     display: flex;
@@ -10,7 +11,8 @@
     justify-content: center;
     align-items: center;
     height: 350px;
-    width: 1200px;
+    width: 100%;
+    max-width: 1200px;
     background-color: var(--accent-primary);
     border-radius: 10px;
     box-shadow: 0 5px 10px var(--accent-primary-dim);
@@ -31,26 +33,45 @@ span {
     border-radius: 100px;
     margin: 5px;
 }
-.banimg1 { /* temp. will adjust to item later */
+.banimg1 {
     width: 60px;
 }
-
+.home-specials {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
 .product-row {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     gap: 20px;
-    padding: 10px;
-    width: 1200px;
+    padding: 10px 0;
 }
 .product {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 300px;
-    height: 300px;
+    width: 285px;
+    height: 285px;
     background-color: var(--primary-item);
     border-radius: 10px;
+}
+
+@media screen and (max-width: 1200px) {
+    .page-container {
+        padding: 70px 0;
+    }
+    .home-banner {
+        width: 100%;
+    }
+    .home-banner-main {
+        border-radius: 0px;
+    }
 }

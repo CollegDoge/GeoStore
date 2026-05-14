@@ -36,7 +36,7 @@
   --text-color: #000;
   --text-secondary: #333;
   --primary-color: #ffffff;
-  --primary-item: #dcdcdc;
+  --primary-item: #e9e9e9;
   --accent-primary: #b5e2fa;
   --accent-primary-dim: rgba(181, 226, 250, 0.5);
   --accent-secondary: #EDDEA4;
@@ -48,7 +48,7 @@
   --primary-color: #101010;
   --primary-item: #303030;
   --accent-primary: #4791b9;
-  --accent-primary-dim: rgba(71, 145, 185, 0.5);
+  --accent-primary-dim: rgba(71, 145, 185, 0.25);
   --accent-secondary: #F7A072;
   --banner: rgba(60,60,60,0.5);
 }
@@ -57,10 +57,11 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 html {
     font-family: "Google Sans Flex", "NerdFontsSymbols Nerd Font", Arial, sans-serif;
+    overflow-x: hidden;
+    max-width: 100%;
 }
 body {
     display: flex;
@@ -96,7 +97,7 @@ header {
     flex-direction: row;
     width: 100%;
     max-width: 1280px;
-    padding: 8px 16px;
+    padding: 8px 12px;
 }
 .header-left {
     display: flex;
@@ -168,17 +169,13 @@ header .hamburger {
     display: none;
 }
 
-main {
-    display: flex;
-    justify-content: center;
-}
 .page-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
     max-width: 1280px;
-    padding: 50px;
-    padding-top: 100px;
+    padding: 100px 0;
     z-index: 1;
 }
 
