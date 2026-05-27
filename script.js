@@ -124,3 +124,17 @@ navItems.forEach(item => {
 
 dropdown.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
 dropdown.addEventListener('mouseleave', queueHide);
+
+// hamburger
+const hamburger = document.querySelector('.hamburger-overlay');
+const hamopen = document.querySelector('#hamburger-open');
+const hamclose = document.querySelector('#hamburger-close');
+
+function openHamburger() {
+    hamburger.classList.add('show');
+}
+function closeHamburger() {
+    hamburger.classList.remove('show');
+}
+hamopen.addEventListener('click', openHamburger);
+hamclose.addEventListener('click', closeHamburger);
