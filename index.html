@@ -22,9 +22,9 @@
                 <a href="/"><h2 class="font-gsansflex font-hround">GeoStore</h2></a> <!-- Text will be replaced by script -->
             </div>
             <div class="header-center">
-                <div class="nav-item"><p>COLLECTIONS</p></div>
-                <div class="nav-item"><p>SPECIALS</p></div>
-                <div class="nav-item"><p>BY PRODUCT</p></div>
+                <div class="nav-item" data-section="collections"><p>COLLECTIONS</p></div>
+                <div class="nav-item" data-section="specials"><p>SPECIALS</p></div>
+                <div class="nav-item" data-section="byproduct"><p>BY PRODUCT</p></div>
             </div>
             <div class="header-right">
                 <section id="searchbar">
@@ -33,7 +33,7 @@
                 </section>
                 <section id="menuswitch">
                     <a class="nf-oct-search"></a> 
-                    <a class="nf-oct-three_bars"></a>
+                    <a class="nf-oct-three_bars" id="hamburger-open-btn"></a>
                 </section>
                 <a class="nf-oct-person" href="/account/signin/"></a>
                 <a class="nf-md-cart_variant" href="/store/cart/"></a>
@@ -44,6 +44,29 @@
             </div>
         </div>
     </header>
+    
+    <div class="regnav-dropdown">
+        <div class="regnav-container">
+            <div class="regnav-title">
+                <h2 class="font-gsansflex font-hround">
+                    <!-- filled by js -->
+                </h2>
+            </div>
+            <div class="regnav-inner">
+                <!-- filled by js -->
+            </div>
+        </div>
+    </div>
+
+    <div class="hamburger-overlay">
+        <div class="ham-topbar">
+            <b>GeoStore</b>
+            <a class="nf-fa-close" id="ham-close-btn"></a>
+        </div>
+        <div class="ham-body" id="ham-body">
+            <!-- filled by js - TO DO -->
+        </div>
+    </div>
     
     <main class="page-container">
         <div class="home-banner">
@@ -128,10 +151,5 @@
         </div>
     </footer>
 
-    <div class="regnav">
-
-    </div>
-    <div class="fullnav">
-
-    </div>
+    <div class="pageblur"></div>
 </body>

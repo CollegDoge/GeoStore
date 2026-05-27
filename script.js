@@ -34,3 +34,93 @@ document.addEventListener("DOMContentLoaded", () => { // theme switching
         }
     });
 });
+
+// NAVIGATION DATA
+const NAV_DATA = [
+    {
+        id: 'collections',
+        label: 'Collections',
+        items: [
+            { text: "'h' collection",               href: ''    },
+            { text: "'sssdfg' collection",          href: ''    },
+            { text: "'wtflip' collection",          href: ''    },
+            { text: "'from twitter' collection",    href: ''    },
+            { text: "'DON'T wear this' collection", href: ''    },
+            { text: "All Collections",              href: ''    },
+        ]
+    },
+    {
+        id: 'specials',
+        label: 'Specials',
+        items: [
+            { text: 'a',                            href: ''    },
+            { text: 'a',                            href: ''    },
+            { text: 'a',                            href: ''    },
+            { text: 'a',                            href: ''    },
+            { text: 'a',                            href: ''    },
+            { text: 'All Specials',                 href: ''    },
+        ]
+    },
+    {
+        id: 'byproduct',
+        label: 'By Product',
+        items: [
+            { text: 'Shirts',                       href: ''    },
+            { text: 'Hoodies',                      href: ''    },
+            { text: 'Socks',                        href: ''    },
+            { text: 'Mugs',                         href: ''    },
+            { text: 'Stickers',                     href: ''    },
+            { text: 'All Products',                 href: ''    },
+        ]
+    }
+];
+
+// NAVIGATION FUNCTIONALITY
+const pageblur = document.querySelector('.pageblur');
+const dropdown = document.querySelector('.regnav-dropdown');
+const regnavTitle = document.querySelector('.regnav-title h2');
+const regnavInner = document.querySelector('.regnav-inner');
+const navItems = document.querySelectorAll('.nav-item');
+
+let hideTimeout;
+function showMenu(sectionId) {
+    clearTimeout(hideTimeout);
+
+    const sectionData = NAV_DATA.find(item => item.id === sectionId);
+    if (!sectionData) return;
+
+    navItems.forEach(item => {
+        if (item.getAttribute('data-section') === sectionId) {
+            item.classList.add('active');
+        } else {
+            item.classList.remove('active');
+        }
+    });
+
+    regnavTitle.textContent = sectionData.label;
+    regnavInner.innerHTML = sectionData.items
+        .map(item => `<a class="regnav-item" href="${item.href}">${item.text}</a>`)
+        .join('');
+
+    dropdown.classList.add('show');
+    pageblur.classList.add('show');
+}
+
+function queueHide() {
+    hideTimeout = setTimeout(() => {
+        dropdown.classList.remove('show');
+        pageblur.classList.remove('show');
+        navItems.forEach(item => item.classList.remove('active'));
+    }, 150);
+}
+
+navItems.forEach(item => {
+    item.addEventListener('mouseenter', () => {
+        const sectionId = item.getAttribute('data-section');
+        showMenu(sectionId);
+    });
+    item.addEventListener('mouseleave', queueHide);
+});
+
+dropdown.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+dropdown.addEventListener('mouseleave', queueHide);
