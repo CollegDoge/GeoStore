@@ -125,7 +125,7 @@ navItems.forEach(item => {
 dropdown.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
 dropdown.addEventListener('mouseleave', queueHide);
 
-// hamburger
+// HAMBURGER
 const hamburger = document.querySelector('.hamburger-overlay');
 const hamopen = document.querySelector('#hamburger-open');
 const hamclose = document.querySelector('#hamburger-close');
@@ -138,3 +138,53 @@ function closeHamburger() {
 }
 hamopen.addEventListener('click', openHamburger);
 hamclose.addEventListener('click', closeHamburger);
+
+// HAMBURGER FUNCTIONALITY
+NAV_DATA.forEach(section => {
+    const titleElement = document.getElementById(`ham-${section.id}`);
+    if (!titleElement) return;
+
+    const sectionContainer = titleElement.closest('.ham-body-section');
+    const itemsContainer = sectionContainer.querySelector('.ham-section-items');
+
+    itemsContainer.innerHTML = '';
+
+    section.items.forEach(item => {
+        const itemDiv = document.createElement('div');
+        itemDiv.classList.add('ham-section-item');
+
+        const itemLink = document.createElement('a');
+        itemLink.href = item.href || '#';
+        itemLink.textContent = item.text;
+
+        itemDiv.appendChild(itemLink);
+        itemsContainer.appendChild(itemDiv);
+    });
+
+    const titleBar = titleElement.parentElement;
+
+    titleBar.addEventListener('click', () => {
+        const isCurrentSectionOpen = sectionContainer.classList.contains('open');
+
+        document.querySelectorAll('.ham-body-section').forEach(sec => {
+            sec.classList.remove('open');
+            
+            const icon = sec.querySelector('.nf-fa-angle_up, .nf-fa-angle_down');
+            if (icon) {
+                icon.classList.remove('nf-fa-angle_up');
+                icon.classList.add('nf-fa-angle_down');
+            }
+        });
+
+        if (!isCurrentSectionOpen) {
+            sectionContainer.classList.add('open');
+            
+            // Change current icon to angle_up
+            const currentIcon = titleBar.querySelector('.nf-fa-angle_down');
+            if (currentIcon) {
+                currentIcon.classList.remove('nf-fa-angle_down');
+                currentIcon.classList.add('nf-fa-angle_up');
+            }
+        }
+    });
+});
