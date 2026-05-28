@@ -179,7 +179,6 @@ NAV_DATA.forEach(section => {
         if (!isCurrentSectionOpen) {
             sectionContainer.classList.add('open');
             
-            // Change current icon to angle_up
             const currentIcon = titleBar.querySelector('.nf-fa-angle_down');
             if (currentIcon) {
                 currentIcon.classList.remove('nf-fa-angle_down');
