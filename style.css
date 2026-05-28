@@ -254,8 +254,9 @@ footer {
 }
 
 .pageblur {
-    display: block;
+    display: flex;
     position: fixed;
+    visibility: hidden;
     top: 0;
     left: 0;
     width: 100vw;
@@ -264,9 +265,10 @@ footer {
     backdrop-filter: blur(4px);
     z-index: 2;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 .pageblur.show {
+    visibility: visible;
     opacity: 1;
 }
 

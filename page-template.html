@@ -33,7 +33,7 @@
                 </section>
                 <section id="menuswitch">
                     <a class="nf-oct-search"></a> 
-                    <a class="nf-oct-three_bars" id="hamburger-open-btn"></a>
+                    <a class="nf-oct-three_bars" id="hamburger-open"></a>
                 </section>
                 <a class="nf-oct-person" href="/account/signin/"></a>
                 <a class="nf-md-cart_variant" href="/store/cart/"></a>
@@ -59,12 +59,40 @@
     </div>
 
     <div class="hamburger-overlay">
-        <div class="ham-topbar">
-            <b>GeoStore</b>
-            <a class="nf-fa-close" id="ham-close-btn"></a>
-        </div>
-        <div class="ham-body" id="ham-body">
-            <!-- filled by js - TO DO -->
+        <div class="hamburger-container">
+            <div class="ham-topbar">
+                <a class="font-gsansflex font-hround">GeoStore Navigation</a>
+                <a class="nf-fa-close" id="hamburger-close"></a>
+            </div>
+            <div class="ham-body" id="ham-body">
+                <div class="ham-body-section">
+                    <div class="ham-section-title">
+                        <a id="ham-collections">Collections</a>
+                        <a class="nf-fa-angle_down"></a> <!--nf-fa-angle_down or nf-fa-angle_up-->
+                    </div>
+                    <div class="ham-section-items">
+                        <!-- filled by js -->
+                    </div>
+                </div>
+                <div class="ham-body-section">
+                    <div class="ham-section-title">
+                        <a id="ham-specials">Specials</a>
+                        <a class="nf-fa-angle_down"></a> <!--nf-fa-angle_down or nf-fa-angle_up-->
+                    </div>
+                    <div class="ham-section-items">
+                        <!-- filled by js -->
+                    </div>
+                </div>
+                <div class="ham-body-section">
+                    <div class="ham-section-title">
+                        <a id="ham-byproduct">By Product</a>
+                        <a class="nf-fa-angle_down"></a> <!--nf-fa-angle_down or nf-fa-angle_up-->
+                    </div>
+                    <div class="ham-section-items">
+                        <!-- filled by js -->
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
