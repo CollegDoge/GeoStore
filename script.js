@@ -41,36 +41,36 @@ const NAV_DATA = [
         id: 'collections',
         label: 'Collections',
         items: [
-            { text: "'h' collection",               href: ''    },
-            { text: "'sssdfg' collection",          href: ''    },
-            { text: "'wtflip' collection",          href: ''    },
-            { text: "'from twitter' collection",    href: ''    },
-            { text: "'DON'T wear this' collection", href: ''    },
-            { text: "All Collections",              href: ''    },
+            { text: "'h' collection",               href: '/store/collections/h'    },
+            { text: "'sssdfg' collection",          href: '/store/collections/sssdfg'    },
+            { text: "'wtflip' collection",          href: '/store/collections/wtf'    },
+            { text: "'from twitter' collection",    href: '/store/collections/from-twitter'    },
+            { text: "'DON'T wear this' collection", href: '/store/collections/dont-wear'    },
+            { text: "All Collections",              href: '/store/collections'    },
         ]
     },
     {
         id: 'specials',
         label: 'Specials',
         items: [
-            { text: 'a',                            href: ''    },
-            { text: 'a',                            href: ''    },
-            { text: 'a',                            href: ''    },
-            { text: 'a',                            href: ''    },
-            { text: 'a',                            href: ''    },
-            { text: 'All Specials',                 href: ''    },
+            { text: 'Loading',                      href: ''    },
+            { text: 'Loading',                      href: ''    },
+            { text: 'Loading',                      href: ''    },
+            { text: 'Loading',                      href: ''    },
+            { text: 'Loading',                      href: ''    },
+            { text: 'All Specials',                 href: '/store/specials'    },
         ]
     },
     {
         id: 'byproduct',
         label: 'By Product',
         items: [
-            { text: 'Shirts',                       href: ''    },
-            { text: 'Hoodies',                      href: ''    },
-            { text: 'Socks',                        href: ''    },
-            { text: 'Mugs',                         href: ''    },
-            { text: 'Stickers',                     href: ''    },
-            { text: 'All Products',                 href: ''    },
+            { text: 'Shirts',                       href: '/store/by-product/shirts'    },
+            { text: 'Hoodies',                      href: '/store/by-product/hoodies'    },
+            { text: 'Socks',                        href: '/store/by-product/socks'    },
+            { text: 'Mugs',                         href: '/store/by-product/mugs'    },
+            { text: 'Stickers',                     href: '/store/by-product/stickers'    },
+            { text: 'All Products',                 href: '/store/by-product'    },
         ]
     }
 ];
