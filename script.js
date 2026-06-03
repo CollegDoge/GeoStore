@@ -75,6 +75,26 @@ const NAV_DATA = [
     }
 ];
 
+// HEADER SEARCH OPEN (1080 to 768)
+const searchBtn = document.querySelector('#searchbtn-mid');
+const headerSearch = document.querySelector('#searchbar');
+const headerCenter = document.querySelector('.header-center');
+
+function openSearch() {
+    headerSearch.style.display = 'flex';
+    headerCenter.style.display = 'none';
+    searchBtn.classList.remove('nf-oct-search');
+    searchBtn.classList.add('nf-md-close');
+}
+function closeSearch() {
+    headerSearch.style.display = 'none';
+    headerCenter.style.display = 'flex';
+    searchBtn.classList.remove('nf-md-close');
+    searchBtn.classList.add('nf-oct-search');
+}
+searchBtn.addEventListener('click', openSearch);
+
+
 // NAVIGATION FUNCTIONALITY
 const pageblur = document.querySelector('.pageblur');
 const dropdown = document.querySelector('.regnav-dropdown');
