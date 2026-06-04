@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Template - GeoStore</title>
+    <title>TEMPLATE - GeoStore</title>
     <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
     <link href="/style.css" rel="stylesheet" type="text/css">
     <link href="page.css" rel="stylesheet" type="text/css">
@@ -19,7 +19,7 @@
         <div class="header-container">
             <div class="header-left">
                 <a href="/"><img alt="Logo" src="/assets/favicon.png"></a>
-                <a href="/"><h2 class="font-gsansflex font-hround">GeoStore</h2></a> <!-- Text will be replaced by script -->
+                <a href="/"><h2 class="font-gsansflex font-hround">GeoStore</h2></a>
             </div>
             <div class="header-center">
                 <div class="nav-item" data-section="collections"><p>COLLECTIONS</p></div>
@@ -32,10 +32,10 @@
                     <input type="text" placeholder="Search">
                 </section>
                 <section id="menuswitch">
-                    <a class="nf-oct-search"></a> 
+                    <a class="nf-oct-search" id="searchbtn-mid"></a> 
                     <a class="nf-oct-three_bars" id="hamburger-open"></a>
                 </section>
-                <a class="nf-oct-person" href="/account/signin/"></a> <!-- signin by default, /account/manage if signed in -->
+                <a class="nf-oct-person" href="/account/signin/"></a>
                 <a class="nf-md-cart_variant" href="/store/cart/"></a>
                 <section id="themeswitch">
                     <a class="nf-oct-moon"></a> 
@@ -64,11 +64,18 @@
                 <a class="font-gsansflex font-hround">GeoStore Navigation</a>
                 <a class="nf-fa-close" id="hamburger-close"></a>
             </div>
+            <div class="ham-search">
+                <section id="searchbar-mobile">
+                    <a class="nf-oct-search"></a> 
+                    <input type="text" placeholder="Search">
+                    <a class="nf-fa-chevron_right"></a>
+                </section>
+            </div>
             <div class="ham-body" id="ham-body">
                 <div class="ham-body-section">
                     <div class="ham-section-title">
                         <a id="ham-collections">Collections</a>
-                        <a class="nf-fa-angle_down"></a> <!--nf-fa-angle_down or nf-fa-angle_up-->
+                        <a class="nf-fa-angle_down"></a>
                     </div>
                     <div class="ham-section-items">
                         <!-- filled by js -->
@@ -77,7 +84,7 @@
                 <div class="ham-body-section">
                     <div class="ham-section-title">
                         <a id="ham-specials">Specials</a>
-                        <a class="nf-fa-angle_down"></a> <!--nf-fa-angle_down or nf-fa-angle_up-->
+                        <a class="nf-fa-angle_down"></a>
                     </div>
                     <div class="ham-section-items">
                         <!-- filled by js -->
@@ -86,7 +93,7 @@
                 <div class="ham-body-section">
                     <div class="ham-section-title">
                         <a id="ham-byproduct">By Product</a>
-                        <a class="nf-fa-angle_down"></a> <!--nf-fa-angle_down or nf-fa-angle_up-->
+                        <a class="nf-fa-angle_down"></a>
                     </div>
                     <div class="ham-section-items">
                         <!-- filled by js -->
@@ -126,6 +133,6 @@
             </div>
         </div>
     </footer>
-    
+
     <div class="pageblur"></div>
 </body>

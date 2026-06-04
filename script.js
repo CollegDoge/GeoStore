@@ -1,4 +1,4 @@
-// THEME SWITCH / HEADER SCROLL
+// THEME SWITCH
 document.addEventListener("DOMContentLoaded", () => { // theme switching
     const togglebtn = document.getElementById("themeswitch");
     const body = document.body;
@@ -34,6 +34,19 @@ document.addEventListener("DOMContentLoaded", () => { // theme switching
         }
     });
 });
+
+// HEADER SEARCH OPEN (1080 to 768)
+const searchBtn = document.querySelector('#searchbtn-mid');
+const headerSearch = document.querySelector('#searchbar');
+const headerCenter = document.querySelector('.header-center');
+
+function toggleSearch() {
+    headerSearch.classList.toggle('is-active');
+    headerCenter.classList.toggle('search-hidden');
+    searchBtn.classList.toggle('nf-oct-search');
+    searchBtn.classList.toggle('nf-fa-chevron_right');
+}
+searchBtn.addEventListener('click', toggleSearch);
 
 // NAVIGATION DATA
 const NAV_DATA = [
@@ -74,26 +87,6 @@ const NAV_DATA = [
         ]
     }
 ];
-
-// HEADER SEARCH OPEN (1080 to 768)
-const searchBtn = document.querySelector('#searchbtn-mid');
-const headerSearch = document.querySelector('#searchbar');
-const headerCenter = document.querySelector('.header-center');
-
-function openSearch() {
-    headerSearch.style.display = 'flex';
-    headerCenter.style.display = 'none';
-    searchBtn.classList.remove('nf-oct-search');
-    searchBtn.classList.add('nf-md-close');
-}
-function closeSearch() {
-    headerSearch.style.display = 'none';
-    headerCenter.style.display = 'flex';
-    searchBtn.classList.remove('nf-md-close');
-    searchBtn.classList.add('nf-oct-search');
-}
-searchBtn.addEventListener('click', openSearch);
-
 
 // NAVIGATION FUNCTIONALITY
 const pageblur = document.querySelector('.pageblur');
@@ -170,15 +163,12 @@ NAV_DATA.forEach(section => {
     itemsContainer.innerHTML = '';
 
     section.items.forEach(item => {
-        const itemDiv = document.createElement('div');
-        itemDiv.classList.add('ham-section-item');
-
         const itemLink = document.createElement('a');
+        itemLink.classList.add('ham-section-item');
         itemLink.href = item.href || '#';
         itemLink.textContent = item.text;
 
-        itemDiv.appendChild(itemLink);
-        itemsContainer.appendChild(itemDiv);
+        itemsContainer.appendChild(itemLink);
     });
 
     const titleBar = titleElement.parentElement;

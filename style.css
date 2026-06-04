@@ -174,7 +174,8 @@ header .hamburger {
     outline: none;
     background-color: transparent;
     color: var(--text-color);
-    width: 150px;
+    width: 100%;
+    max-width: 180px;
 }
 #searchbar input::placeholder {
     color: var(--text-secondary);
@@ -470,6 +471,7 @@ footer {
     text-align: left;
     width: 100%;
     height: 40px;
+    margin-left: 10px;
 }
 .ham-section-item a {
     padding: 10px;
@@ -517,6 +519,15 @@ footer {
     }
     .footer-links {
         text-align: center;
+    }
+}
+
+@media screen and (max-width: 1080px) and (min-width: 769px) {
+    #searchbar.is-active {
+        display: flex;
+    }
+    .header-center.search-hidden {
+        display: none;
     }
 }
 
