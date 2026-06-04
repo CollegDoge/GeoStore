@@ -41,6 +41,10 @@
   --accent-primary-dim: rgba(181, 226, 250, 0.5);
   --accent-secondary: #EDDEA4;
   --banner: rgb(220,220,220,0.7);
+
+  --store-deal: #a4e38d;
+  --store-stock: #e2f2cc;
+  --store-nostock: #d09797; 
 }
 .darkmode {
   --text-color: #fff;
@@ -51,6 +55,10 @@
   --accent-primary-dim: rgba(71, 145, 185, 0.25);
   --accent-secondary: #c76e3f;
   --banner: rgba(50,50,50,0.7);
+
+  --store-deal: #194a00;
+  --store-stock: #545d4e;
+  --store-nostock: rgb(100, 50, 50);
 }
 
 /* main */
