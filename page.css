@@ -101,7 +101,6 @@ span {
 }
 .product-image img {
     object-fit: cover;
-    border-radius: 10px;
     width: 180px;
     height: 180px;
 }
