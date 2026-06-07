@@ -173,7 +173,17 @@ span {
     .home-banner {
         width: 100%;
     }
-    .home-banner-main {
+    .home-banner-main, .home-bannersm {
         border-radius: 0px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .home-bannersm {
+        flex-direction: column;
+    }
+    .home-bannersm-left {
+        padding: 20px;
+        text-align: center;
     }
 }

@@ -142,12 +142,15 @@ dropdown.addEventListener('mouseleave', queueHide);
 const hamburger = document.querySelector('.hamburger-overlay');
 const hamopen = document.querySelector('#hamburger-open');
 const hamclose = document.querySelector('#hamburger-close');
+const body = document.body;
 
 function openHamburger() {
     hamburger.classList.add('show');
+    body.style.overflow = 'hidden';
 }
 function closeHamburger() {
     hamburger.classList.remove('show');
+    body.style.overflow = 'auto';
 }
 hamopen.addEventListener('click', openHamburger);
 hamclose.addEventListener('click', closeHamburger);
