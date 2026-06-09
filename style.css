@@ -45,6 +45,15 @@
   --store-deal: #a4e38d;
   --store-stock: #e2f2cc;
   --store-nostock: #d09797; 
+
+  --store-color1: #dddddd;
+  --store-color2: #202020;
+  --store-color3: #EDC0C7;
+  --store-color4: #CAD6F6;
+  --store-color5: #caf6ce;
+  --store-color6: #e8d04c;
+  --store-color7: #223a96;
+  --store-color8: #8B9296;
 }
 .darkmode {
   --text-color: #fff;

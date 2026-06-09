@@ -130,6 +130,16 @@ span {
     flex-direction: row;
     align-items: center;
 }
+.product-bottom-colours span {
+    display: block;
+    width: 10px;
+    height: 10px;
+    margin: 3px;
+    outline: 1px solid var(--text-color);
+}
+.product-bottom-colours a {
+    margin: 2px;
+}
 .product-bottom-price {
     font-size: 20px;
     font-weight: 600;
