@@ -415,7 +415,7 @@ footer {
     width: 100%;
     padding: 10px 12px;
     border-radius: 100px;
-    background-color: var(--primary-item);
+    background-color: var(--primary-color);
 }
 #searchbar-mobile {
     display: flex;

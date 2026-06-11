@@ -200,6 +200,9 @@ span {
     .home-banner-main, .home-bannersm {
         border-radius: 0px;
     }
+    .home-specials {
+        max-width: 96%;
+    }
 }
 
 @media screen and (max-width: 768px) {
