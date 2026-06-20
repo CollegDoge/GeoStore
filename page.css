@@ -43,7 +43,6 @@ span {
     align-items: center;
     width: 100%;
     max-width: 1200px;
-    margin: 20px;
 }
 .product-header {
     display: flex;
@@ -82,6 +81,7 @@ span {
 }
 .product-box {
     display: flex;
+    position: relative;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -202,6 +202,12 @@ span {
     }
     .home-specials {
         max-width: 96%;
+    }
+    .product-row {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        width: 100%;
     }
 }
 

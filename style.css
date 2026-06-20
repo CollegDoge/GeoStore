@@ -151,7 +151,7 @@ header .hamburger {
     position: absolute;
     left: 50%;
     right: 50%;
-    height: 2px;
+    height: 1px;
     background: var(--text-color);
     transition: left 0.25s ease, right 0.25s ease;
 }
@@ -318,6 +318,7 @@ footer {
     max-width: 1304px;
     background-color: var(--banner);
     border-radius: 10px;
+    border: 2px solid var(--accent-primary);
     backdrop-filter: blur(20px);
     z-index: 999;
 }
@@ -360,12 +361,13 @@ footer {
     max-width: 280px;
     height: 100px;
     border-radius: 10px;
+    border: 2px solid var(--accent-secondary);
     background-color: var(--banner);
     color: var(--text-color);
     transition: background-color 0.2s ease;
 }
 .regnav-item:hover {
-    background-color: var(--primary-item);
+    background-color: var(--accent-secondary);
 }
 
 .hamburger-overlay {
@@ -506,6 +508,8 @@ footer {
         border-radius: 0 !important;
         height: auto !important;
         top: 70px !important;
+        border: 0px;
+        border-bottom: 2px solid var(--accent-primary);
     }
     .regnav-container {
         flex-direction: column !important;
