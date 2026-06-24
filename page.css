@@ -75,6 +75,29 @@ span {
     gap: 12px;
     padding: 10px 0;
 }
+.product-buttons {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 88%;
+    z-index: 4;
+}
+.product-buttons a {
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    padding: 5px;
+    width: 26px;
+    height: 26px;
+    border: 1px solid var(--text-color);
+    border-radius: 100px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 5px 20px var(--primary-color);
+}
 .product {
     display: flex;
     flex-direction: column;
