@@ -200,3 +200,30 @@ NAV_DATA.forEach(section => {
         }
     });
 });
+
+const row = document.querySelector('.product-row');
+const btnLeft = document.getElementById('row-mvleft');
+const btnRight = document.getElementById('row-mvright');
+
+function updateState() {
+    const maxScroll = row.scrollWidth - row.clientWidth;
+    const atStart = row.scrollLeft <= 0;
+    const atEnd = row.scrollLeft >= maxScroll - 1;
+
+    btnLeft.style.visibility = atStart ? 'hidden' : 'visible';
+    btnRight.style.visibility = atEnd ? 'hidden' : 'visible';
+}
+
+if (btnLeft && btnRight) {
+    btnLeft.addEventListener('click', () => {
+        row.scrollBy({ left: -row.clientWidth, behavior: 'smooth' });
+    });
+
+    btnRight.addEventListener('click', () => {
+        row.scrollBy({ left: row.clientWidth, behavior: 'smooth' });
+    });
+
+    row.addEventListener('scroll', updateState);
+    window.addEventListener('resize', updateState);
+    updateState();
+}
