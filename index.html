@@ -9,6 +9,7 @@
     <link href="/style.css" rel="stylesheet" type="text/css">
     <link href="page.css" rel="stylesheet" type="text/css">
     <script src="/script.js" defer type="text/javascript" ></script>
+    <script src="page.js" defer type="text/javascript" ></script>
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght,GRAD,ROND,slnt@400..900,0..100,0..100,-10..0&display=swap" rel="stylesheet">
@@ -22,9 +23,9 @@
                 <a href="/"><h2 class="font-gsansflex font-hround">GeoStore</h2></a>
             </div>
             <div class="header-center">
-                <div class="nav-item" data-section="collections"><p>COLLECTIONS</p></div>
-                <div class="nav-item" data-section="specials"><p>SPECIALS</p></div>
-                <div class="nav-item" data-section="byproduct"><p>BY PRODUCT</p></div>
+                <div class="nav-item" data-section="collections"><a href="/store/collections/">COLLECTIONS</a></div>
+                <div class="nav-item" data-section="specials"><a href="/store/specials/">SPECIALS</a></div>
+                <div class="nav-item" data-section="byproduct"><a href="/store/by-product/">BY PRODUCT</a></div>
             </div>
             <div class="header-right">
                 <section id="searchbar">
@@ -104,16 +105,26 @@
     </div>
     
     <main class="page-container">
-        <div class="home-banner">
-            <div class="home-banner-main">
-                <h2 class="font-gsansflex font-hwide">epic deal</h2>
-                <p>20% off something probably</p>
+        <div class="home-banner-container">
+            <div class="home-banner-track" id="bannerTrack">
+                <div class="home-banner-main" style="background-color: var(--carousel-1)">
+                    <h2 class="font-gsansflex font-hwide">epic deal</h2>
+                    <p>20% off something probably</p>
+                </div>
+                <div class="home-banner-main" style="background-color: var(--carousel-2)">
+                    <h2 class="font-gsansflex font-hwide">extremely fast shipping</h2>
+                    <p>expect your items to ship incredibly quickly with our premium shipping services</p>
+                </div>
+                <div class="home-banner-main" style="background-color: var(--carousel-3)">
+                    <h2 class="font-gsansflex font-hwide">leading buyer protection</h2>
+                    <p>if anything goes wrong with your purchase, do not fret, we are here to help</p>
+                </div>
             </div>
-            <div class="home-banner-slider">
-                <span class="banimg1"></span>
-                <span class="banimg2"></span>
-                <span class="banimg3"></span>
-            </div>
+        </div>
+        <div class="home-banner-slider">
+            <span class="slider-dot active" data-index="0"></span>
+            <span class="slider-dot" data-index="1"></span>
+            <span class="slider-dot" data-index="2"></span>
         </div>
         <div class="home-product-wrapper">
             <div class="product-header">
@@ -136,10 +147,10 @@
                         </div>
                         <div class="product-bottom">
                             <div class="product-bottom-colours">
-                                <span class="colour1" style="background-color: var(--store-color1)"></span>
-                                <span class="colour2" style="background-color: var(--store-color2)"></span>
-                                <span class="colour3" style="background-color: var(--store-color3)"></span>
-                                <span class="colour4" style="background-color: var(--store-color4)"></span>
+                                <span class="product-colour1" style="background-color: var(--store-color1)"></span>
+                                <span class="product-colour2" style="background-color: var(--store-color2)"></span>
+                                <span class="product-colour3" style="background-color: var(--store-color3)"></span>
+                                <span class="product-colour4" style="background-color: var(--store-color4)"></span>
                                 <a>+2</a>
                             </div>
                             <div class="product-bottom-price">$0</div>
@@ -150,67 +161,211 @@
                         <a>Shirt</a>
                     </div>
                 </div>
-                <div class="product">
-                    <div class="product-box">a</div>
+                <div class="product"> <!-- WILL BE REMOVED ONCE DATABASE IS IMPLEMENTED -->
+                    <div class="product-box">
+                        <div class="product-top">
+                            <!-- STOCK FILL OR HIDDEN -->
+                            <!-- DEAL FILL OR HIDDEN -->
+                        </div>
+                        <div class="product-image">
+                            <!-- IMAGE HERE -->
+                        </div>
+                        <div class="product-bottom">
+                            <div class="product-bottom-colours">
+                                <!-- SPAN HERE -->
+                            </div>
+                            <div class="product-bottom-price">
+                                <!-- PRICE HERE -->
+                            </div>
+                        </div>
+                    </div>
                     <div class="product-title">
-                        <h2>Test Product fr fr</h2>
-                        <a>a</a>
+                        <h2>Loading..</h2> <!-- PRODUCT TITLE HERE -->
+                        <a>Load</a> <!-- PRODUCT LINK HERE -->
                     </div>
                 </div>
                 <div class="product">
-                    <div class="product-box">a</div>
+                    <div class="product-box">
+                        <div class="product-top">
+                            <!-- STOCK FILL OR HIDDEN -->
+                            <!-- DEAL FILL OR HIDDEN -->
+                        </div>
+                        <div class="product-image">
+                            <!-- IMAGE HERE -->
+                        </div>
+                        <div class="product-bottom">
+                            <div class="product-bottom-colours">
+                                <!-- SPAN HERE -->
+                            </div>
+                            <div class="product-bottom-price">
+                                <!-- PRICE HERE -->
+                            </div>
+                        </div>
+                    </div>
                     <div class="product-title">
-                        <h2>Test Product fr fr</h2>
-                        <a>a</a>
+                        <h2>Loading..</h2> <!-- PRODUCT TITLE HERE -->
+                        <a>Load</a> <!-- PRODUCT LINK HERE -->
                     </div>
                 </div>
                 <div class="product">
-                    <div class="product-box">a</div>
+                    <div class="product-box">
+                        <div class="product-top">
+                            <!-- STOCK FILL OR HIDDEN -->
+                            <!-- DEAL FILL OR HIDDEN -->
+                        </div>
+                        <div class="product-image">
+                            <!-- IMAGE HERE -->
+                        </div>
+                        <div class="product-bottom">
+                            <div class="product-bottom-colours">
+                                <!-- SPAN HERE -->
+                            </div>
+                            <div class="product-bottom-price">
+                                <!-- PRICE HERE -->
+                            </div>
+                        </div>
+                    </div>
                     <div class="product-title">
-                        <h2>Test Product fr fr</h2>
-                        <a>a</a>
+                        <h2>Loading..</h2> <!-- PRODUCT TITLE HERE -->
+                        <a>Load</a> <!-- PRODUCT LINK HERE -->
                     </div>
                 </div>
                 <div class="product">
-                    <div class="product-box">a</div>
+                    <div class="product-box">
+                        <div class="product-top">
+                            <!-- STOCK FILL OR HIDDEN -->
+                            <!-- DEAL FILL OR HIDDEN -->
+                        </div>
+                        <div class="product-image">
+                            <!-- IMAGE HERE -->
+                        </div>
+                        <div class="product-bottom">
+                            <div class="product-bottom-colours">
+                                <!-- SPAN HERE -->
+                            </div>
+                            <div class="product-bottom-price">
+                                <!-- PRICE HERE -->
+                            </div>
+                        </div>
+                    </div>
                     <div class="product-title">
-                        <h2>Test Product fr fr</h2>
-                        <a>a</a>
+                        <h2>Loading..</h2> <!-- PRODUCT TITLE HERE -->
+                        <a>Load</a> <!-- PRODUCT LINK HERE -->
                     </div>
                 </div>
                 <div class="product">
-                    <div class="product-box">a</div>
+                    <div class="product-box">
+                        <div class="product-top">
+                            <!-- STOCK FILL OR HIDDEN -->
+                            <!-- DEAL FILL OR HIDDEN -->
+                        </div>
+                        <div class="product-image">
+                            <!-- IMAGE HERE -->
+                        </div>
+                        <div class="product-bottom">
+                            <div class="product-bottom-colours">
+                                <!-- SPAN HERE -->
+                            </div>
+                            <div class="product-bottom-price">
+                                <!-- PRICE HERE -->
+                            </div>
+                        </div>
+                    </div>
                     <div class="product-title">
-                        <h2>Test Product fr fr</h2>
-                        <a>a</a>
+                        <h2>Loading..</h2> <!-- PRODUCT TITLE HERE -->
+                        <a>Load</a> <!-- PRODUCT LINK HERE -->
                     </div>
                 </div>
                 <div class="product">
-                    <div class="product-box">a</div>
+                    <div class="product-box">
+                        <div class="product-top">
+                            <!-- STOCK FILL OR HIDDEN -->
+                            <!-- DEAL FILL OR HIDDEN -->
+                        </div>
+                        <div class="product-image">
+                            <!-- IMAGE HERE -->
+                        </div>
+                        <div class="product-bottom">
+                            <div class="product-bottom-colours">
+                                <!-- SPAN HERE -->
+                            </div>
+                            <div class="product-bottom-price">
+                                <!-- PRICE HERE -->
+                            </div>
+                        </div>
+                    </div>
                     <div class="product-title">
-                        <h2>Test Product fr fr</h2>
-                        <a>a</a>
+                        <h2>Loading..</h2> <!-- PRODUCT TITLE HERE -->
+                        <a>Load</a> <!-- PRODUCT LINK HERE -->
                     </div>
                 </div>
                 <div class="product">
-                    <div class="product-box">a</div>
+                    <div class="product-box">
+                        <div class="product-top">
+                            <!-- STOCK FILL OR HIDDEN -->
+                            <!-- DEAL FILL OR HIDDEN -->
+                        </div>
+                        <div class="product-image">
+                            <!-- IMAGE HERE -->
+                        </div>
+                        <div class="product-bottom">
+                            <div class="product-bottom-colours">
+                                <!-- SPAN HERE -->
+                            </div>
+                            <div class="product-bottom-price">
+                                <!-- PRICE HERE -->
+                            </div>
+                        </div>
+                    </div>
                     <div class="product-title">
-                        <h2>Test Product fr fr</h2>
-                        <a>a</a>
+                        <h2>Loading..</h2> <!-- PRODUCT TITLE HERE -->
+                        <a>Load</a> <!-- PRODUCT LINK HERE -->
                     </div>
                 </div>
                 <div class="product">
-                    <div class="product-box">a</div>
+                    <div class="product-box">
+                        <div class="product-top">
+                            <!-- STOCK FILL OR HIDDEN -->
+                            <!-- DEAL FILL OR HIDDEN -->
+                        </div>
+                        <div class="product-image">
+                            <!-- IMAGE HERE -->
+                        </div>
+                        <div class="product-bottom">
+                            <div class="product-bottom-colours">
+                                <!-- SPAN HERE -->
+                            </div>
+                            <div class="product-bottom-price">
+                                <!-- PRICE HERE -->
+                            </div>
+                        </div>
+                    </div>
                     <div class="product-title">
-                        <h2>Test Product fr fr</h2>
-                        <a>a</a>
+                        <h2>Loading..</h2> <!-- PRODUCT TITLE HERE -->
+                        <a>Load</a> <!-- PRODUCT LINK HERE -->
                     </div>
                 </div>
                 <div class="product">
-                    <div class="product-box">a</div>
+                    <div class="product-box">
+                        <div class="product-top">
+                            <!-- STOCK FILL OR HIDDEN -->
+                            <!-- DEAL FILL OR HIDDEN -->
+                        </div>
+                        <div class="product-image">
+                            <!-- IMAGE HERE -->
+                        </div>
+                        <div class="product-bottom">
+                            <div class="product-bottom-colours">
+                                <!-- SPAN HERE -->
+                            </div>
+                            <div class="product-bottom-price">
+                                <!-- PRICE HERE -->
+                            </div>
+                        </div>
+                    </div>
                     <div class="product-title">
-                        <h2>Test Product fr fr</h2>
-                        <a>a</a>
+                        <h2>Loading..</h2> <!-- PRODUCT TITLE HERE -->
+                        <a>Load</a> <!-- PRODUCT LINK HERE -->
                     </div>
                 </div>
             </div>
@@ -219,7 +374,7 @@
                 <a id="row-mvright" class="nf-fa-arrow_right"></a>
             </div>
         </div>
-        <div class="home-bannersm">
+        <div class="home-bannersm" onclick="location.href='/store/collections/sssdfg/'">
             <div class="home-bannersm-left">
                 <h2>Promoted Collection</h2>
                 <section>

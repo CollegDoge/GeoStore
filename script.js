@@ -201,6 +201,7 @@ NAV_DATA.forEach(section => {
     });
 });
 
+// PRODUCT ROW FUNCTIONALITY
 const row = document.querySelector('.product-row');
 const btnLeft = document.getElementById('row-mvleft');
 const btnRight = document.getElementById('row-mvright');
