@@ -39,7 +39,7 @@
     --primary-item: #e9e9e9;
     --accent-primary: #b5e2fa;
     --accent-primary-dim: rgba(181, 226, 250, 0.5);
-    --accent-secondary: #EDDEA4;
+    --accent-secondary: #eece81;
     --banner: rgb(220,220,220,0.7);
 
     --store-deal: #a4e38d;
@@ -58,6 +58,9 @@
     --carousel-1: #b5e2fa;
     --carousel-2: #89d794;
     --carousel-3: #ad95fa;
+
+    --warning: #efc363;
+    --error: #ed747e;
 }
 .darkmode {
     --text-color: #fff;
@@ -76,6 +79,9 @@
     --carousel-1: #4791b9;
     --carousel-2: #2a680e;
     --carousel-3: #50218d;
+
+    --warning: #d38600;
+    --error: #a32711;
 }
 
 /* main */
@@ -511,6 +517,17 @@ footer {
     display: block;
 }
 
+.content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
 /* page responsiveness */
 @media (max-width: 1304px) {
     .regnav-dropdown {
@@ -528,6 +545,12 @@ footer {
         justify-content: center;
         text-align: center;
         height: auto;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .content-container {
+        max-width: 96%;
     }
 }
 

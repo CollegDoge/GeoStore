@@ -9,6 +9,7 @@
     <link href="/style.css" rel="stylesheet" type="text/css">
     <link href="page.css" rel="stylesheet" type="text/css">
     <script src="/script.js" defer type="text/javascript" ></script>
+    <script src="page.js" defer type="text/javascript" ></script>
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght,GRAD,ROND,slnt@400..900,0..100,0..100,-10..0&display=swap" rel="stylesheet">
@@ -103,7 +104,36 @@
         </div>
     </div>
 
-    <main class="page-container"></main>
+    <main class="page-container">
+        <div class="content-container">
+            <h2>Sign In / Sign Up</h2>
+            <div class="signin-button">
+                <a id="signin-btn" class="active">Sign In</a>
+                <a id="signup-btn">Sign Up</a>
+            </div>
+            <div class="signin-form-error">
+                <h2>Error Title</h2>
+                <p>Error Message</p>
+            </div>
+            <div class="signin-form" id="sign-in">
+                <form>
+                    <h2>Sign In</h2>
+                    <input type="email" placeholder="Email">
+                    <input type="password" placeholder="Password">
+                    <a id="signin-submit">Sign In</a>  
+                </form>
+            </div>
+            <div class="signin-form" id="sign-up">
+                <form>
+                    <h2>Create Account</h2>
+                    <input type="text" placeholder="First Name">
+                    <input type="text" placeholder="Last Name">
+                    <input type="email" placeholder="Email">
+                    <input type="password" placeholder="Password">
+                    <a id="signup-submit">Sign Up</a>
+            </div>
+        </div>
+    </main>
 
     <footer>
         <div class="footer-container">

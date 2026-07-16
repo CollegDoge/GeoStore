@@ -74,10 +74,15 @@
 .product-header-btn {
     display: flex;
     justify-content: center;
-    background-color: var(--accent-secondary);
+    background-color: var(--primary-item);
+    border: 2px solid var(--accent-secondary);
     padding: 10px;
     border-radius: 100px;
     width: 20px;
+    transition: background-color 0.2s ease;
+}
+.product-header-btn:hover {
+    background-color: var(--accent-secondary);
 }
 .product-row {
     display: flex;
