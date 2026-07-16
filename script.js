@@ -202,29 +202,32 @@ NAV_DATA.forEach(section => {
 });
 
 // PRODUCT ROW FUNCTIONALITY
-const row = document.querySelector('.product-row');
-const btnLeft = document.getElementById('row-mvleft');
-const btnRight = document.getElementById('row-mvright');
+const rows = document.querySelectorAll('.product-row');
 
-function updateState() {
-    const maxScroll = row.scrollWidth - row.clientWidth;
-    const atStart = row.scrollLeft <= 0;
-    const atEnd = row.scrollLeft >= maxScroll - 1;
+if (rows.length) {
+    rows.forEach(row => {
+        const btnLeft = row.querySelector('.row-mvleft');
+        const btnRight = row.querySelector('.row-mvright');
 
-    btnLeft.style.visibility = atStart ? 'hidden' : 'visible';
-    btnRight.style.visibility = atEnd ? 'hidden' : 'visible';
-}
+        function updateState() {
+            const maxScroll = row.scrollWidth - row.clientWidth;
+            const atStart = row.scrollLeft <= 0;
+            const atEnd = row.scrollLeft >= maxScroll - 2; 
 
-if (btnLeft && btnRight) {
-    btnLeft.addEventListener('click', () => {
-        row.scrollBy({ left: -row.clientWidth, behavior: 'smooth' });
+            btnLeft.style.visibility = atStart ? 'hidden' : 'visible';
+            btnRight.style.visibility = atEnd ? 'hidden' : 'visible';
+        }
+
+        btnLeft.addEventListener('click', () => {
+            row.scrollBy({ left: -row.clientWidth, behavior: 'smooth' });
+        });
+
+        btnRight.addEventListener('click', () => {
+            row.scrollBy({ left: row.clientWidth, behavior: 'smooth' });
+        });
+
+        row.addEventListener('scroll', updateState);
+        window.addEventListener('resize', updateState);
+        updateState();
     });
-
-    btnRight.addEventListener('click', () => {
-        row.scrollBy({ left: row.clientWidth, behavior: 'smooth' });
-    });
-
-    row.addEventListener('scroll', updateState);
-    window.addEventListener('resize', updateState);
-    updateState();
 }
