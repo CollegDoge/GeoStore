@@ -67,7 +67,7 @@
     justify-content: center;
     background-color: var(--accent-primary);
     padding: 10px 50px;
-    border: 2px solid var(--text-color);
+    margin-top: 10px;
     border-radius: 100px;
     transition: background-color 0.2s ease;
 }

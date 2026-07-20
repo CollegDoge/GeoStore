@@ -1,0 +1,10 @@
+.page-nav-pill {
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+    background-color: var(--accent-secondary);
+    padding: 10px 20px;
+    margin-right: auto;
+    gap: 10px;
+    border-radius: 100px;
+}

@@ -119,6 +119,7 @@
 .product {
     display: flex;
     flex-direction: column;
+    cursor: pointer;
 }
 .product-box {
     display: flex;
