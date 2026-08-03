@@ -48,6 +48,21 @@ function toggleSearch() {
 }
 searchBtn.addEventListener('click', toggleSearch);
 
+
+// HEADER BG CHANGE
+document.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    const headerSearch = document.querySelector('#searchbar');
+
+    if (window.scrollY > 1) {
+        header.style.backgroundColor = 'var(--banner)';
+        headerSearch.style.backgroundColor = 'var(--primary-color)';
+    } else {
+        header.style.backgroundColor = 'transparent';
+        headerSearch.style.backgroundColor = 'var(--banner)';
+    }
+});
+
 // NAVIGATION DATA
 const NAV_DATA = [
     {

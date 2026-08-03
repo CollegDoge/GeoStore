@@ -115,12 +115,12 @@ header {
     justify-content: center;
     align-items: center;
     position: fixed;
-    background-color: var(--banner);
     backdrop-filter: blur(20px);
     color: var(--text-color);
     top: 0;
     width: 100vw;
     z-index: 999;
+    transition: background-color 0.3s ease-in-out;
 }
 .header-container {
     display: flex;
@@ -182,7 +182,8 @@ header .hamburger {
     padding: 8px 10px;
     gap: 10px;
     border-radius: 100px;
-    background-color: var(--primary-color);
+    background-color: var(--banner);
+    transition: background-color 0.3s ease-in-out;
 }
 #searchbar a {
     font-size: 20px;
