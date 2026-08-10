@@ -75,7 +75,7 @@
     display: flex;
     justify-content: center;
     background-color: var(--primary-item);
-    border: 2px solid var(--accent-secondary);
+    border: 1px solid var(--text-color);
     padding: 10px;
     border-radius: 100px;
     width: 20px;

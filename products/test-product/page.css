@@ -14,6 +14,7 @@
     justify-content: space-between;
     width: 100%;
     margin: 20px;
+    gap: 30px;
 }
 .productpage-low {
     display: flex;
@@ -80,13 +81,18 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 10px 20px;
-    background-color: var(--primary-item);
-    border: 1px solid var(--text-color);
-    border-radius: 100px;
 }
 .productpage-detail {
     width: 70%;
+}
+
+.productpage-item-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
 }
 
 .productpage-sizing, .productpage-returns {
@@ -95,14 +101,33 @@
     justify-content: space-between;
     width: 100%;
 }
-
-.productpage-reviews-head {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    margin: 20px 0;
+.productpage-sizing table {
+    border-collapse: separate; 
+    border-spacing: 10;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 10px;
+    background-color: var(--primary-item);
 }
+.productpage-sizing td {
+    padding: 10px;
+    border-radius: 8px;
+    background-color: var(--primary-color);
+}
+.productpage-sizing th {
+    padding-top: 10px;
+    text-align: left;
+    font-weight: 200;
+}
+
+.productpage-returns p {
+    display: flex;
+    margin-bottom: auto;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--primary-item);
+}
+
 .productpage-reviews {
     display: flex;
     flex-direction: row;
@@ -113,9 +138,26 @@
 }
 .productpage-review {
     display: flex;
-    flex-direction: column;
-    width: 47%;
+    flex-wrap: wrap;
+    width: 575px;
     background-color: var(--primary-item);
     padding: 10px;
     border-radius: 10px;
+}
+
+@media screen and (max-width: 1200px) {
+    .productpage-images {
+        flex-direction: column;
+        gap: 10px;
+        margin: 10px;
+        width: 100%;
+    }
+    .productpage-subimages {
+        flex-direction: row;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    
 }
