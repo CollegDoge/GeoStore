@@ -14,7 +14,7 @@
     justify-content: space-between;
     width: 100%;
     margin: 20px;
-    gap: 30px;
+    gap: 20px;
 }
 .productpage-low {
     display: flex;
@@ -49,7 +49,7 @@
     align-items: center;
     justify-content: center;
     background-color: var(--primary-item);
-    width: 150px;
+    width: 160px;
     height: 100%;
     border-radius: 10px;
 }
@@ -57,6 +57,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     width: 100%;
     padding: 0 20px;
 }
@@ -68,7 +69,7 @@
     gap: 10px;
     margin-bottom: auto;
 }
-.productpage-info-row {
+.productpage-info-row, .productpage-selection-row {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -76,16 +77,18 @@
     margin: 10px 0;
     gap: 10px;
 }
-.productpage-info-row a {
+.productpage-info-row a, .productpage-selection-row a {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
 }
+.productpage-info-row .cartbtn {
+    height: 50px;
+}
 .productpage-detail {
     width: 70%;
 }
-
 .productpage-item-head {
     display: flex;
     flex-direction: row;
@@ -135,29 +138,70 @@
     flex-wrap: wrap;
     width: 100%;
     gap: 10px;
+    margin-bottom: 15px;
 }
 .productpage-review {
     display: flex;
-    flex-wrap: wrap;
-    width: 575px;
+    flex: 1 1 calc(50% - 8px);
+    box-sizing: border-box;
     background-color: var(--primary-item);
     padding: 10px;
     border-radius: 10px;
 }
 
 @media screen and (max-width: 1200px) {
-    .productpage-images {
-        flex-direction: column;
+    .productpage-top {
+        gap: 8px;
+    }
+    .productpage-mainimg {
+        width: 400px;
+        height: 400px;
+        border-radius: 10px;
+        background-color: var(--primary-item);
+    }
+    .productpage-subimg {
+        width: 126px;
+        height: 126px;
+    }
+    .productpage-selection-row {
+        flex-direction: row;
+    }    
+}
+@media screen and (max-width: 950px) {
+    .productpage-top {
         gap: 10px;
-        margin: 10px;
-        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .productpage-info {
+        max-width: 540px;
+        padding: 0px;
+    }
+    /* images should fill width instead of using fixed width, maintain same height/width */
+    /* mainimg majority of screen, 70% or so, subimages should be rest */
+}
+@media screen and (max-width: 768px) {
+    .productpage-mid, .productpage-low {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .productpage-reviews {
+        flex-direction: column;   
+    }
+}
+@media screen and (max-width: 560px) {
+    .productpage-images { /* width is broken, off screen */
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+    }
+    .productpage-selection-row { /* width is broken, off screen */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     .productpage-subimages {
         flex-direction: row;
-        width: 100%;
     }
-}
-
-@media screen and (max-width: 768px) {
-    
 }
