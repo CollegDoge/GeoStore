@@ -253,6 +253,22 @@
     border-radius: 10px;
 }
 
+.wave-container1 {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 1500px;
+  opacity: 0.5;
+}
+.wave-container2 {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 1000px;
+  opacity: 0.5;
+}
+
+
 @media screen and (max-width: 1200px) {
     .page-container {
         padding: 70px 0;
@@ -297,5 +313,11 @@
     .home-bannersm-left {
         padding: 20px;
         text-align: center;
+    }
+    .wave-container1, .wave-container2 {
+        display: none;
+    }
+    footer {
+        background-color: var(--primary-item) !important;
     }
 }

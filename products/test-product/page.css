@@ -1,3 +1,6 @@
+* {
+    box-sizing: border-box;
+}
 .page-nav-pill {
     display: flex;
     flex-direction: row;
@@ -23,7 +26,6 @@
     width: 100%;
     margin: 20px;
 }
-
 .productpage-images {
     display: flex;
     gap: 10px;
@@ -94,7 +96,10 @@
     width: 100%;
 }
 .productpage-info-row .cartbtn {
-    height: 50px;
+    height: 65px;
+}
+.productpage-info-row .cartbtn p {
+    font-size: 25px;
 }
 .productpage-detail {
     width: 70%;
@@ -216,22 +221,26 @@
         width: 100%;
         padding: 0px;
     }
+    .productpage-info-row a {
+        max-width: 300px;
+    }
     .productpage-images {
+        width: 100%;
         margin-bottom: 20px;
     }
-    /* images should fill width instead of using fixed width, maintain same height/width */
-    /* mainimg majority of screen, 70% or so, subimages should be rest */
     .productpage-mainimg {
-        width: 100%;
+        width: 75%;
         height: auto;
+        aspect-ratio: 1 / 1;
     }
     .productpage-subimages {
+        width: 25%;
         height: auto;
-        width: 50%;
     }
     .productpage-subimg {
         width: 100%;
         height: auto;
+        aspect-ratio: 1 / 1;
     }
 }
 @media screen and (max-width: 768px) {
@@ -245,16 +254,22 @@
     }
 }
 @media screen and (max-width: 560px) {
-    .productpage-images { /* width is broken, off screen */
+    .productpage-images {
         flex-direction: column;
         align-items: center;
     }
-    .productpage-selection-row { /* width is broken, off screen */
+    .productpage-selection-row {
         flex-direction: column;
-        justify-content: center;
         align-items: center;
+    }
+    .productpage-selection-row a {
+        max-width: 100%;
+    }
+    .productpage-mainimg {
+        width: 100%;
     }
     .productpage-subimages {
         flex-direction: row;
+        width: 100%;
     }
 }
