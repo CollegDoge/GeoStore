@@ -1,6 +1,3 @@
-* {
-    box-sizing: border-box;
-}
 .page-nav-pill {
     display: flex;
     flex-direction: row;
@@ -96,7 +93,7 @@
     width: 100%;
 }
 .productpage-info-row .cartbtn {
-    height: 65px;
+    height: 40px;
 }
 .productpage-info-row .cartbtn p {
     font-size: 25px;
@@ -254,6 +251,9 @@
     }
 }
 @media screen and (max-width: 560px) {
+    * {
+        box-sizing: border-box;
+    }
     .productpage-images {
         flex-direction: column;
         align-items: center;
@@ -264,6 +264,9 @@
     }
     .productpage-selection-row a {
         max-width: 100%;
+    }
+    .productpage-info-row .cartbtn {
+        height: 60px;
     }
     .productpage-mainimg {
         width: 100%;

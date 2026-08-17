@@ -104,6 +104,12 @@ body {
     background-color: var(--primary-color);
     color: var(--text-color);
 }
+.preload * {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* buttons */
 a {
     cursor: pointer;
     text-decoration: none;

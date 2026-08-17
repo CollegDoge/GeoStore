@@ -35,6 +35,11 @@ document.addEventListener("DOMContentLoaded", () => { // theme switching
     });
 });
 
+// ENABLE ANIMATIONS (flash mitigation)
+window.addEventListener("load", () => {
+    document.body.classList.remove("preload");
+});
+
 // HEADER SEARCH OPEN (1080 to 768)
 const searchBtn = document.querySelector('#searchbtn-mid');
 const headerSearch = document.querySelector('#searchbar');
