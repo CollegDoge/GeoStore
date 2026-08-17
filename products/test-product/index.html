@@ -113,11 +113,13 @@
             </div>
             <div class="productpage-top">
                 <div class="productpage-images">
-                    <div class="productpage-mainimg">a</div>
+                    <div class="productpage-mainimg">
+                        <img src="/assets/store-images/placeholder.webp">
+                    </div>
                     <div class="productpage-subimages">
-                        <div class="productpage-subimg">a</div>
-                        <div class="productpage-subimg">a</div>
-                        <div class="productpage-subimg">+2</div>
+                        <div class="productpage-subimg"><img src="/assets/store-images/placeholder.webp"></div>
+                        <div class="productpage-subimg"><img src="/assets/store-images/placeholder.webp"></div>
+                        <div class="productpage-subimg"><img src="/assets/store-images/placeholder.webp"></div>
                     </div>
                 </div>
                 <div class="productpage-info">
@@ -183,19 +185,79 @@
                 </div>
                 <div class="productpage-reviews">
                     <div class="productpage-review">
-                        <p>a</p>
+                        <div class="productpage-review-head">
+                            <div class="productpage-review-profile">
+                                <img src="/assets/user-profile/example-profile.webp">
+                                <p>Example Username</p>
+                            </div>
+                            <div class="productpage-review-rating">
+                                <a class="nf-fa-star active" id="reviewstar"></a>
+                                <a class="nf-fa-star active" id="reviewstar"></a>
+                                <a class="nf-fa-star active" id="reviewstar"></a>
+                                <a class="nf-fa-star active" id="reviewstar"></a>
+                                <a class="nf-fa-star" id="reviewstar"></a>
+                            </div>
+                        </div>
+                        <div class="productpage-review-body"> <!-- TODO: disallow reviews over 100 characters -->
+                            <p>“asdsadjsadjsadjsajdoisajdoisajdoisajdoisajdojsadoijsaoijsaoijsaoidjsaidjsaoidjsaodjsaoidjsasaojdoisajdoiaEvery purchase is faultless. Quality products no problems delivered promptly. I have never considered shopping anywhere else for my T's. I believe that this is truly one of the grea...”</p>
+                        </div>
                     </div>
                     <div class="productpage-review">
-                        <p>a</p>
+                        <div class="productpage-review-head">
+                            <div class="productpage-review-profile">
+                                <img src="/assets/user-profile/example-profile.webp">
+                                <p>Example Username</p>
+                            </div>
+                            <div class="productpage-review-rating">
+                                <a class="nf-fa-star active" id="reviewstar"></a>
+                                <a class="nf-fa-star active" id="reviewstar"></a>
+                                <a class="nf-fa-star active" id="reviewstar"></a>
+                                <a class="nf-fa-star active" id="reviewstar"></a>
+                                <a class="nf-fa-star" id="reviewstar"></a>
+                            </div>
+                        </div>
+                        <div class="productpage-review-body">
+                            <p>“Every purchase is faultless. Quality products no problems delivered promptly. I have never considered shopping anywhere else for my T's. I believe that this is truly one of the grea...”</p>
+                        </div>
                     </div>
                     <div class="productpage-review">
-                        <p>a</p>
+                        <div class="productpage-review-head">
+                            <div class="productpage-review-profile">
+                                <img src="/assets/user-profile/example-profile.webp">
+                                <p>Example Username</p>
+                            </div>
+                            <div class="productpage-review-rating">
+                                <a class="nf-fa-star active" id="reviewstar"></a>
+                                <a class="nf-fa-star active" id="reviewstar"></a>
+                                <a class="nf-fa-star active" id="reviewstar"></a>
+                                <a class="nf-fa-star active" id="reviewstar"></a>
+                                <a class="nf-fa-star" id="reviewstar"></a>
+                            </div>
+                        </div>
+                        <div class="productpage-review-body">
+                            <p>“Every purchase is faultless. Quality products no problems delivered promptly. I have never considered shopping anywhere else for my T's. I believe that this is truly one of the grea...”</p>
+                        </div>
                     </div>
                     <div class="productpage-review">
-                        <p>a</p>
+                        <div class="productpage-review-head">
+                            <div class="productpage-review-profile">
+                                <img src="/assets/user-profile/example-profile.webp">
+                                <p>Example Username</p>
+                            </div>
+                            <div class="productpage-review-rating">
+                                <a class="nf-fa-star active" id="reviewstar"></a>
+                                <a class="nf-fa-star active" id="reviewstar"></a>
+                                <a class="nf-fa-star active" id="reviewstar"></a>
+                                <a class="nf-fa-star active" id="reviewstar"></a>
+                                <a class="nf-fa-star" id="reviewstar"></a>
+                            </div>
+                        </div>
+                        <div class="productpage-review-body">
+                            <p>“Every purchase is faultless. Quality products no problems delivered promptly. I have never considered shopping anywhere else for my T's. I believe that this is truly one of the grea...”</p>
+                        </div>
                     </div>
                 </div>
-                <a>Load more reviews</a>
+                <a id="loadAllReviews">Load more reviews</a> <!-- TODO: hide if no more than 4 reviews -->
             </div>
         </div>
     </main>

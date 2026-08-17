@@ -37,6 +37,11 @@
     height: 500px;
     border-radius: 10px;
 }
+.productpage-mainimg img {
+    position: relative;
+    width: 90%;
+    height: auto;
+}
 .productpage-subimages {
     display: flex;
     flex-direction: column;
@@ -52,6 +57,11 @@
     width: 160px;
     height: 100%;
     border-radius: 10px;
+}
+.productpage-subimg img {
+    position: relative;
+    width: 80%;
+    height: auto;
 }
 .productpage-info {
     display: flex;
@@ -142,11 +152,40 @@
 }
 .productpage-review {
     display: flex;
+    flex-direction: column;
     flex: 1 1 calc(50% - 8px);
     box-sizing: border-box;
     background-color: var(--primary-item);
     padding: 10px;
     border-radius: 10px;
+}
+.productpage-review-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.productpage-review-profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+.productpage-review-profile img {
+    border: 1px solid var(--text-color);
+    border-radius: 100px;
+    width: 50px;
+}
+.productpage-review-body {
+    overflow-wrap: anywhere;
+}
+#reviewstar {
+    color: var(--text-color);
+}
+#reviewstar.active {
+    color: var(--accent-secondary);
 }
 
 @media screen and (max-width: 1200px) {
@@ -174,11 +213,26 @@
         justify-content: center;
     }
     .productpage-info {
-        max-width: 540px;
+        width: 100%;
         padding: 0px;
+    }
+    .productpage-images {
+        margin-bottom: 20px;
     }
     /* images should fill width instead of using fixed width, maintain same height/width */
     /* mainimg majority of screen, 70% or so, subimages should be rest */
+    .productpage-mainimg {
+        width: 100%;
+        height: auto;
+    }
+    .productpage-subimages {
+        height: auto;
+        width: 50%;
+    }
+    .productpage-subimg {
+        width: 100%;
+        height: auto;
+    }
 }
 @media screen and (max-width: 768px) {
     .productpage-mid, .productpage-low {
@@ -194,7 +248,6 @@
     .productpage-images { /* width is broken, off screen */
         flex-direction: column;
         align-items: center;
-        padding: 20px 0;
     }
     .productpage-selection-row { /* width is broken, off screen */
         flex-direction: column;
