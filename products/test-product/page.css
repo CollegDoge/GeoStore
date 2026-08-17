@@ -93,7 +93,7 @@
     width: 100%;
 }
 .productpage-info-row .cartbtn {
-    height: 40px;
+    height: 60px;
 }
 .productpage-info-row .cartbtn p {
     font-size: 25px;
@@ -264,9 +264,6 @@
     }
     .productpage-selection-row a {
         max-width: 100%;
-    }
-    .productpage-info-row .cartbtn {
-        height: 60px;
     }
     .productpage-mainimg {
         width: 100%;

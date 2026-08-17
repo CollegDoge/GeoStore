@@ -105,7 +105,114 @@
 
     <main class="page-container">
         <div class="content-container">
-            <h2>Cart</h2>
+            <div class="cart-header">
+                <h1 class="nf-md-cart_variant"> Your Cart</h1>
+                <a href="/" class="nf-fa-home" id="button-reg"> Back Home</a>
+            </div>
+            <div class="cart-container">
+                <div class="cart-left">
+                    <div class="cart-info-head"><h2 class="nf-fa-user"> Personal Details</h2></div>
+                    <div class="cart-info">
+                        <div class="cart-info-box">
+                            <p>First Name</p>
+                            <input type="text" placeholder="Required">
+                        </div>
+                        <div class="cart-info-box">
+                            <p>Last Name</p>
+                            <input type="text" placeholder="Required">
+                        </div>
+                        <div class="cart-info-box">
+                            <p>Email Address</p>
+                            <input type="email" placeholder="Required">
+                        </div>
+                        <div class="cart-info-box">
+                            <p>Phone Number</p>
+                            <input type="text" placeholder="Optional">
+                        </div>
+                    </div>
+                    <div class="cart-checkbox">
+                        <a class="nf-fa-circle_o" id="checkbox-1"> <!-- default unchecked-->
+                            I would like to recieve promotional emails
+                        </a>
+                    </div>
+                    <div class="cart-info-head"><h2 class="nf-fa-ship"> Shipping Information</h2></div>
+                    <div class="cart-info">
+                        <div class="cart-info-box">
+                            <p>Street Address</p>
+                            <input type="text" placeholder="Required">
+                        </div>
+                        <div class="cart-info-box">
+                            <p>Unit</p>
+                            <input type="text" placeholder="Optional">
+                        </div>
+                        <div class="cart-info-box">
+                            <p>Suburb</p>
+                            <input type="text" placeholder="Required">
+                        </div>
+                        <div class="cart-info-box">
+                            <p>City</p>
+                            <input type="text" placeholder="Required">
+                        </div>
+                        <div class="cart-info-box">
+                            <p>Zip Code</p>
+                            <input type="text" placeholder="Required">
+                        </div>
+                    </div>
+                    <div class="cart-checkbox">
+                        <a class="nf-fa-circle_check" id="checkbox-1"> <!-- default checked-->
+                            Use same information for Billing Information
+                        </a>
+                    </div>
+                </div>
+                <div class="cart-right">
+                    <div class="cart-items">
+                        <h2 class="nf-fa-boxes_stacked"> Your Items</h2>
+                        <div class="cart-item">
+                            <img src="/assets/store-images/placeholder.webp" alt="placeholder">
+                            <a href="/">The Real 'sssdfg'</a>
+                            <p>$0</p>
+                        </div>
+                        <div class="cart-item">
+                            <img src="/assets/store-images/placeholder.webp" alt="placeholder">
+                            <a href="/">The Real 'sssdfg'</a>
+                            <p>$0</p>
+                        </div>
+                        <div class="cart-item">
+                            <img src="/assets/store-images/placeholder.webp" alt="placeholder">
+                            <a href="/">The Real 'sssdfg'</a>
+                            <p>$0</p>
+                        </div>
+                    </div>
+                    <div class="cart-promo">
+                        <h2>Add Promo Code</h2>
+                        <input type="text" placeholder="Promo Code">
+                        <i id="promoStatus">None Added</i>
+                    </div>
+                </div>
+            </div>
+            <div class="cart-checkout">
+                <div class="cart-checkout-header"><h2 class="nf-fa-clipboard_check"> Review Order</h2></div>
+                <div class="cart-checkout-info">
+                    <div class="cart-checkout-info-cost">
+                        <p>Base: $0.00</p>
+                        <p>GST: $0.00</p>
+                        <p>Shipping: $0.00</p>
+                        <p>Promo: $0.00</p>
+                    </div>
+                    <div class="cart-checkout-info-total">
+                        <p>Total</p>
+                        <h1>$0.00</h1>
+                    </div>
+                </div>
+                <div class="checkout-buttons">
+                    <div class="checkout-row">
+                        <a class="nf-fa-circle_o" id="checkbox-1"> <!-- default unchecked-->
+                            I have read the <a style="text-decoration: underline;">Terms and Conditions</a>
+                        </a>
+                    </div>
+                    <a id="button-major">Complete Order</a>
+                </div>
+            </div>
         </div>
     </main>
 

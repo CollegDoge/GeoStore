@@ -69,7 +69,7 @@
     --primary-item: #303030;
     --accent-primary: #4791b9;
     --accent-primary-dim: rgba(71, 145, 185, 0.25);
-    --accent-secondary: #d2af4e;
+    --accent-secondary: #d2a24e;
     --banner: rgba(50,50,50,0.7);
 
     --store-deal: #194a00;
@@ -88,6 +88,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 html {
     font-family: "Google Sans Flex", "NerdFontsSymbols Nerd Font", Arial, sans-serif;
