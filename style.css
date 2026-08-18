@@ -61,6 +61,7 @@
 
     --warning: #efc363;
     --error: #ed747e;
+    --success: #a4e38d;
 }
 .darkmode {
     --text-color: #fff;
@@ -82,6 +83,7 @@
 
     --warning: #d38600;
     --error: #a32711;
+    --success: #318307;
 }
 
 /* main */

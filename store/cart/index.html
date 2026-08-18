@@ -9,6 +9,7 @@
     <link href="/style.css" rel="stylesheet" type="text/css">
     <link href="page.css" rel="stylesheet" type="text/css">
     <script src="/script.js" defer type="text/javascript" ></script>
+    <script src="page.js" defer type="text/javascript" ></script>
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght,GRAD,ROND,slnt@400..900,0..100,0..100,-10..0&display=swap" rel="stylesheet">
@@ -131,7 +132,7 @@
                         </div>
                     </div>
                     <div class="cart-checkbox">
-                        <a class="nf-fa-circle_o" id="checkbox-1"> <!-- default unchecked-->
+                        <a class="nf-fa-circle_o" id="checkbox-email"> <!-- default unchecked-->
                             I would like to recieve promotional emails
                         </a>
                     </div>
@@ -159,11 +160,35 @@
                         </div>
                     </div>
                     <div class="cart-checkbox">
-                        <a class="nf-fa-circle_check" id="checkbox-1"> <!-- default checked-->
+                        <a class="nf-fa-circle_check" id="checkbox-billing"> <!-- default checked-->
                             Use same information for Billing Information
                         </a>
                     </div>
+                    <div class="cart-info-head" id="billing-title"><h2 class="nf-fa-ship"> Billing Address</h2></div>
+                    <div class="cart-info" id="billing">
+                        <div class="cart-info-box">
+                            <p>Street Address</p>
+                            <input type="text" placeholder="Required">
+                        </div>
+                        <div class="cart-info-box">
+                            <p>Unit</p>
+                            <input type="text" placeholder="Optional">
+                        </div>
+                        <div class="cart-info-box">
+                            <p>Suburb</p>
+                            <input type="text" placeholder="Required">
+                        </div>
+                        <div class="cart-info-box">
+                            <p>City</p>
+                            <input type="text" placeholder="Required">
+                        </div>
+                        <div class="cart-info-box">
+                            <p>Zip Code</p>
+                            <input type="text" placeholder="Required">
+                        </div>
+                    </div>
                 </div>
+                
                 <div class="cart-right">
                     <div class="cart-items">
                         <h2 class="nf-fa-boxes_stacked"> Your Items</h2>
@@ -185,7 +210,7 @@
                     </div>
                     <div class="cart-promo">
                         <h2>Add Promo Code</h2>
-                        <input type="text" placeholder="Promo Code">
+                        <input type="text" placeholder="Enter Promo Code" id="promoCode">
                         <i id="promoStatus">None Added</i>
                     </div>
                 </div>
@@ -206,11 +231,15 @@
                 </div>
                 <div class="checkout-buttons">
                     <div class="checkout-row">
-                        <a class="nf-fa-circle_o" id="checkbox-1"> <!-- default unchecked-->
+                        <a class="nf-fa-circle_o" id="checkbox-terms"> <!-- default unchecked-->
                             I have read the <a style="text-decoration: underline;">Terms and Conditions</a>
                         </a>
                     </div>
                     <a id="button-major">Complete Order</a>
+                </div>
+                <div class="checkout-error">
+                    <h2>Error Title</h2>
+                    <p>Error Message</p>
                 </div>
             </div>
         </div>
