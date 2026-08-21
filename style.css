@@ -141,6 +141,7 @@ a {
 }
 select {
     text-align: center;
+    color: var(--text-color);
 }
 
 /* across all pages */
