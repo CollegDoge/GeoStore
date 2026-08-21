@@ -12,7 +12,7 @@ const updateCarousel = (newIndex) => {
 
 const resetTimer = () => {
     clearInterval(timer);
-    timer = setInterval(() => updateCarousel(index + 1), 5000);
+    timer = setInterval(() => updateCarousel(index + 1), 8000);
 };
 
 dots.forEach((dot, i) => dot.addEventListener('click', () => updateCarousel(i)));

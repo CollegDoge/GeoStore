@@ -86,11 +86,15 @@
     margin: 10px 0;
     gap: 10px;
 }
-.productpage-info-row a, .productpage-selection-row a {
+.productpage-info-row a, .productpage-selection-row select {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
+}
+.productpage-selection-row select {
+    font-size: 16px;
+    appearance: none
 }
 .productpage-info-row .cartbtn {
     height: 60px;

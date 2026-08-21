@@ -139,6 +139,9 @@ a {
     background-color: var(--text-color);
     color: var(--primary-color);
 }
+select {
+    text-align: center;
+}
 
 /* across all pages */
 header {

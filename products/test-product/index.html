@@ -128,19 +128,30 @@
                         <p>Sure, you may think it's just a harmless meme, but if you see it for more than 20 seconds, you will realize how uncanny and off-putting the "cat" is, i don't even know if it's a cat or not. it could be a person.</p>
                     </div>
                     <div class="productpage-selection-row">
-                        <a id="button-reg">Select Color
-                            <p class="nf-fa-chevron_down"></p>
-                        </a>
-                        <a id="button-reg">Select Size
-                            <p class="nf-fa-chevron_down"></p>
-                        </a>
+                        <select class="product-select" id="button-reg">
+                            <option value="none">Select Color</option>
+                            <option value="col1">White</option>
+                            <option value="col2">Black</option>
+                            <option value="col3">Candyfloss Pink</option>
+                            <option value="col4">Ocean Blue</option>
+                        </select>
+                        <select class="product-select" id="button-reg">
+                            <option value="none">Select Size</option>
+                            <option value="xsmall">Extra Small (XS)</option>
+                            <option value="small">Small (S)</option>
+                            <option value="medium">Medium (M)</option>
+                            <option value="large">Large (L)</option>
+                            <option value="xlarge">Extra Large (XL)</option>
+                            <option value="xxlarge">Extra Extra Large (XXL)</option>
+                        </select>
                     </div>
                     <div class="productpage-info-row">
                         <div class="productpage-detail">
                             <h1>$0.00</h1>
                             <p>In Stock</p>
                         </div>
-                        <a id="button-major" class="cartbtn" style="font-size: 20px" onclick="addCart()">Add to cart
+                        <a id="button-major" class="cartbtn" style="font-size: 20px" onclick="addCart()">
+                            Add to cart
                             <p class="nf-fa-shopping_cart"></p>
                         </a>
                     </div>
