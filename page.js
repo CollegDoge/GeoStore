@@ -32,3 +32,20 @@ track.addEventListener('mouseup', e => {
 });
 
 resetTimer();
+
+// CREDITS FUNCTIONALITY
+const creditFullList = document.querySelectorAll('.banner-credit');
+
+creditFullList.forEach((creditFull) => {
+    const creditText = creditFull.querySelector('.banner-credit-link');
+
+    if (!creditText) return;
+
+    creditFull.addEventListener('mouseover', () => {
+        creditText.classList.add('show');
+    });
+
+    creditFull.addEventListener('mouseleave', () => {
+        creditText.classList.remove('show');
+    });
+});
