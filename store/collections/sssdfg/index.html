@@ -7,7 +7,7 @@
     <title>sssdfg - GeoStore</title>
     <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
     <link href="/style.css" rel="stylesheet" type="text/css">
-    <link href="/primary/product.css" rel="stylesheet" type="text/css">
+    <link href="/primary/store.css" rel="stylesheet" type="text/css">
     <link href="page.css" rel="stylesheet" type="text/css">
     <script src="/script.js" defer type="text/javascript" ></script>
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
@@ -23,14 +23,14 @@
                 <a href="/"><h2 class="font-gsansflex font-hround">GeoStore</h2></a>
             </div>
             <div class="header-center">
-                <div class="nav-item" data-section="collections"><a href="/store/collections/">COLLECTIONS</a></div>
-                <div class="nav-item" data-section="specials"><a href="/store/specials/">SPECIALS</a></div>
-                <div class="nav-item" data-section="byproduct"><a href="/store/by-product/">BY PRODUCT</a></div>
+                <div class="nav-item" data-section="collections">COLLECTIONS</div>
+                <div class="nav-item" data-section="specials">SPECIALS</div>
+                <div class="nav-item" data-section="byproduct">BY PRODUCT</div>
             </div>
             <div class="header-right">
                 <section id="searchbar">
                     <a class="nf-oct-search"></a> 
-                    <input type="text" placeholder="Search">
+                    <input type="text" placeholder="Search" id="search">
                 </section>
                 <section id="menuswitch">
                     <a class="nf-oct-search" id="searchbtn-mid"></a> 
@@ -68,7 +68,7 @@
             <div class="ham-search">
                 <section id="searchbar-mobile">
                     <a class="nf-oct-search"></a> 
-                    <input type="text" placeholder="Search">
+                    <input type="text" placeholder="Search" id="search-mobile">
                     <a class="nf-fa-chevron_right"></a>
                 </section>
             </div>
@@ -105,7 +105,7 @@
     </div>
 
     <main class="page-container">
-        <div class="product-bannersm" onclick="location.href='/store/collections/sssdfg/'">
+        <div class="product-bannersm">
             <div class="product-bannersm-left">
                 <h2>the sssdfg collection</h2>
                 <p>representing the wonderful world of john sssdfg, in all his glory</p>
@@ -246,7 +246,7 @@
         <div class="product-wrapper">
             <div class="product-header">
                 <h3 class="product-header-title">All Products</h3>
-                    <select class="product-header-select">
+                    <select class="product-header-select" id="productSelect">
                         <option value="all">All</option>
                         <option value="Shirts">Shirts</option>
                         <option value="Hoodies">Hoodies</option>

@@ -7,8 +7,9 @@
     <title>TEST PRODUCT - GeoStore</title>
     <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
     <link href="/style.css" rel="stylesheet" type="text/css">
-    <link href="page.css" rel="stylesheet" type="text/css">
-    <script src="/script.js" defer type="text/javascript" ></script>
+    <link href="/primary/product.css" rel="stylesheet" type="text/css">
+    <script src="/script.js" defer type="text/javascript"></script>
+    <script src="/primary/product.js" defer type="text/javascript"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght,GRAD,ROND,slnt@400..900,0..100,0..100,-10..0&display=swap" rel="stylesheet">
@@ -22,14 +23,14 @@
                 <a href="/"><h2 class="font-gsansflex font-hround">GeoStore</h2></a>
             </div>
             <div class="header-center">
-                <div class="nav-item" data-section="collections"><a href="/store/collections/">COLLECTIONS</a></div>
-                <div class="nav-item" data-section="specials"><a href="/store/specials/">SPECIALS</a></div>
-                <div class="nav-item" data-section="byproduct"><a href="/store/by-product/">BY PRODUCT</a></div>
+                <div class="nav-item" data-section="collections">COLLECTIONS</div>
+                <div class="nav-item" data-section="specials">SPECIALS</div>
+                <div class="nav-item" data-section="byproduct">BY PRODUCT</div>
             </div>
             <div class="header-right">
                 <section id="searchbar">
                     <a class="nf-oct-search"></a> 
-                    <input type="text" placeholder="Search">
+                    <input type="text" placeholder="Search" id="search">
                 </section>
                 <section id="menuswitch">
                     <a class="nf-oct-search" id="searchbtn-mid"></a> 
@@ -67,7 +68,7 @@
             <div class="ham-search">
                 <section id="searchbar-mobile">
                     <a class="nf-oct-search"></a> 
-                    <input type="text" placeholder="Search">
+                    <input type="text" placeholder="Search" id="search-mobile">
                     <a class="nf-fa-chevron_right"></a>
                 </section>
             </div>
@@ -128,14 +129,14 @@
                         <p>Sure, you may think it's just a harmless meme, but if you see it for more than 20 seconds, you will realize how uncanny and off-putting the "cat" is, i don't even know if it's a cat or not. it could be a person.</p>
                     </div>
                     <div class="productpage-selection-row">
-                        <select class="product-select" id="button-reg">
+                        <select class="product-select" id="productCol">
                             <option value="none">Select Color</option>
                             <option value="col1">White</option>
                             <option value="col2">Black</option>
                             <option value="col3">Candyfloss Pink</option>
                             <option value="col4">Ocean Blue</option>
                         </select>
-                        <select class="product-select" id="button-reg">
+                        <select class="product-select" id="productSize">
                             <option value="none">Select Size</option>
                             <option value="xsmall">Extra Small (XS)</option>
                             <option value="small">Small (S)</option>

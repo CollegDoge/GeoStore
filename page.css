@@ -28,9 +28,11 @@
 }
 .home-banner-main h2 {
     font-size: 60px;
+    text-shadow: 0 0 50px #222;
 }
 .home-banner-main p, .home-banner-main h2 {
     max-width: 90%;
+    text-shadow: 0 0 10px #222;
 }
 .banner-credit {
     display: flex;
@@ -229,7 +231,7 @@
     align-items: center;
     width: 100%;
     max-width: 1200px;
-    margin: 20px;
+    margin: 20px 0;
     gap: 20px;
     color: #fff;
     background-color: var(--accent-primary);
@@ -244,6 +246,7 @@
     justify-content: center;
     align-items: center;
     width: 50%;
+    text-shadow: 0 0 10px #000;
 }
 .home-bannersm-right {
     display: flex;
@@ -267,7 +270,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%; 
+    width: 100%;
     max-width: 460px;
     max-height: 528px;
     margin: 10px 0;
@@ -344,14 +347,5 @@
     }
     footer {
         background-color: var(--primary-item) !important;
-    }
-}
-
-@media screen and (max-width: 500px) {
-    .product-box {
-        width: 100%;
-        max-width: 230px;
-        height: auto;
-        aspect-ratio: 1/1;
     }
 }
