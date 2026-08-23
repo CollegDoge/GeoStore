@@ -35,11 +35,7 @@
     width: 500px;
     height: 500px;
     border-radius: 10px;
-}
-.productpage-mainimg img {
-    position: relative;
-    width: 90%;
-    height: auto;
+    background-size: cover;
 }
 .productpage-subimages {
     display: flex;
@@ -56,11 +52,9 @@
     width: 160px;
     height: 100%;
     border-radius: 10px;
-}
-.productpage-subimg img {
-    position: relative;
-    width: 80%;
-    height: auto;
+    cursor: pointer;
+    background-size: cover;
+
 }
 .productpage-info {
     display: flex;
