@@ -56,3 +56,47 @@ function changeColors() {
     subImg12.style.backgroundImage = `url(/assets/store-images/${type}/${type}3-${newColor}.webp)`;
     subImg13.style.backgroundImage = `url(/assets/store-images/${type}/${type}4-${newColor}.webp)`;
 }
+
+// review modal
+const reviewModal = document.querySelector('.review-modal');
+const reviewModalShow = document.querySelector('#reviewShow');
+const reviewModalInput = document.querySelector('.review-modal-input textarea');
+const reviewModalStar = document.querySelector('.review-modal-star');
+const reviewModalSubmit = document.querySelector('#reviewSubmit');
+const reviewModalBack = document.querySelector('#reviewBack');
+const pageBlur = document.querySelector('.pageblur');
+
+reviewModalShow.addEventListener('click', () => {
+    pageBlur.classList.add('show');
+    reviewModal.classList.add('show');
+});
+reviewModalBack.addEventListener('click', () => {
+    reviewModal.classList.remove('show');
+    pageBlur.classList.remove('show');
+});
+reviewModalSubmit.addEventListener('click', () => {
+    reviewModal.classList.remove('show');
+    pageBlur.classList.remove('show');
+});
+
+reviewModalStar.addEventListener('click', () => {
+    const stars = document.querySelectorAll('.review-modal-star a');
+    const allStars = Array.from(stars);
+    const targetIndex = allStars.indexOf(event.target) + 1;
+
+    allStars.forEach((star, index) => {
+        if (index < targetIndex) {
+            star.classList.add('active');
+        } else {
+            star.classList.remove('active');
+        }
+    });
+});
+
+reviewModalInput.addEventListener('input', () => {
+    if (reviewModalInput.value.length > 0) {
+        reviewModalSubmit.classList.add('active');
+    } else {
+        reviewModalSubmit.classList.remove('active');
+    }
+});

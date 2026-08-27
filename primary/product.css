@@ -167,6 +167,12 @@
     width: 100%;
     margin-bottom: 10px;
 }
+#reviewShow {
+    background-color: var(--primary-item);
+    padding: 10px 20px;
+    border: 1px solid var(--text-color);
+    border-radius: 100px;
+}
 .productpage-review-profile {
     display: flex;
     flex-direction: row;
@@ -187,6 +193,78 @@
 #reviewstar.active {
     color: var(--accent-secondary);
 }
+
+.review-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    border-radius: 20px;
+    background-color: var(--primary-item);
+}
+.review-modal.show {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 999;
+}
+.review-modal-star {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+.review-modal-star a {
+    color: var(--text-color);
+    font-size: 30px;
+}
+.review-modal-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+.review-modal-input textarea {
+    border: none;
+    outline: none;
+    resize: none;
+    font-family: var(--font-gsansflex);
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    width: 100%;
+    min-height: 200px;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+.review-modal-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+}
+.review-modal-button a {
+    padding: 10px 20px;
+    border: 1px solid var(--text-color);
+    border-radius: 100px;
+    background-color: var(--primary-color);
+}
+#reviewSubmit {
+    pointer-events: none;
+    background-color: var(--primary-item);
+}
+#reviewSubmit.active {
+    background-color: var(--accent-primary);
+}
+
 
 @media screen and (max-width: 1200px) {
     .productpage-top {
@@ -246,6 +324,9 @@
     }
     .productpage-reviews {
         flex-direction: column;   
+    }
+    .review-modal {
+        max-width: 96%;
     }
 }
 @media screen and (max-width: 560px) {
