@@ -1,9 +1,8 @@
-// load images
-const mainImg = document.querySelector('.productpage-mainimg');
-const subImg11 = document.querySelector('.productpage-subimg:nth-child(1)');
-const subImg12 = document.querySelector('.productpage-subimg:nth-child(2)');
-const subImg13 = document.querySelector('.productpage-subimg:nth-child(3)');
+// for all product pages
 
+// ARRAYS
+
+// TODO (some functionality already, but all hard coded for the test page currently)
 type = [
     'shirt',
     'hoodie',
@@ -11,50 +10,152 @@ type = [
     'sock',
     'sticker',
 ]
+collection = [
+    'h',
+    'sssdfg',
+    'wtf',
+    'from-twitter',
+    'dont-wear',
+]
+
+// mostly done (store for add to cart later)
+size = [
+    'xsmall',
+    'small',
+    'medium',
+    'large',
+    'xlarge',
+    'xxlarge',
+]
 color = [
     'col-w',
     'col-d',
     'col-p',
     'col-b',
 ]
-
-// TODO - CHOOSE BASED ON PAGE
+// TODO - choose based on page (db)
 type = type[0];
+collection = collection[1];
+size = size[0];
 
-// swap images
-document.querySelectorAll('.productpage-subimg').forEach(subimg => {
-    subimg.addEventListener('click', () => {
-        const mainImg = document.querySelector('.productpage-mainimg');
+// CUSTOM STYLING FOR OVERLAY IMAGES
+const productStyle = {
+    shirt: {
+        overlay1: { width: '40%',},
+        overlay2: { width: '34%', transform: 'translateY(20%)' }
+    },
+    hoodie: {
+        overlay1: { },
+        overlay2: { }
+    },
+    sock: {
+        overlay1: { },
+        overlay2: { }
+    },
+    mug: {
+        overlay1: { },
+        overlay2: { }
+    },
+    sticker: {
+        overlay1: { },
+        overlay2: { }
+    }
+};
+function applyOverlayStyles(productType) {
+    const styles = productStyle[productType];
+    
+    if (styles) {
+        const overlay1 = document.getElementById('imgOv1');
+        const overlay2 = document.getElementById('imgOv2');
+
+        if (overlay1 && styles.overlay1) {
+            Object.assign(overlay1.style, styles.overlay1);
+        }
         
+        if (overlay2 && styles.overlay2) {
+            Object.assign(overlay2.style, styles.overlay2);
+        }
+    }
+}
+document.addEventListener('DOMContentLoaded', () => {
+    changeSize();
+    changeColors();
+    applyOverlayStyles(type);
+});
+
+
+// IMAGE SWAPPING ETC
+const mainImg = document.querySelector('.productpage-mainimg');
+const subImages = document.querySelectorAll('.productpage-subimg');
+
+const overlay1 = document.getElementById('imgOv1');
+const overlay2 = document.getElementById('imgOv2');
+
+// TODO - link with db (use temp url images.geodearc.com/store/sssdfg/{num}.png)
+if (overlay1) overlay1.src = `https://images.geodearc.com/store/${collection}/1.webp`;
+if (overlay2) overlay2.src = `https://images.geodearc.com/store/${collection}/1.webp`;
+
+subImages.forEach(subimg => {
+    subimg.addEventListener('click', () => {
         const mainBg = getComputedStyle(mainImg).backgroundImage;
         const subBg = getComputedStyle(subimg).backgroundImage;
 
         mainImg.style.backgroundImage = subBg;
         subimg.style.backgroundImage = mainBg;
+
+        const temp = document.createElement('div');
+        
+        while (mainImg.firstChild) {
+            temp.appendChild(mainImg.firstChild);
+        }
+        
+        while (subimg.firstChild) {
+            mainImg.appendChild(subimg.firstChild);
+        }
+        
+        while (temp.firstChild) {
+            subimg.appendChild(temp.firstChild);
+        }
     });
 });
 
 // select size (overlay 4th image)
-// TO DO
+const imgDim = document.getElementById('imgDim');
+const productDim = document.getElementById('productSize');
+
+imgDim.src = `/assets/store-images/dimensions/${type}-${size}.png`;
+productDim.addEventListener('change', changeSize);
+
+function changeSize() {
+    imgDim.src = `/assets/store-images/dimensions/${type}-${productDim.value}.png`;
+}
 
 // color selection
 productCol = document.getElementById('productCol');
-
 productCol.addEventListener('change', changeColors);
-document.addEventListener('DOMContentLoaded', changeColors);
 
 function changeColors() {
-    const mainImg = document.querySelector('.productpage-mainimg');
-    const subImg11 = document.querySelector('.productpage-subimg:nth-child(1)');
-    const subImg12 = document.querySelector('.productpage-subimg:nth-child(2)');
-    const subImg13 = document.querySelector('.productpage-subimg:nth-child(3)');
-
     const newColor = productCol.value.split('col-')[1];
+    const mainImg = document.querySelector('.productpage-mainimg');
+    const subImages = document.querySelectorAll('.productpage-subimg');
+    const allContainers = [mainImg, ...subImages];
 
-    mainImg.style.backgroundImage = `url(/assets/store-images/${type}/${type}1-${newColor}.webp)`;
-    subImg11.style.backgroundImage = `url(/assets/store-images/${type}/${type}2-${newColor}.webp)`;
-    subImg12.style.backgroundImage = `url(/assets/store-images/${type}/${type}3-${newColor}.webp)`;
-    subImg13.style.backgroundImage = `url(/assets/store-images/${type}/${type}4-${newColor}.webp)`;
+    allContainers.forEach(container => {
+        const childImg = container.querySelector('img');
+        
+        if (childImg && childImg.id === 'imgOv1') {
+            container.style.backgroundImage = `url(/assets/store-images/${type}/${type}1-${newColor}.webp)`;
+        } 
+        else if (childImg && childImg.id === 'imgOv2') {
+            container.style.backgroundImage = `url(/assets/store-images/${type}/${type}2-${newColor}.webp)`;
+        } 
+        else if (childImg && childImg.id === 'imgDim') {
+            container.style.backgroundImage = `url(/assets/store-images/${type}/${type}4-${newColor}.webp)`;
+        } 
+        else {
+            container.style.backgroundImage = `url(/assets/store-images/${type}/${type}3-${newColor}.webp)`;
+        }
+    });
 }
 
 // review modal

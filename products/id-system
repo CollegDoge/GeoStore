@@ -1,0 +1,37 @@
+store id key
+
+{type}{collection}{version}
+
+type:
+shirt: 01
+hoodie: 02
+sock: 03
+mug: 04
+sticker: 05
+
+collection:
+11 h
+22 sssdfg
+33 wtf
+44 fromtwitter
+55 dontwear
+
+version (1-6, for every collection):
+21 22 23 24 25 26
+
+
+example (sssdfg shirt version 1):
+012221
+
+
+example product URL:
+https://www.store.geodearc.com/product/012521
+
+
+stored at images.geodearc.com
+
+images.geodearc.com/store/{collection}/1.png (1-4, corresponding with image order)
+
+images will be absolutely positioned based on type, no need to worry about separate images per item type
+{TO DO, JS}
+

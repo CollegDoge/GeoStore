@@ -129,10 +129,13 @@
 .product-buttons a {
     display: flex;
     justify-content: center;
+    text-align: center;
     font-size: 18px;
+    width: 40px;
+    height: 40px;
     color: var(--text-color);
     background-color: var(--primary-color);
-    padding: 8px 10px;
+    padding: 8px;
     border: 1px solid var(--text-color);
     border-radius: 100px;
     backdrop-filter: blur(20px);
@@ -153,6 +156,8 @@
     height: 230px;
     padding: 10px;
     background-color: var(--primary-item);
+    background-size: cover;
+    background-position: center;
     border-radius: 10px;
 }
 .product-top {
@@ -175,12 +180,13 @@
 }
 .product-image {
     display: flex;
+    justify-content: center;
     position: absolute;
 }
 .product-image img {
-    object-fit: cover;
-    width: 180px;
-    height: 180px;
+    /* temp */
+    width: 40%;
+    height: auto;
 }
 .product-bottom {
     display: flex;

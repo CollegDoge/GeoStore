@@ -37,6 +37,15 @@
     border-radius: 10px;
     background-size: cover;
 }
+.productpage-mainimg img {
+    height: auto;
+}
+.productpage-subimages img {
+    height: auto;
+}
+#imgDim {
+    width: 100%;
+}
 .productpage-subimages {
     display: flex;
     flex-direction: column;
@@ -259,9 +268,12 @@
 }
 #reviewSubmit {
     pointer-events: none;
+    border: 1px solid var(--text-color);
     background-color: var(--primary-item);
 }
 #reviewSubmit.active {
+    pointer-events: auto;
+    border: 2px solid var(--text-color);
     background-color: var(--accent-primary);
 }
 

@@ -220,34 +220,3 @@ NAV_DATA.forEach(section => {
         }
     });
 });
-
-// PRODUCT ROW FUNCTIONALITY
-const rows = document.querySelectorAll('.product-row');
-
-if (rows.length) {
-    rows.forEach(row => {
-        const btnLeft = row.querySelector('.row-mvleft');
-        const btnRight = row.querySelector('.row-mvright');
-
-        function updateState() {
-            const maxScroll = row.scrollWidth - row.clientWidth;
-            const atStart = row.scrollLeft <= 0;
-            const atEnd = row.scrollLeft >= maxScroll - 2; 
-
-            btnLeft.style.visibility = atStart ? 'hidden' : 'visible';
-            btnRight.style.visibility = atEnd ? 'hidden' : 'visible';
-        }
-
-        btnLeft.addEventListener('click', () => {
-            row.scrollBy({ left: -row.clientWidth, behavior: 'smooth' });
-        });
-
-        btnRight.addEventListener('click', () => {
-            row.scrollBy({ left: row.clientWidth, behavior: 'smooth' });
-        });
-
-        row.addEventListener('scroll', updateState);
-        window.addEventListener('resize', updateState);
-        updateState();
-    });
-}
