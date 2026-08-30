@@ -156,7 +156,8 @@
     height: 230px;
     padding: 10px;
     background-color: var(--primary-item);
-    background-size: cover;
+    background-size: 85%;
+    background-repeat: no-repeat;
     background-position: center;
     border-radius: 10px;
 }
@@ -185,7 +186,7 @@
 }
 .product-image img {
     /* temp */
-    width: 40%;
+    width: 38%;
     height: auto;
 }
 .product-bottom {
