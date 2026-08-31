@@ -50,10 +50,14 @@ billingInfoBtn.addEventListener('click', () => {
 // promo status
 const promoStatus = document.getElementById('promoStatus');
 const promoInput = document.getElementById('promoCode');
+const promoButton = document.getElementById('promoButton');
 
+promoButton.addEventListener('click', () => {
+    applyPromo(promoInput.value);
+});
 promoInput.addEventListener('keyup', (e) => {
     if (e.key === 'Enter') {
-        applyPromo(e.target.value);
+        applyPromo(promoInput.value);
     }
 });
 

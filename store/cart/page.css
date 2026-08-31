@@ -60,6 +60,26 @@
     width: 100%;
     gap: 10px;
 }
+.cart-promo .promo-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+.cart-promo button {
+    background-color: var(--primary-item);
+    border: 1px solid var(--text-color);
+    border-radius: 10px;
+    color: var(--text-color);
+    font-family: var(--font-gsans);
+    font-size: 15px;
+    padding: 8px 10px;
+    transition: 0.2s;
+}
+.cart-promo button:hover {
+    background-color: var(--accent-secondary);
+}
 .cart-promo h2 {
     font-size: 20px;
 }

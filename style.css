@@ -104,8 +104,30 @@ body {
     color: var(--text-color);
 }
 .preload * {
-  animation: none !important;
-  transition: none !important;
+    animation: none !important;
+    transition: none !important;
+}
+
+/* accessibility */
+.largetext p,
+.largetext a,
+.largetext h2,
+.largetext h3,
+.largetext button {
+    font-size: 1.3em !important;
+}
+.largetext .footer-access, .footer-social {
+    font-size: 2em !important;
+}
+.highcontrast { 
+    --text-color: #fff;
+    --text-secondary: #fff;
+    --primary-color: #000;
+    --primary-item: #000000;
+    --accent-primary: #fff;
+    --accent-primary-dim: rgba(255, 255, 255, 0.5);
+    --accent-secondary: #fff;
+    --banner: rgba(0,0,0,0.7);
 }
 
 /* buttons */
@@ -113,6 +135,19 @@ a {
     cursor: pointer;
     text-decoration: none;
     color: var(--text-color);
+}
+button {
+    padding: 10px 20px;
+    color: var(--text-color);
+    background-color: var(--primary-item);
+    border: 1px solid var(--text-color);
+    border-radius: 100px;
+    font-size: 18px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+button:hover {
+    background-color: var(--accent-secondary);
 }
 #button-reg {
     padding: 10px 20px;
@@ -147,6 +182,13 @@ select {
 select option {
     background-color: var(--primary-item);
 }
+.fourohfour-title {
+    font-size: 10rem;
+    background: linear-gradient(115deg, var(--accent-primary), var(--accent-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
 
 /* across all pages */
 header {
@@ -179,6 +221,13 @@ header {
 }
 .header-left h2 {
     padding-left: 10px;
+    color: var(--text-color);
+}
+.header-left h2:hover {
+    background: linear-gradient(115deg, var(--accent-primary), var(--accent-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 .header-center {
     display: flex;
