@@ -31,24 +31,40 @@ if (rows.length) {
     });
 }
 
+// TODO - figure out other overlays
+type = [
+    'shirt',
+    'hoodie',
+    'mug',
+    'sock',
+    'sticker',
+]
+
 const productStyle = {
     shirt: {
-        overlay1: { width: '50%',},
+        overlay: { width: '30%',},
     },
     hoodie: {
-        overlayMain: { },
+        overlay: { },
     },
     sock: {
-        overlayMain: { },
+        overlay: { },
     },
     mug: {
-        overlayMain: { },
+        overlay: { },
     },
     sticker: {
-        overlayMain: { },
+        overlay: { },
     }
 };
 
 // TODO - link with db (use temp url images.geodearc.com/store/sssdfg/1/{num}.png)
 productBgImg = document.querySelector('.product-box');
 productBgImg.style.backgroundImage = `url(/assets/store-images/shirt/shirt1-w.webp)`;
+
+// temp
+document.addEventListener('DOMContentLoaded', () => {
+    productOvImg = document.querySelector('.product-image img');
+    productOvImg.src = `https://images.geodearc.com/store/sssdfg/1.webp`;
+    productOvImg.style.width = '38%';
+});

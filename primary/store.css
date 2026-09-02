@@ -165,8 +165,6 @@
     position: absolute;
 }
 .product-image img {
-    /* temp */
-    width: 38%;
     height: auto;
 }
 .product-bottom {
@@ -202,6 +200,8 @@
     flex-direction: column;
     justify-content: left;
     padding: 5px 0;
+    max-width: 230px;
+    overflow-wrap: anywhere;
 }
 .product-title h2 {
     font-size: 20px;

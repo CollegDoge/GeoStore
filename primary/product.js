@@ -13,9 +13,17 @@ type = [
 collection = [
     'h',
     'sssdfg',
-    'wtf',
-    'from-twitter',
-    'dont-wear',
+    'wtflip',
+    'fromtwitter',
+    'dontwear',
+]
+variation = [
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6'
 ]
 
 // mostly done (store for add to cart later)
@@ -33,12 +41,13 @@ color = [
     'col-p',
     'col-b',
 ]
-// TODO - choose based on page (db)
+// TODO - choose based on page (db) (temp sssdfg)
 type = type[0];
 collection = collection[1];
-size = size[0];
+variation = variation[0];
 
 // CUSTOM STYLING FOR OVERLAY IMAGES
+// TODO - figure out other overlays
 const productStyle = {
     shirt: {
         overlay1: { width: '40%',},
@@ -91,9 +100,8 @@ const subImages = document.querySelectorAll('.productpage-subimg');
 const overlay1 = document.getElementById('imgOv1');
 const overlay2 = document.getElementById('imgOv2');
 
-// TODO - link with db (use temp url images.geodearc.com/store/sssdfg/{num}.png)
-if (overlay1) overlay1.src = `https://images.geodearc.com/store/${collection}/1.webp`;
-if (overlay2) overlay2.src = `https://images.geodearc.com/store/${collection}/1.webp`;
+if (overlay1) overlay1.src = `https://images.geodearc.com/store/${collection}/${variation}.webp`;
+if (overlay2) overlay2.src = `https://images.geodearc.com/store/${collection}/${variation}.webp`;
 
 subImages.forEach(subimg => {
     subimg.addEventListener('click', () => {

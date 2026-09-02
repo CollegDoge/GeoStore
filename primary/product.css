@@ -81,6 +81,9 @@
     gap: 10px;
     margin-bottom: auto;
 }
+.productpage-maininfo p {
+    overflow-wrap: anywhere;
+}
 .productpage-info-row, .productpage-selection-row {
     display: flex;
     flex-direction: row;
