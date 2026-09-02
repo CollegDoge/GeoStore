@@ -60,7 +60,7 @@
       "price": 28.00,
       "onSale": true,
       "inStock": true,
-      "popular": true
+      "popular": false
     },
     {
       "id": 112134,
@@ -497,6 +497,7 @@
       "name": "Classic H",
       "description": "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh",
       "collection": "h",
+      "type": "hoodie",
       "variation": 1,
       "colors": 4,
       "price": 52.00,
@@ -887,6 +888,7 @@
       "name": "Fih",
       "description": "Fih 💔",
       "collection": "wtflip",
+      "type": "hoodie",
       "variation": 1,
       "colors": 4,
       "price": 52.00,
@@ -1277,12 +1279,13 @@
       "name": "stock image",
       "description": "me when i look at the paper of absolute shock 😲",
       "collection": "fromtwitter",
+      "type": "hoodie",
       "variation": 1,
       "colors": 4,
       "price": 52.00,
       "onSale": false,
       "inStock": true,
-      "popular": false
+      "popular": true
     },
     {
       "id": 142232,
@@ -1667,6 +1670,7 @@
       "name": "I Love Gingers",
       "description": "mhm yes i do 😺😺😺😺😺😺 big fan of gingers 😺😺😺😺😺😺",
       "collection": "dontwear",
+      "type": "hoodie",
       "variation": 1,
       "colors": 4,
       "price": 52.00,
