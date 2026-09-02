@@ -129,9 +129,12 @@ function renderProductRows(products) {
     document.querySelectorAll('.product-row[data-filter]').forEach((row) => {
         const filterFn = getFilterFn(row.dataset.filter);
         const limit = parseInt(row.dataset.limit, 10) || Infinity;
-        const matches = shuffle(products.filter(filterFn)).slice(0, limit);
+        const order = row.dataset.order || 'random'; // random by default, fixed if specified
  
-        row.querySelectorAll('.product').forEach((el) => el.remove());
+        const filtered = products.filter(filterFn);
+        const ordered = order === 'fixed' ? filtered : shuffle(filtered);
+        const matches = ordered.slice(0, limit);
+ 
         const buttons = row.querySelector('.product-buttons');
         matches.forEach((product) => {
             row.insertBefore(createProductCard(product), buttons);
