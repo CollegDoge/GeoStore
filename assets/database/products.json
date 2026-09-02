@@ -3,7 +3,24 @@
     "collections": ["sssdfg", "h", "dontwear", "fromtwitter", "wtflip"],
     "types": ["shirt", "hoodie", "sock", "mug", "sticker"],
     "colorPalette": ["black", "white", "grey", "navy"],
-    "imageBase": "https://images.geodearc.com/store"
+    "imageBase": "https://images.geodearc.com/store",
+    "idCodes": {
+      "collection": {
+        "sssdfg": 11,
+        "h": 12,
+        "wtflip": 13,
+        "fromtwitter": 14,
+        "dontwear": 15
+      },
+      "type": {
+        "shirt": 21,
+        "hoodie": 22,
+        "sock": 23,
+        "mug": 24,
+        "sticker": 25
+      },
+      "variationOffset": 30
+    }
   },
   "products": [
     {
