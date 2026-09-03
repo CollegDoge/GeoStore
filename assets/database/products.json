@@ -2,7 +2,12 @@
   "meta": {
     "collections": ["sssdfg", "h", "dontwear", "fromtwitter", "wtflip"],
     "types": ["shirt", "hoodie", "sock", "mug", "sticker"],
-    "colorPalette": ["black", "white", "grey", "navy"],
+    "colorPalette": [
+      { "code": "col-w", "label": "White" },
+      { "code": "col-d", "label": "Black" },
+      { "code": "col-p", "label": "Candyfloss Pink" },
+      { "code": "col-b", "label": "Ocean Blue" }
+    ],
     "imageBase": "https://images.geodearc.com/store",
     "idCodes": {
       "collection": {

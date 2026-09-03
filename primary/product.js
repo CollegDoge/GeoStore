@@ -1,50 +1,6 @@
 // for all product pages
 
-// ARRAYS
-
-// TODO (some functionality already, but all hard coded for the test page currently)
-type = [
-    'shirt',
-    'hoodie',
-    'mug',
-    'sock',
-    'sticker',
-]
-collection = [
-    'h',
-    'sssdfg',
-    'wtflip',
-    'fromtwitter',
-    'dontwear',
-]
-variation = [
-    '1',
-    '2',
-    '3',
-    '4',
-    '5',
-    '6'
-]
-
-// mostly done (store for add to cart later)
-size = [
-    'xsmall',
-    'small',
-    'medium',
-    'large',
-    'xlarge',
-    'xxlarge',
-]
-color = [
-    'col-w',
-    'col-d',
-    'col-p',
-    'col-b',
-]
-// TODO - choose based on page (db) (temp sssdfg)
-type = type[0];
-collection = collection[1];
-variation = variation[0];
+const { type, collection, variation } = PRODUCT;
 
 // CUSTOM STYLING FOR OVERLAY IMAGES
 // TODO - figure out other overlays
@@ -130,19 +86,19 @@ subImages.forEach(subimg => {
 // select size (overlay 4th image)
 const imgDim = document.getElementById('imgDim');
 const productDim = document.getElementById('productSize');
-
-imgDim.src = `/assets/store-images/dimensions/${type}-${size}.png`;
-productDim.addEventListener('change', changeSize);
+if (productDim) productDim.addEventListener('change', changeSize);
 
 function changeSize() {
+    if (!imgDim || !productDim) return;
     imgDim.src = `/assets/store-images/dimensions/${type}-${productDim.value}.png`;
 }
 
 // color selection
-productCol = document.getElementById('productCol');
-productCol.addEventListener('change', changeColors);
+const productCol = document.getElementById('productCol');
+if (productCol) productCol.addEventListener('change', changeColors);
 
 function changeColors() {
+    if (!productCol) return;
     const newColor = productCol.value.split('col-')[1];
     const mainImg = document.querySelector('.productpage-mainimg');
     const subImages = document.querySelectorAll('.productpage-subimg');
@@ -189,7 +145,7 @@ reviewModalSubmit.addEventListener('click', () => {
 });
 
 reviewModalStar.addEventListener('click', () => {
-    const stars = document.querySelectorAll('.review-modal-star a');
+    const stars = document.querySelectorAll('.review-modal-star span');
     const allStars = Array.from(stars);
     const targetIndex = allStars.indexOf(event.target) + 1;
 
