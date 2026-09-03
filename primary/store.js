@@ -50,11 +50,15 @@ function shuffle(array) {
 
 // filter products by attribute
 function getFilterFn(filterAttr) {
-    if (filterAttr === 'popular') {
-        return (p) => p.popular === true;
-    }
-    const [key, value] = filterAttr.split(':');
-    return (p) => String(p[key]) === value;
+    const parts = (filterAttr || '').split(',').map((s) => s.trim()).filter(Boolean);
+    if (parts.length === 0) return () => true;
+ 
+    const fns = parts.map((part) => {
+        if (part === 'popular') return (p) => p.popular === true;
+        const [key, value] = part.split(':');
+        return (p) => String(p[key]) === value;
+    });
+    return (p) => fns.every((fn) => fn(p));
 }
  
 // CREATE PRODUCT BOX
@@ -102,9 +106,9 @@ function createProductCard(product) {
  
 // REWORKED ROW BUTTONS
 function initRowScroll(row) {
-    if (row.dataset.scrollInit) return;
     const btnLeft = row.querySelector('.row-mvleft');
     const btnRight = row.querySelector('.row-mvright');
+
     if (!btnLeft || !btnRight) return;
  
     function updateState() {
@@ -114,43 +118,72 @@ function initRowScroll(row) {
         btnLeft.style.visibility = atStart ? 'hidden' : 'visible';
         btnRight.style.visibility = atEnd ? 'hidden' : 'visible';
     }
- 
-    btnLeft.addEventListener('click', () => row.scrollBy({ left: -row.clientWidth, behavior: 'smooth' }));
-    btnRight.addEventListener('click', () => row.scrollBy({ left: row.clientWidth, behavior: 'smooth' }));
-    row.addEventListener('scroll', updateState);
-    window.addEventListener('resize', updateState);
- 
-    row.dataset.scrollInit = 'true';
+    if (!row.dataset.scrollInit) {
+        btnLeft.addEventListener('click', () => row.scrollBy({ left: -row.clientWidth, behavior: 'smooth' }));
+        btnRight.addEventListener('click', () => row.scrollBy({ left: row.clientWidth, behavior: 'smooth' }));
+        row.addEventListener('scroll', updateState);
+        window.addEventListener('resize', updateState);
+        row.dataset.scrollInit = 'true';
+    }
+    row.scrollLeft = 0;
     updateState();
 }
  
 // RENDER PRODUCT ROWS
+function renderRow(row, products) {
+    const baseFilter = row.dataset.filter || '';
+    const select = row.dataset.select ? document.querySelector(row.dataset.select) : null;
+ 
+    let activeFilter = baseFilter;
+    if (select && select.value && select.value !== 'all') {
+        const filterKey = select.dataset.filterKey || 'type'; // which product field the select controls
+        activeFilter = [baseFilter, `${filterKey}:${select.value}`].filter(Boolean).join(',');
+    }
+ 
+    const filterFn = getFilterFn(activeFilter);
+    const limit = parseInt(row.dataset.limit, 10) || Infinity;
+    const order = row.dataset.order || 'random'; // 'random' (default) or 'fixed'
+ 
+    const filtered = products.filter(filterFn);
+    const ordered = order === 'fixed' ? filtered : shuffle(filtered);
+    const matches = ordered.slice(0, limit);
+ 
+    row.querySelectorAll('.product').forEach((el) => el.remove()); // clear placeholder/old cards
+    const buttons = row.querySelector('.product-buttons');
+    matches.forEach((product) => {
+        row.insertBefore(createProductCard(product), buttons);
+    });
+ 
+    initRowScroll(row);
+}
+
+// RENDER
 function renderProductRows(products) {
     document.querySelectorAll('.product-row[data-filter]').forEach((row) => {
-        const filterFn = getFilterFn(row.dataset.filter);
-        const limit = parseInt(row.dataset.limit, 10) || Infinity;
-        const order = row.dataset.order || 'random'; // random by default, fixed if specified
- 
-        const filtered = products.filter(filterFn);
-        const ordered = order === 'fixed' ? filtered : shuffle(filtered);
-        const matches = ordered.slice(0, limit);
- 
-        const buttons = row.querySelector('.product-buttons');
-        matches.forEach((product) => {
-            row.insertBefore(createProductCard(product), buttons);
-        });
- 
-        initRowScroll(row);
+        renderRow(row, products);
     });
 }
  
-// LOAD PRODUCTS
+// FILTER
+function initFilterSelects() {
+    document.querySelectorAll('.product-row[data-select]').forEach((row) => {
+        const select = document.querySelector(row.dataset.select);
+        if (!select) return;
+        select.addEventListener('change', () => renderRow(row, allProducts));
+    });
+}
+ 
+// INIT
+let allProducts = [];
+ 
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         const res = await fetch(PRODUCTS_URL);
         if (!res.ok) throw new Error(`Failed to load products.json: ${res.status}`);
         const data = await res.json();
-        renderProductRows(data.products);
+        allProducts = data.products;
+        renderProductRows(allProducts);
+        initFilterSelects();
     } catch (err) {
         console.error('Failed to load products:', err);
     }

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>From Twitter - GeoStore</title>
+    <title>Popular - GeoStore</title>
     <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
     <link href="/style.css" rel="stylesheet" type="text/css">
     <link href="/primary/store.css" rel="stylesheet" type="text/css">
@@ -108,41 +108,21 @@
     <main class="page-container">
         <div class="product-bannersm">
             <div class="product-bannersm-left">
-                <h2>the 'from twitter' collection</h2>
-                <p>terrible images i found on twitter dot com</p>
+                <h2>Currently Popular</h2>
+                <p>currently hot products @ geostore</p>
             </div>
             <div class="product-bannersm-right">
-                <img src="/assets/banners/fromtwitter-overlay.webp" alt="twitter overlay">
+                <img src="/assets/banners/popular-overlay.webp" alt="popular">
             </div>
         </div>
         
         <div class="product-wrapper">
             <div class="product-header">
-                <h3 class="product-header-title">Featured</h3>
+                <h3 class="product-header-title">All Popular</h3>
             </div>
             <div class="collection-container">
-                <div class="product-row" data-filter="collection:fromtwitter" data-limit="5">
-                    <div class="product-buttons">
-                        <a class="nf-fa-angle_left row-mvleft"></a>
-                        <a class="nf-fa-angle_right row-mvright"></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="product-wrapper">
-            <div class="product-header">
-                <h3 class="product-header-title">Filter by</h3>
-                <select class="product-header-select" id="productSelect">
-                    <option value="all">All</option>
-                    <option value="shirt">Shirts</option>
-                    <option value="hoodie">Hoodies</option>
-                    <option value="mug">Mugs</option>
-                    <option value="sock">Socks</option>
-                    <option value="sticker">Stickers</option>
-                </select>
-            </div>
-            <div class="collection-container">
-                <div class="product-row" data-filter="collection:fromtwitter" data-order="fixed" data-select="#productSelect">
+                <!-- filter by on sale -->
+                <div class="product-row" data-filter="popular:true" data-order="fixed">
 
                     <div class="product-buttons">
                         <a class="nf-fa-angle_left row-mvleft"></a>

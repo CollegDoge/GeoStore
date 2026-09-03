@@ -144,7 +144,7 @@
         <div class="product-wrapper">
             <div class="product-header">
                 <h3 class="product-header-title">Currently Popular</h3>
-                <a href="#" class="nf-fa-arrow_right product-header-btn"></a>
+                <a href="/store/popular/" class="nf-fa-arrow_right product-header-btn"></a>
             </div>
             <div class="product-row" data-filter="popular" data-limit="10" data-order="fixed">
 
@@ -170,7 +170,7 @@
         <div class="product-wrapper">
             <div class="product-header">
                 <h3 class="product-header-title">Shop The Collection</h3>
-                <a href="#" class="nf-fa-arrow_right product-header-btn"></a>
+                <a href="/store/collections/sssdfg/" class="nf-fa-arrow_right product-header-btn"></a>
             </div>
             <div class="collection-container">
                 <div class="product-row" data-filter="collection:sssdfg" data-limit="6">
@@ -186,13 +186,19 @@
                 </div>
             </div>
             <div class="product-header">
-                <h3 class="product-header-title">Shop Our Tees</h3>
+                <h3 class="product-header-title">Shop Our</h3>
                 <div class="multi-btn">
-                    <a href="#" class="nf-fa-arrow_right product-header-btn"></a>
+                    <select class="product-header-select" id="productSelect">
+                        <option value="shirt">Shirts</option>
+                        <option value="hoodie">Hoodies</option>
+                        <option value="mug">Mugs</option>
+                        <option value="sock">Socks</option>
+                        <option value="sticker">Stickers</option>
+                    </select>
                 </div>
             </div>
             <div class="collection-container">
-                <div class="product-row" data-filter="type:shirt" data-limit="10">
+                <div class="product-row" data-filter="" data-limit="10" data-select="#productSelect">
                     
                     <div class="product-buttons">
                         <a class="nf-fa-angle_left row-mvleft"></a>

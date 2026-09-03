@@ -86,6 +86,7 @@
     background-color: var(--accent-primary);
     background-image: url(/assets/banners/sssdfg.webp);
     background-size: cover;
+    background-position: center;
     border-radius: 10px;
     cursor: pointer;
 }
