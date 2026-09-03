@@ -243,3 +243,13 @@ async function buildHamburgerNav() {
     });
 }
 buildHamburgerNav();
+
+// SEARCH FUNCTIONALITY
+document.querySelectorAll('#search, #search-mobile').forEach((input) => {
+    input.addEventListener('keydown', (e) => {
+        if (e.key !== 'Enter') return;
+        const term = input.value.trim();
+        if (!term) return;
+        location.href = `/store/search-result/?q=${encodeURIComponent(term)}`;
+    });
+});
