@@ -37,7 +37,7 @@
                     <a class="nf-oct-three_bars" id="hamburger-open"></a>
                 </section>
                 <a class="nf-oct-person" href="/account/signin/"></a>
-                <a class="nf-md-cart_variant" href="/store/cart/"></a>
+                <a class="nf-md-cart_variant" href="/account/signin/"></a>
                 <section id="themeswitch">
                     <a class="nf-oct-moon"></a> 
                     <a class="nf-fa-sun"></a>
@@ -118,19 +118,20 @@
             <div class="signin-form" id="sign-in">
                 <form>
                     <h2>Sign In</h2>
-                    <input type="email" placeholder="Email">
-                    <input type="password" placeholder="Password">
-                    <a id="signin-submit">Sign In</a>  
+                    <input type="email" placeholder="Email" id="signin-email" autocomplete="email">
+                    <input type="password" placeholder="Password" id="signin-password" autocomplete="current-password">
+                    <a id="signin-submit">Sign In</a>
                 </form>
             </div>
             <div class="signin-form" id="sign-up">
                 <form>
                     <h2>Create Account</h2>
-                    <input type="text" placeholder="First Name">
-                    <input type="text" placeholder="Last Name">
-                    <input type="email" placeholder="Email">
-                    <input type="password" placeholder="Password">
+                    <input type="text" placeholder="First Name" id="signup-firstname" autocomplete="given-name">
+                    <input type="text" placeholder="Last Name" id="signup-lastname" autocomplete="family-name">
+                    <input type="email" placeholder="Email" id="signup-email" autocomplete="email">
+                    <input type="password" placeholder="Password" id="signup-password" autocomplete="new-password">
                     <a id="signup-submit">Sign Up</a>
+                </form>
             </div>
         </div>
     </main>
@@ -166,3 +167,4 @@
 
     <div class="pageblur"></div>
 </body>
+</html>

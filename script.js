@@ -261,3 +261,41 @@ document.querySelectorAll('#search, #search-mobile').forEach((input) => {
         location.href = `/store/search-result/?q=${encodeURIComponent(term)}`;
     });
 });
+
+// SUPABASE INTEGRATION
+window.sbReady = (async () => {
+    await new Promise((resolve, reject) => {
+        const s = document.createElement('script');
+        s.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js';
+        s.onload = resolve;
+        s.onerror = () => reject(new Error('Failed to load supabase-js'));
+        document.head.appendChild(s);
+    });
+ 
+    const SUPABASE_URL = 'https://rrnqymjqqerqxcyefrmk.supabase.co';
+    const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_MvxiSQWnUCnMIXe06fi1Ng_n_eKYUr8';
+ 
+    window.sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+ 
+    return window.sb;
+})();
+ 
+window.SITE_URL = 'https://store.geodearc.com';
+ 
+// UPDATE NAVIGATION
+async function updateAuthNav() {
+    await window.sbReady;
+ 
+    const accountLink = document.querySelector('.header-right .nf-oct-person');
+    const cartLink = document.querySelector('.header-right .nf-md-cart_variant');
+ 
+    const { data } = await sb.auth.getSession();
+    const signedIn = !!data.session;
+ 
+    if (accountLink) accountLink.href = signedIn ? '/account/manage/' : '/account/signin/';
+    if (cartLink) cartLink.href = signedIn ? '/store/cart/' : '/account/signin/';
+}
+ 
+updateAuthNav();
+window.sbReady.then(() => sb.auth.onAuthStateChange(() => updateAuthNav()));
+ 
