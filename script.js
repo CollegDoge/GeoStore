@@ -138,7 +138,17 @@ async function loadSpecialsNav() {
     }
 }
 
-// NAVIGATION FUNCTIONALITY
+
+// NAVIGATION
+const navReady = loadSpecialsNav();
+
+function renderNavItems(container, items, className) {
+    container.innerHTML = items
+        .map((item) => `<a class="${className}" href="${item.href || '#'}">${item.text}</a>`)
+        .join('');
+}
+
+// DROPDOWN
 const pageblur = document.querySelector('.pageblur');
 const dropdown = document.querySelector('.regnav-dropdown');
 const regnavTitle = document.querySelector('.regnav-title h2');
@@ -146,24 +156,19 @@ const regnavInner = document.querySelector('.regnav-inner');
 const navItems = document.querySelectorAll('.nav-item');
 
 let hideTimeout;
-function showMenu(sectionId) {
+async function showMenu(sectionId) {
+    await navReady;
     clearTimeout(hideTimeout);
 
-    const sectionData = NAV_DATA.find(item => item.id === sectionId);
+    const sectionData = NAV_DATA.find((item) => item.id === sectionId);
     if (!sectionData) return;
 
-    navItems.forEach(item => {
-        if (item.getAttribute('data-section') === sectionId) {
-            item.classList.add('active');
-        } else {
-            item.classList.remove('active');
-        }
+    navItems.forEach((item) => {
+        item.classList.toggle('active', item.getAttribute('data-section') === sectionId);
     });
 
     regnavTitle.textContent = sectionData.label;
-    regnavInner.innerHTML = sectionData.items
-        .map(item => `<a class="regnav-item" href="${item.href}">${item.text}</a>`)
-        .join('');
+    renderNavItems(regnavInner, sectionData.items, 'regnav-item');
 
     dropdown.classList.add('show');
     pageblur.classList.add('show');
@@ -173,15 +178,12 @@ function queueHide() {
     hideTimeout = setTimeout(() => {
         dropdown.classList.remove('show');
         pageblur.classList.remove('show');
-        navItems.forEach(item => item.classList.remove('active'));
+        navItems.forEach((item) => item.classList.remove('active'));
     }, 150);
 }
 
-navItems.forEach(item => {
-    item.addEventListener('mouseenter', () => {
-        const sectionId = item.getAttribute('data-section');
-        showMenu(sectionId);
-    });
+navItems.forEach((item) => {
+    item.addEventListener('mouseenter', () => showMenu(item.getAttribute('data-section')));
     item.addEventListener('mouseleave', queueHide);
 });
 
@@ -205,48 +207,39 @@ function closeHamburger() {
 hamopen.addEventListener('click', openHamburger);
 hamclose.addEventListener('click', closeHamburger);
 
-// HAMBURGER FUNCTIONALITY
-NAV_DATA.forEach(section => {
-    const titleElement = document.getElementById(`ham-${section.id}`);
-    if (!titleElement) return;
+async function buildHamburgerNav() {
+    await navReady;
 
-    const sectionContainer = titleElement.closest('.ham-body-section');
-    const itemsContainer = sectionContainer.querySelector('.ham-section-items');
+    NAV_DATA.forEach((section) => {
+        const titleElement = document.getElementById(`ham-${section.id}`);
+        if (!titleElement) return;
 
-    itemsContainer.innerHTML = '';
+        const sectionContainer = titleElement.closest('.ham-body-section');
+        const itemsContainer = sectionContainer.querySelector('.ham-section-items');
+        renderNavItems(itemsContainer, section.items, 'ham-section-item');
 
-    section.items.forEach(item => {
-        const itemLink = document.createElement('a');
-        itemLink.classList.add('ham-section-item');
-        itemLink.href = item.href || '#';
-        itemLink.textContent = item.text;
+        const titleBar = titleElement.parentElement;
+        titleBar.addEventListener('click', () => {
+            const isCurrentSectionOpen = sectionContainer.classList.contains('open');
 
-        itemsContainer.appendChild(itemLink);
-    });
+            document.querySelectorAll('.ham-body-section').forEach((sec) => {
+                sec.classList.remove('open');
+                const icon = sec.querySelector('.nf-fa-angle_up, .nf-fa-angle_down');
+                if (icon) {
+                    icon.classList.remove('nf-fa-angle_up');
+                    icon.classList.add('nf-fa-angle_down');
+                }
+            });
 
-    const titleBar = titleElement.parentElement;
-
-    titleBar.addEventListener('click', () => {
-        const isCurrentSectionOpen = sectionContainer.classList.contains('open');
-
-        document.querySelectorAll('.ham-body-section').forEach(sec => {
-            sec.classList.remove('open');
-            
-            const icon = sec.querySelector('.nf-fa-angle_up, .nf-fa-angle_down');
-            if (icon) {
-                icon.classList.remove('nf-fa-angle_up');
-                icon.classList.add('nf-fa-angle_down');
+            if (!isCurrentSectionOpen) {
+                sectionContainer.classList.add('open');
+                const currentIcon = titleBar.querySelector('.nf-fa-angle_down');
+                if (currentIcon) {
+                    currentIcon.classList.remove('nf-fa-angle_down');
+                    currentIcon.classList.add('nf-fa-angle_up');
+                }
             }
         });
-
-        if (!isCurrentSectionOpen) {
-            sectionContainer.classList.add('open');
-            
-            const currentIcon = titleBar.querySelector('.nf-fa-angle_down');
-            if (currentIcon) {
-                currentIcon.classList.remove('nf-fa-angle_down');
-                currentIcon.classList.add('nf-fa-angle_up');
-            }
-        }
     });
-});
+}
+buildHamburgerNav();
