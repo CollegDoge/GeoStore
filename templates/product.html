@@ -4,26 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SSSDFG Classic Tee - GeoStore</title>
+    <title>{{PRODUCT_NAME}} - GeoStore</title>
     <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
     <link href="/style.css" rel="stylesheet" type="text/css">
     <link href="/primary/product.css" rel="stylesheet" type="text/css">
     <script src="/script.js" defer type="text/javascript"></script>
-    <script>
-        const PRODUCT = {
-    "id": 112131,
-    "name": "SSSDFG Classic Tee",
-    "description": "Placeholder description - swap in real copy.",
-    "collection": "sssdfg",
-    "type": "shirt",
-    "variation": 1,
-    "colors": 4,
-    "price": 28,
-    "onSale": false,
-    "inStock": true,
-    "popular": true
-};
-    </script>
+    {{PRODUCT_DATA_SCRIPT}}
     <script src="/primary/product.js" defer type="text/javascript"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -125,48 +111,20 @@
                 <a href="/" class="nf-fa-home"></a>
                 <a href="/">Home</a>
                 /
-                <a href="/store/by-product/shirts/">Shirts</a>
-                /
-                <a href="/store/collections/sssdfg/">sssdfg</a>
+                {{BREADCRUMB}}
             </div>
             <div class="productpage-top">
-                <div class="productpage-images">
-                    <div class="productpage-mainimg">
-                        <img id='imgOv1'>
-                    </div>
-                    <div class="productpage-subimages">
-                        <div class="productpage-subimg"><img id='imgOv2'></div>
-                        <div class="productpage-subimg"></div>
-                        <div class="productpage-subimg">
-                            <img id="imgDim">
-                        </div>
-                    </div>
-                </div>
+                {{PRODUCT_IMAGES}}
                 <div class="productpage-info">
                     <div class="productpage-maininfo">
-                        <h1>SSSDFG Classic Tee</h1>
-                        <p>Placeholder description - swap in real copy.</p>
+                        <h1>{{PRODUCT_NAME}}</h1>
+                        <p>{{PRODUCT_DESCRIPTION}}</p>
                     </div>
-                    <div class="productpage-selection-row">
-                        <select class="product-select" id="productCol">
-                            <option value="col-w">White</option>
-                            <option value="col-d">Black</option>
-                            <option value="col-p">Candyfloss Pink</option>
-                            <option value="col-b">Ocean Blue</option>
-                        </select>
-                        <select class="product-select" id="productSize">
-                            <option value="xsmall">Extra Small (XS)</option>
-                            <option value="small">Small (S)</option>
-                            <option value="medium">Medium (M)</option>
-                            <option value="large">Large (L)</option>
-                            <option value="xlarge">Extra Large (XL)</option>
-                            <option value="xxlarge">Extra Extra Large (XXL)</option>
-                        </select>
-                    </div>
+                    {{SELECTION_ROW}}
                     <div class="productpage-info-row">
                         <div class="productpage-detail">
-                            <h1>$28.00</h1>
-                            <p>In Stock</p>
+                            <h1>{{PRICE}}</h1>
+                            <p>{{STOCK_LABEL}}</p>
                         </div>
                         <a id="button-major" class="cartbtn" style="font-size: 20px" onclick="addCart()">
                             Add to cart
@@ -176,28 +134,7 @@
                 </div>
             </div>
             <div class="productpage-mid">
-                <div class="productpage-sizing">
-                    <div class="productpage-item-head">
-                        <h2>Sizing</h2>
-                    </div>
-                    <table>
-                        <tr>
-                            <td>XS: 30cm - 24.5cm</td>
-                            <td>S: 32cm - 25.5cm</td>
-                        </tr>
-                        <tr>
-                            <td>M: 34cm - 26.5cm</td>
-                            <td>L:  36cm - 27.5cm</td>
-                        </tr>
-                        <tr>
-                            <td>XL: 38cm - 28.5cm</td>
-                            <td>XXL: 40cm - 29.5cm</td>
-                        </tr>
-                        <tr>
-                            <th>(length - chest)</th>
-                        </tr>
-                    </table>
-                </div>
+                {{SIZING_SECTION}}
                 <div class="productpage-returns">
                     <div class="productpage-item-head">
                         <h2>Return Policy</h2>

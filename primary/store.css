@@ -169,6 +169,7 @@
 }
 .product-image img {
     height: auto;
+    pointer-events: none;
 }
 .product-bottom {
     display: flex;

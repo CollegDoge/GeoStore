@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tuff skellyton - GeoStore</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
+    <link href="/style.css" rel="stylesheet" type="text/css">
+    <link href="/primary/product.css" rel="stylesheet" type="text/css">
+    <script src="/script.js" defer type="text/javascript"></script>
+    <script>
+        const PRODUCT = {
+    "id": 152235,
+    "name": "tuff skellyton",
+    "description": "skelo has autism ☠️☠️☠️☠️ i love him 👍",
+    "collection": "dontwear",
+    "type": "hoodie",
+    "variation": 5,
+    "colors": 4,
+    "price": 52,
+    "onSale": false,
+    "inStock": true,
+    "popular": false
+};
+    </script>
+    <script src="/primary/product.js" defer type="text/javascript"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght,GRAD,ROND,slnt@400..900,0..100,0..100,-10..0&display=swap" rel="stylesheet">
+</head>
+
+<body class="preload">
+    <header>
+        <div class="header-container">
+            <div class="header-left">
+                <a href="/"><img alt="Logo" src="/assets/favicon.png"></a>
+                <a href="/"><h2 class="font-gsansflex font-hround">GeoStore</h2></a>
+            </div>
+            <div class="header-center">
+                <div class="nav-item" data-section="collections">COLLECTIONS</div>
+                <div class="nav-item" data-section="specials">SPECIALS</div>
+                <div class="nav-item" data-section="byproduct">BY PRODUCT</div>
+            </div>
+            <div class="header-right">
+                <section id="searchbar">
+                    <a class="nf-oct-search"></a> 
+                    <input type="text" placeholder="Search" id="search">
+                </section>
+                <section id="menuswitch">
+                    <a class="nf-oct-search" id="searchbtn-mid"></a> 
+                    <a class="nf-oct-three_bars" id="hamburger-open"></a>
+                </section>
+                <a class="nf-oct-person" href="/account/signin/"></a>
+                <a class="nf-md-cart_variant" href="/store/cart/"></a>
+                <section id="themeswitch">
+                    <a class="nf-oct-moon"></a> 
+                    <a class="nf-fa-sun"></a>
+                </section>
+            </div>
+        </div>
+    </header>
+    
+    <div class="regnav-dropdown">
+        <div class="regnav-container">
+            <div class="regnav-title">
+                <h2 class="font-gsansflex font-hround">
+                    <!-- filled by js -->
+                </h2>
+            </div>
+            <div class="regnav-inner">
+                <!-- filled by js -->
+            </div>
+        </div>
+    </div>
+
+    <div class="hamburger-overlay">
+        <div class="hamburger-container">
+            <div class="ham-topbar">
+                <a class="font-gsansflex font-hround">GeoStore Navigation</a>
+                <a class="nf-fa-close" id="hamburger-close"></a>
+            </div>
+            <div class="ham-search">
+                <section id="searchbar-mobile">
+                    <a class="nf-oct-search"></a> 
+                    <input type="text" placeholder="Search" id="search-mobile">
+                    <a class="nf-fa-chevron_right"></a>
+                </section>
+            </div>
+            <div class="ham-body" id="ham-body">
+                <div class="ham-body-section">
+                    <div class="ham-section-title">
+                        <a id="ham-collections">Collections</a>
+                        <a class="nf-fa-angle_down"></a>
+                    </div>
+                    <div class="ham-section-items">
+                        <!-- filled by js -->
+                    </div>
+                </div>
+                <div class="ham-body-section">
+                    <div class="ham-section-title">
+                        <a id="ham-specials">Specials</a>
+                        <a class="nf-fa-angle_down"></a>
+                    </div>
+                    <div class="ham-section-items">
+                        <!-- filled by js -->
+                    </div>
+                </div>
+                <div class="ham-body-section">
+                    <div class="ham-section-title">
+                        <a id="ham-byproduct">By Product</a>
+                        <a class="nf-fa-angle_down"></a>
+                    </div>
+                    <div class="ham-section-items">
+                        <!-- filled by js -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="page-container">
+        <div class="content-container">
+            <div class="page-nav-pill">
+                <a href="/" class="nf-fa-home"></a>
+                <a href="/">Home</a>
+                /
+                <a href="/store/by-product/hoodies/">Hoodies</a>
+                /
+                <a href="/store/collections/dontwear/">dontwear</a>
+            </div>
+            <div class="productpage-top">
+                <div class="productpage-images">
+                    <div class="productpage-mainimg">
+                        <img id='imgOv1'>
+                    </div>
+                    <div class="productpage-subimages">
+                        <div class="productpage-subimg"><img id='imgOv2'></div>
+                        <div class="productpage-subimg"></div>
+                        <div class="productpage-subimg">
+                            <img id="imgDim">
+                        </div>
+                    </div>
+                </div>
+                <div class="productpage-info">
+                    <div class="productpage-maininfo">
+                        <h1>tuff skellyton</h1>
+                        <p>skelo has autism ☠️☠️☠️☠️ i love him 👍</p>
+                    </div>
+                    <div class="productpage-selection-row">
+                        <select class="product-select" id="productCol">
+                            <option value="col-w">White</option>
+                            <option value="col-d">Black</option>
+                            <option value="col-p">Candyfloss Pink</option>
+                            <option value="col-b">Ocean Blue</option>
+                        </select>
+                        <select class="product-select" id="productSize">
+                            <option value="xsmall">Extra Small (XS)</option>
+                            <option value="small">Small (S)</option>
+                            <option value="medium">Medium (M)</option>
+                            <option value="large">Large (L)</option>
+                            <option value="xlarge">Extra Large (XL)</option>
+                            <option value="xxlarge">Extra Extra Large (XXL)</option>
+                        </select>
+                    </div>
+                    <div class="productpage-info-row">
+                        <div class="productpage-detail">
+                            <h1>$52.00</h1>
+                            <p>In Stock</p>
+                        </div>
+                        <a id="button-major" class="cartbtn" style="font-size: 20px" onclick="addCart()">
+                            Add to cart
+                            <p class="nf-fa-shopping_cart"></p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="productpage-mid">
+                <div class="productpage-sizing">
+                    <div class="productpage-item-head">
+                        <h2>Sizing</h2>
+                    </div>
+                    <table>
+                        <tr><td>XS: 30cm - 24.5cm</td><td>S: 32cm - 25.5cm</td></tr>
+<tr><td>M: 34cm - 26.5cm</td><td>L:  36cm - 27.5cm</td></tr>
+<tr><td>XL: 38cm - 28.5cm</td><td>XXL: 40cm - 29.5cm</td></tr>
+<tr><th>(length - chest)</th></tr>
+                    </table>
+                </div>
+                <div class="productpage-returns">
+                    <div class="productpage-item-head">
+                        <h2>Return Policy</h2>
+                    </div>
+                    <p>We offer a 7 day return window for faulty/incorrect products (with no additional cost). If you purchase a product and arent happy with it, please let us know within 90 days, and we may be able to offer a refund. No refunds will be provided for damaged, dirty or highly worn clothing.</p>
+                </div>
+            </div>
+            <div class="productpage-low">
+                <div class="productpage-item-head">
+                    <h2>Reviews</h2>
+                    <a id="reviewShow">Write A Review</a>
+                </div>
+                <div class="productpage-reviews">
+                    <div class="productpage-review">
+                        <div class="productpage-review-head">
+                            <div class="productpage-review-profile">
+                                <img src="/assets/user-profile/pfp2.webp">
+                                <p>James Smith</p>
+                            </div>
+                            <div class="productpage-review-rating">
+                                <span class="nf-fa-star active" id="reviewstar"></span>
+                                <span class="nf-fa-star active" id="reviewstar"></span>
+                                <span class="nf-fa-star" id="reviewstar"></span>
+                                <span class="nf-fa-star" id="reviewstar"></span>
+                                <span class="nf-fa-star" id="reviewstar"></span>
+                            </div>
+                        </div>
+                        <div class="productpage-review-body"> <!-- TODO: disallow reviews over 100 characters -->
+                            <p>“i mean.. its alriight i guess”</p>
+                        </div>
+                    </div>
+                    <div class="productpage-review">
+                        <div class="productpage-review-head">
+                            <div class="productpage-review-profile">
+                                <img src="/assets/user-profile/pfp4.webp">
+                                <p>Paid-Bot-2340982343</p>
+                            </div>
+                            <div class="productpage-review-rating">
+                                <span class="nf-fa-star active" id="reviewstar"></span>
+                                <span class="nf-fa-star active" id="reviewstar"></span>
+                                <span class="nf-fa-star active" id="reviewstar"></span>
+                                <span class="nf-fa-star active" id="reviewstar"></span>
+                                <span class="nf-fa-star active" id="reviewstar"></span>
+                            </div>
+                        </div>
+                        <div class="productpage-review-body">
+                            <p>“Every purchase is faultless. Quality products no problems delivered promptly. I have never considered shopping anywhere else for my T's. I believe that this is truly one of the greatest places to shop for goods ever!”</p>
+                        </div>
+                    </div>
+                    <div class="productpage-review">
+                        <div class="productpage-review-head">
+                            <div class="productpage-review-profile">
+                                <img src="/assets/user-profile/pfp1.webp">
+                                <p>Jane Smith</p>
+                            </div>
+                            <div class="productpage-review-rating">
+                                <span class="nf-fa-star active" id="reviewstar"></span>
+                                <span class="nf-fa-star active" id="reviewstar"></span>
+                                <span class="nf-fa-star active" id="reviewstar"></span>
+                                <span class="nf-fa-star active" id="reviewstar"></span>
+                                <span class="nf-fa-star" id="reviewstar"></span>
+                            </div>
+                        </div>
+                        <div class="productpage-review-body">
+                            <p>“do you like my profile picture 😼”</p>
+                        </div>
+                    </div>
+                    <div class="productpage-review">
+                        <div class="productpage-review-head">
+                            <div class="productpage-review-profile">
+                                <img src="/assets/user-profile/pfp6.webp">
+                                <p>John Smith</p>
+                            </div>
+                            <div class="productpage-review-rating">
+                                <span class="nf-fa-star active" id="reviewstar"></span>
+                                <span class="nf-fa-star" id="reviewstar"></span>
+                                <span class="nf-fa-star" id="reviewstar"></span>
+                                <span class="nf-fa-star" id="reviewstar"></span>
+                                <span class="nf-fa-star" id="reviewstar"></span>
+                            </div>
+                        </div>
+                        <div class="productpage-review-body">
+                            <p>“im not a big fan actually.... awkward............................................. the quality was okay but the price was too high...... i dont know...... i just dont like it.......”</p>
+                        </div>
+                    </div>
+                </div>
+                <a id="loadAllReviews">Load more reviews</a> <!-- TODO: hide if no more than 4 reviews -->
+            </div>
+        </div>
+    </main>
+
+    <div class="review-modal">
+        <div class="review-modal-star">
+            <span class="nf-fa-star" id="reviewstar"></span>
+            <span class="nf-fa-star" id="reviewstar"></span>
+            <span class="nf-fa-star" id="reviewstar"></span>
+            <span class="nf-fa-star" id="reviewstar"></span>
+            <span class="nf-fa-star" id="reviewstar"></span>
+        </div>
+        <div class="review-modal-input">
+            <textarea placeholder="Write a review..."></textarea>
+        </div>
+        <div class="review-modal-button">
+            <a id="reviewSubmit">Submit</a>
+            <a id="reviewBack">Go Back</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <div class="footer-title">
+                    <h2>GeoStore</h2>
+                    <p>&copy; 2026 - Geodes Crappy Web Designs</p>
+                </div>
+                <div class="footer-access">
+                    <a href="/info/accessibility/" class="nf-fa-universal_access"> Accessibility</a>
+                </div>
+            </div>
+            <div class="footer-social">
+                <a class="nf-fa-twitter" href="https://x.com/GeodeArc"></a>
+                <a class="nf-fa-youtube" href="https://youtube.com/@GeodeArc"></a>
+                <a class="nf-md-source_repository" href="https://github.com/CollegDoge/GeodesLinuxGuide"></a>
+                <a class="nf-fa-github" href="https://github.com/GeodeArc"></a>
+            </div>
+            <div class="footer-right">
+                <div class="footer-links">
+                    <a href="/info/about/">About GeoStore</a>
+                    <a href="/info/help/">Help & Support</a>
+                    <a href="/info/terms/">Terms & Conditions</a>
+                    <a href="https://github.com/CollegDoge/GeoStore/issues">Suggestions/Issues</a>
+                    <a href="https://github.com/CollegDoge/GeoStore">View Page Source</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="pageblur"></div>
+</body>
