@@ -1,16 +1,12 @@
 # GeoStore
 
 ## todo
-### product page
-- size selection + size reference (overlay 4th image)
+- all product/collection pages
+- make build script for product pages
+- static about, terms, etc pages
+- account creation/signin (sql)
+- account settings (sql)
+- localstorage cart/cart items
 
-### db
-- account db
-- page db
-- order db
-- everything else
-
-### wesbite functionality
-- search
-- page generation?
-- account functionality, cart, tracking etc.
+## later (dont have to do for due date)
+- review db (sql?)
