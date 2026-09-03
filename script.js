@@ -252,4 +252,12 @@ document.querySelectorAll('#search, #search-mobile').forEach((input) => {
         if (!term) return;
         location.href = `/store/search-result/?q=${encodeURIComponent(term)}`;
     });
+
+    // mobile button
+    const searchBtn = document.querySelector('#searchbar-mobile');
+    searchBtn.addEventListener('click', () => {
+        const term = input.value.trim();
+        if (!term) return;
+        location.href = `/store/search-result/?q=${encodeURIComponent(term)}`;
+    });
 });
