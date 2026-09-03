@@ -48,18 +48,32 @@ function shuffle(array) {
     return arr;
 }
 
+// check for type/collection 
+function parseFilterString(filterStr) {
+    const map = {};
+    (filterStr || '').split(',').map((s) => s.trim()).filter(Boolean).forEach((part) => {
+        if (part === 'popular') { map.popular = 'true'; return; }
+        const [key, value] = part.split(':');
+        map[key] = value;
+    });
+    return map;
+}
+
+// filter products by attribute
+function filterMapToFn(map) {
+    const entries = Object.entries(map);
+    if (entries.length === 0) return () => true;
+    return (p) => entries.every(([key, value]) => {
+        if (key === 'popular') return p.popular === true;
+        return String(p[key]) === value;
+    });
+}
+
 // filter products by attribute
 function getFilterFn(filterAttr) {
-    const parts = (filterAttr || '').split(',').map((s) => s.trim()).filter(Boolean);
-    if (parts.length === 0) return () => true;
- 
-    const fns = parts.map((part) => {
-        if (part === 'popular') return (p) => p.popular === true;
-        const [key, value] = part.split(':');
-        return (p) => String(p[key]) === value;
-    });
-    return (p) => fns.every((fn) => fn(p));
+    return filterMapToFn(parseFilterString(filterAttr));
 }
+
  
 // CREATE PRODUCT BOX
 function createProductCard(product) {
@@ -131,16 +145,19 @@ function initRowScroll(row) {
  
 // RENDER PRODUCT ROWS
 function renderRow(row, products) {
-    const baseFilter = row.dataset.filter || '';
     const select = row.dataset.select ? document.querySelector(row.dataset.select) : null;
  
-    let activeFilter = baseFilter;
+    const activeMap = parseFilterString(row.dataset.filter);
     if (select && select.value && select.value !== 'all') {
-        const filterKey = select.dataset.filterKey || 'type'; // which product field the select controls
-        activeFilter = [baseFilter, `${filterKey}:${select.value}`].filter(Boolean).join(',');
+        const filterKey = select.dataset.filterKey;
+        if (!filterKey) {
+            console.warn(`Select "${row.dataset.select}" is missing data-filter-key — its value is being ignored.`);
+        } else {
+            activeMap[filterKey] = select.value; // adds a new axis, or overrides the base's if they share a key
+        }
     }
  
-    const filterFn = getFilterFn(activeFilter);
+    const filterFn = filterMapToFn(activeMap);
     const limit = parseInt(row.dataset.limit, 10) || Infinity;
     const order = row.dataset.order || 'random'; // 'random' (default) or 'fixed'
  

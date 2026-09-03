@@ -35,9 +35,10 @@ document.addEventListener("DOMContentLoaded", () => { // theme switching
     });
 });
 
-// ENABLE ANIMATIONS (flash mitigation)
+// ENABLE ANIMATIONS (flash mitigation) + SPECIAL NAV ITEMS
 window.addEventListener("load", () => {
     document.body.classList.remove("preload");
+    loadSpecialsNav();
 });
 
 // HEADER SEARCH OPEN (1080 to 768)
@@ -107,6 +108,35 @@ const NAV_DATA = [
         ]
     }
 ];
+
+async function loadSpecialsNav() {
+    const specials = NAV_DATA.find((section) => section.id === 'specials');
+    if (!specials) return;
+
+    try {
+        const res = await fetch('/assets/database/products.json');
+        const data = await res.json();
+        const onSale = data.products.filter((p) => p.onSale);
+        if (onSale.length === 0) return;
+
+        // shuffle
+        for (let i = onSale.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [onSale[i], onSale[j]] = [onSale[j], onSale[i]];
+        }
+
+        let pick = 0;
+        specials.items.forEach((item) => {
+            if (item.text !== 'Loading') return;
+            const product = onSale[pick % onSale.length]; // wraps around if fewer sale items than slots
+            item.text = product.name;
+            item.href = `/product/${product.id}`;
+            pick++;
+        });
+    } catch (err) {
+        console.error('Failed to load specials for nav:', err);
+    }
+}
 
 // NAVIGATION FUNCTIONALITY
 const pageblur = document.querySelector('.pageblur');

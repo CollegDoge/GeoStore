@@ -1,0 +1,9 @@
+.product-bannersm {
+    background-image: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
+}
+.product-bannersm-right img {
+    height: 200px;
+    padding: 5px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+}
