@@ -96,3 +96,17 @@ function hideError() {
     error.style.display = 'none';
 }
 
+// CART
+const CART_KEY = 'cart';
+const cartStatus = document.getElementById('cartStatus');
+const cartItem = document.getElementById('cart-item');
+
+// cart status
+if (localStorage.getItem(CART_KEY)) {
+    cartStatus.style.display = 'none';
+}
+
+// CLEAR CART
+function clearCart() {
+    localStorage.removeItem(CART_KEY);
+}

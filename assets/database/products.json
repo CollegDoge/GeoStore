@@ -3,11 +3,101 @@
     "collections": ["sssdfg", "h", "dontwear", "fromtwitter", "wtflip"],
     "types": ["shirt", "hoodie", "sock", "mug", "sticker"],
     "colorPalette": [
-      { "code": "col-w", "label": "White" },
-      { "code": "col-d", "label": "Black" },
-      { "code": "col-p", "label": "Candyfloss Pink" },
-      { "code": "col-b", "label": "Ocean Blue" }
+      {
+        "code": "col-w",
+        "label": "White"
+      },
+      {
+        "code": "col-d",
+        "label": "Black"
+      },
+      {
+        "code": "col-p",
+        "label": "Pink"
+      },
+      {
+        "code": "col-b",
+        "label": "Blue"
+      }
     ],
+    "sizeOptions": {
+      "shirt": [
+        {
+          "value": "xsmall",
+          "label": "XS"
+        },
+        {
+          "value": "small",
+          "label": "S"
+        },
+        {
+          "value": "medium",
+          "label": "M"
+        },
+        {
+          "value": "large",
+          "label": "L"
+        },
+        {
+          "value": "xlarge",
+          "label": "XL"
+        },
+        {
+          "value": "xxlarge",
+          "label": "XXL"
+        }
+      ],
+      "hoodie": [
+        {
+          "value": "xsmall",
+          "label": "XS"
+        },
+        {
+          "value": "small",
+          "label": "S"
+        },
+        {
+          "value": "medium",
+          "label": "M"
+        },
+        {
+          "value": "large",
+          "label": "L"
+        },
+        {
+          "value": "xlarge",
+          "label": "XL"
+        },
+        {
+          "value": "xxlarge",
+          "label": "XXL"
+        }
+      ],
+      "sock": [
+        {
+          "value": "small",
+          "label": "S"
+        },
+        {
+          "value": "medium",
+          "label": "M"
+        },
+        {
+          "value": "large",
+          "label": "L"
+        }
+      ],
+      "mug": [
+        {
+          "value": "medium",
+          "label": "M"
+        },
+        {
+          "value": "large",
+          "label": "L"
+        }
+      ]
+    },
     "imageBase": "https://images.geodearc.com/store",
     "idCodes": {
       "collection": {

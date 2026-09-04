@@ -44,8 +44,12 @@
     align-items: center;
     width: 100%;
     padding: 10px;
+    gap: 10px;
     border-radius: 10px;
     background-color: var(--primary-item);
+}
+.cart-item p {
+    font-weight: 600;
 }
 .cart-item img {
     width: 30px;

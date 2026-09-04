@@ -192,11 +192,13 @@
                 <div class="cart-right">
                     <div class="cart-items">
                         <h2 class="nf-fa-boxes_stacked"> Your Items</h2>
-                        <div class="cart-item">
-                            <img src="/assets/store-images/hoodie/hoodie1-w.webp" alt="placeholder">
-                            <a href="/">EXAMPLE PRODUCT</a>
-                            <p>$0</p>
+                        <div class="cart-item"> <!-- TODO: fill with actual localstorage items. we wont use this one -->
+                            <p>2x</p>
+                            <a href="">EXAMPLE PRODUCT - Shirt / Black / XL</a> <!-- TODO: fill with actual data, use products.json -->
+                            <p>$49.99</p>
                         </div>
+                        <h3 id="cartStatus">Nothing added yet!</h3>
+                        <button onclick=clearCart() style="display: none">Remove All</button>
                     </div>
                     <div class="cart-promo">
                         <h2>Add Promo Code</h2>

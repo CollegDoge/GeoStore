@@ -122,7 +122,135 @@ function changeColors() {
         }
     });
 }
+
+// CART BUTTON STUFF
+const cartBtn = document.getElementById('button-major');
+let cartBtnLabel = null;
  
+if (cartBtn) {
+    const icon = cartBtn.querySelector('p');
+    cartBtnLabel = document.createElement('span');
+    cartBtnLabel.textContent = cartBtn.textContent.trim();
+    cartBtn.textContent = '';
+    cartBtn.appendChild(cartBtnLabel);
+    if (icon) cartBtn.appendChild(icon);
+}
+ 
+const ADD_COOLDOWN_MS = 800;
+const EXPLODE_THRESHOLD = 15;
+let clickStreak = 0;
+let cooldownActive = false;
+let exploded = false;
+ 
+function addCart() {
+    if (exploded || !cartBtn) return;
+ 
+    const color = productCol ? productCol.value : null;
+    const size = productDim ? productDim.value : null;
+ 
+    const result = addToCart(PRODUCT.id, color, size, 1);
+ 
+    if (!result.ok) {
+        showCartBtnMessage('the greed consumes you. no more!');
+        return;
+    }
+ 
+    clickStreak = cooldownActive ? clickStreak + 1 : 1;
+    cooldownActive = true;
+ 
+    if (clickStreak >= EXPLODE_THRESHOLD) {
+        explodeCartButton();
+        return;
+    }
+ 
+    showCartBtnMessage(`Added! (+${clickStreak})`);
+}
+ 
+function showCartBtnMessage(text) {
+    if (!cartBtnLabel) return;
+    cartBtnLabel.textContent = text;
+    clearTimeout(hideTimeout);
+    hideTimeout = setTimeout(() => {
+        cooldownActive = false;
+        clickStreak = 0;
+        cartBtnLabel.textContent = 'Add to cart';
+    }, ADD_COOLDOWN_MS);
+}
+ 
+function explodeCartButton() {
+    exploded = true;
+    clearTimeout(hideTimeout);
+    cartBtn.onclick = null;
+    cartBtn.style.pointerEvents = 'none';
+ 
+    const icon = cartBtn.querySelector('p');
+    if (icon) icon.style.display = 'none';
+    cartBtnLabel.textContent = '';
+    cartBtn.style.backgroundImage = 'url(/assets/fun-stuff/explosion.gif)';
+    cartBtn.style.backgroundSize = '100px auto';
+    cartBtn.style.backgroundRepeat = 'no-repeat';
+    cartBtn.style.backgroundPosition = 'center';
+ 
+    setTimeout(() => {
+        cartBtn.style.display = 'none';
+    }, 720);
+}
+
+// CART FUNCTIONALITY
+const CART_KEY = 'cart';
+const CART_COLLECTION_CAP = 25;
+ 
+function getCart() {
+    try {
+        return JSON.parse(localStorage.getItem(CART_KEY)) || [];
+    } catch {
+        return [];
+    }
+}
+ 
+function saveCart(items) {
+    localStorage.setItem(CART_KEY, JSON.stringify(items));
+}
+ 
+function collectionCodeOf(productId) {
+    return Math.floor(productId / 10000);
+}
+ 
+function cartCollectionQuantity(productId) {
+    const code = collectionCodeOf(productId);
+    return getCart()
+        .filter((item) => collectionCodeOf(item.productId) === code)
+        .reduce((sum, item) => sum + item.quantity, 0);
+}
+
+function addToCart(productId, color, size, qty = 1) {
+    if (cartCollectionQuantity(productId) + qty > CART_COLLECTION_CAP) {
+        return { ok: false, reason: 'cap' };
+    }
+ 
+    const cart = getCart();
+    const existing = cart.find((item) =>
+        item.productId === productId && item.color === color && item.size === size
+    );
+ 
+    if (existing) {
+        existing.quantity += qty;
+    } else {
+        cart.push({ productId, color, size, quantity: qty });
+    }
+ 
+    saveCart(cart);
+    return { ok: true };
+}
+ 
+function removeFromCart(productId, color, size) {
+    const cart = getCart().filter((item) =>
+        !(item.productId === productId && item.color === color && item.size === size)
+    );
+    saveCart(cart);
+}
+
+
 // review modal
 const reviewModal = document.querySelector('.review-modal');
 const reviewModalShow = document.querySelector('#reviewShow');
