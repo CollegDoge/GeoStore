@@ -1,0 +1,180 @@
+.account-header-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+}
+.account-container, .orders-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    width: 100%;
+    margin: 30px 0;
+}
+.account-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+    gap: 10px;
+}
+.account-item-right {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    gap: 10px;
+}
+.account-item input {
+    border: none;
+    outline: none;
+    background-color: var(--primary-item);
+    color: var(--text-color);
+    padding: 5px 10px;
+    border-radius: 100px;
+}
+.account-item-right button {
+    display: flex;
+    text-align: center;
+    padding: 7px 10px;
+    border: 1px solid var(--text-color);
+    border-radius: 100px;
+    background-color: var(--primary-item);
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+.account-item-right button:hover {
+    background-color: var(--accent-secondary);
+}
+.account-item-pfp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    width: 100%;
+    margin: 10px 0;
+}
+.pfp-container {
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    margin: 10px 0;
+}
+.pfp-container img {
+    width: 80px;
+    height: 80px;
+    border-radius: 100px;
+    cursor: pointer;
+}
+.pfp-container img.active {
+    border: 2px solid var(--text-color);
+}
+
+#signout-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px;
+    gap: 10px;
+    border-radius: 100px;
+    background-color: var(--error);
+    border: 2px solid var(--text-color);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+#signout-btn:hover {
+    background-color: var(--text-color);
+    color: var(--error);
+    border: 2px solid var(--error);
+}
+
+#save-edits {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    max-width: 230px;
+    margin: 20px 0;
+    background-color: var(--accent-primary);
+    border: 2px solid var(--text-color);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+#save-edits:hover {
+    background-color: var(--text-color);
+    color: var(--primary-color);
+}
+
+.account-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+.order-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.order-box.active {
+    background-color: var(--primary-item);
+}
+.order-box-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+    gap: 10px;
+}
+.order-box a {
+    display: flex;
+    text-align: center;
+    margin-left: auto;
+    padding: 7px 10px;
+    border: 1px solid var(--text-color);
+    border-radius: 100px;
+    background-color: var(--primary-item);
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+.order-box-expanded {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    background-color: var(--primary-item);
+    padding: 10px;
+    border: 1px solid var(--text-color);
+    border-radius: 10px;
+}
+.order-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    gap: 5px;
+}
+/* price */
+.order-item-price {
+    margin-left: auto;
+}
+
+@media screen and (max-width: 1200px) {
+    .account-header-main {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

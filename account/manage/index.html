@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Account - GeoStore</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
+    <link href="/style.css" rel="stylesheet" type="text/css">
+    <link href="page.css" rel="stylesheet" type="text/css">
+    <script src="/script.js" defer type="text/javascript" ></script>
+    <script src="page.js" defer type="text/javascript" ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght,GRAD,ROND,slnt@400..900,0..100,0..100,-10..0&display=swap" rel="stylesheet">
+</head>
+
+<body class="preload">
+    <header>
+        <div class="header-container">
+            <div class="header-left">
+                <a href="/"><img alt="Logo" src="/assets/favicon.png"></a>
+                <a href="/"><h2 class="font-gsansflex font-hround">GeoStore</h2></a>
+            </div>
+            <div class="header-center">
+                <div class="nav-item" data-section="collections">COLLECTIONS</div>
+                <div class="nav-item" data-section="specials">SPECIALS</div>
+                <div class="nav-item" data-section="byproduct">BY PRODUCT</div>
+            </div>
+            <div class="header-right">
+                <section id="searchbar">
+                    <a class="nf-oct-search"></a> 
+                    <input type="text" placeholder="Search" id="search">
+                </section>
+                <section id="menuswitch">
+                    <a class="nf-oct-search" id="searchbtn-mid"></a> 
+                    <a class="nf-oct-three_bars" id="hamburger-open"></a>
+                </section>
+                <a class="nf-oct-person" href="/account/signin/"></a>
+                <a class="nf-md-cart_variant" href="/store/cart/"></a>
+                <section id="themeswitch">
+                    <a class="nf-oct-moon"></a> 
+                    <a class="nf-fa-sun"></a>
+                </section>
+            </div>
+        </div>
+    </header>
+    
+    <div class="regnav-dropdown">
+        <div class="regnav-container">
+            <div class="regnav-title">
+                <h2 class="font-gsansflex font-hround">
+                    <!-- filled by js -->
+                </h2>
+            </div>
+            <div class="regnav-inner">
+                <!-- filled by js -->
+            </div>
+        </div>
+    </div>
+
+    <div class="hamburger-overlay">
+        <div class="hamburger-container">
+            <div class="ham-topbar">
+                <a class="font-gsansflex font-hround">GeoStore Navigation</a>
+                <a class="nf-fa-close" id="hamburger-close"></a>
+            </div>
+            <div class="ham-search">
+                <section id="searchbar-mobile">
+                    <a class="nf-oct-search"></a> 
+                    <input type="text" placeholder="Search" id="search-mobile">
+                    <a class="nf-fa-chevron_right"></a>
+                </section>
+            </div>
+            <div class="ham-body" id="ham-body">
+                <div class="ham-body-section">
+                    <div class="ham-section-title">
+                        <a id="ham-collections">Collections</a>
+                        <a class="nf-fa-angle_down"></a>
+                    </div>
+                    <div class="ham-section-items">
+                        <!-- filled by js -->
+                    </div>
+                </div>
+                <div class="ham-body-section">
+                    <div class="ham-section-title">
+                        <a id="ham-specials">Specials</a>
+                        <a class="nf-fa-angle_down"></a>
+                    </div>
+                    <div class="ham-section-items">
+                        <!-- filled by js -->
+                    </div>
+                </div>
+                <div class="ham-body-section">
+                    <div class="ham-section-title">
+                        <a id="ham-byproduct">By Product</a>
+                        <a class="nf-fa-angle_down"></a>
+                    </div>
+                    <div class="ham-section-items">
+                        <!-- filled by js -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="page-container">
+        <div class="content-container">
+            <div class="account-header-main">
+                <h1 class="nf-md-account"> Your Account</h1>
+                <a href="/" class="nf-fa-home" id="button-reg"> Back Home</a>
+            </div>
+            <div class="account-container">
+                <div class="account-header">
+                    <h2>Account Details</h2>
+                    <a class="nf-fa-sign_out" id="signout-btn"> Sign Out</a>
+                </div>
+                <div class="account-item" data-field="firstName">
+                    <h3>First Name: </h3>
+                    <p id="currentFName">PLACEHOLDER</p>
+                    <div class="account-item-right">
+                        <input type="text" placeholder="New First Name" style="display: none">
+                        <button class="nf-fa-close field-cancel" style="display: none"></button>
+                        <button class="nf-fa-edit field-edit"></button>
+                    </div>
+                </div>
+                <div class="account-item" data-field="lastName">
+                    <h3>Last Name: </h3>
+                    <p id="currentLName">PLACEHOLDER</p>
+                    <div class="account-item-right">
+                        <input type="text" placeholder="New Last Name" style="display: none">
+                        <button class="nf-fa-close field-cancel" style="display: none"></button>
+                        <button class="nf-fa-edit field-edit"></button>
+                    </div>
+                </div>
+                <div class="account-item" data-field="email">
+                    <h3>Email: </h3>
+                    <p id="currentEmail">PLACEHOLDER</p>
+                    <div class="account-item-right">
+                        <input type="email" placeholder="New Email" style="display: none">
+                        <button class="nf-fa-close field-cancel" style="display: none"></button>
+                        <button class="nf-fa-edit field-edit"></button>
+                    </div>
+                </div>
+                <div class="account-item" data-field="password">
+                    <h3>Password: </h3>
+                    <p id="currentPassword">••••••••</p>
+                    <div class="account-item-right">
+                        <input type="password" placeholder="New Password" style="display: none">
+                        <button class="nf-fa-close field-cancel" style="display: none"></button>
+                        <button class="nf-fa-edit field-edit"></button>
+                    </div>
+                </div>
+                <div class="account-item-pfp">
+                    <h3>Profile Picture: </h3>
+                    <div class="pfp-container">
+                        <img src="/assets/user-profile/pfp1.webp" alt="profile picture" data-pfp="1">
+                        <img src="/assets/user-profile/pfp2.webp" alt="profile picture" data-pfp="2">
+                        <img src="/assets/user-profile/pfp3.webp" alt="profile picture" data-pfp="3">
+                        <img src="/assets/user-profile/pfp4.webp" alt="profile picture" data-pfp="4">
+                        <img src="/assets/user-profile/pfp5.webp" alt="profile picture" data-pfp="5">
+                        <img src="/assets/user-profile/pfp6.webp" alt="profile picture" data-pfp="6">
+                    </div>
+                </div>
+                <button class="nf-fa-save" id="save-edits" style="display: none"> Submit Changes</button>
+                <p>Note: Changing your email requires confirmation. You will receive a confirmation link via email.</p>
+            </div>
+            <div class="orders-container">
+                <h2>Your Orders</h2>
+                
+                <div class="order-box">
+                    <div class="order-box-header">
+                        <h3>Order ID: </h3>
+                        <p id="orderID">PLACEHOLDER</p>
+                        <a id="expandOrder">View Order</a>
+                    </div>
+                    <div class="order-box-expanded" style="display: none">
+                        <div class="order-item">
+                            <p id="orderQuantity">3</h3>x
+                            <p id="orderName">The Creature</p> -
+                            <p id="orderType">Shirt</p> -
+                            <p id="orderSize">M</p> - 
+                            <p id="orderColor">Black</p>
+                            <p id="orderPrice" class="order-item-price">$0.00</p>
+                        </div>
+                        <div class="order-item">
+                            <p id="orderQuantity">3</h3>x
+                            <p id="orderName">The Creature</p> -
+                            <p id="orderType">Shirt</p> -
+                            <p id="orderSize">M</p> - 
+                            <p id="orderColor">Black</p>
+                            <p id="orderPrice" class="order-item-price">$0.00</p>
+                        </div>
+                        <div class="order-item">
+                            <p id="orderQuantity">3</h3>x
+                            <p id="orderName">The Creature</p> -
+                            <p id="orderType">Shirt</p> -
+                            <p id="orderSize">M</p> - 
+                            <p id="orderColor">Black</p>
+                            <p id="orderPrice" class="order-item-price">$0.00</p>
+                        </div>
+                        <div class="order-item">
+                            <p id="orderQuantity">3</h3>x
+                            <p id="orderName">The Creature</p> -
+                            <p id="orderType">Shirt</p> -
+                            <p id="orderSize">M</p> - 
+                            <p id="orderColor">Black</p>
+                            <p id="orderPrice" class="order-item-price">$0.00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-box">
+                   <div class="order-box-header">
+                        <h3>Order ID: </h3>
+                        <p id="orderID">PLACEHOLDER</p>
+                        <a id="expandOrder">View Order</a>
+                   </div>
+                </div> 
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <div class="footer-title">
+                    <h2>GeoStore</h2>
+                    <p>&copy; 2026 - Geodes Crappy Web Designs</p>
+                </div>
+                <div class="footer-access">
+                    <a href="/info/accessibility/" class="nf-fa-universal_access"> Accessibility</a>
+                </div>
+            </div>
+            <div class="footer-social">
+                <a class="nf-fa-twitter" href="https://x.com/GeodeArc"></a>
+                <a class="nf-fa-youtube" href="https://youtube.com/@GeodeArc"></a>
+                <a class="nf-md-source_repository" href="https://github.com/CollegDoge/GeodesLinuxGuide"></a>
+                <a class="nf-fa-github" href="https://github.com/GeodeArc"></a>
+            </div>
+            <div class="footer-right">
+                <div class="footer-links">
+                    <a href="/info/about/">About GeoStore</a>
+                    <a href="/info/help/">Help & Support</a>
+                    <a href="/info/terms/">Terms & Conditions</a>
+                    <a href="https://github.com/CollegDoge/GeoStore/issues">Suggestions/Issues</a>
+                    <a href="https://github.com/CollegDoge/GeoStore">View Page Source</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="pageblur"></div>
+</body>

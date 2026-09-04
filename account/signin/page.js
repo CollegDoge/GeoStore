@@ -102,7 +102,7 @@ signupSub.addEventListener('click', async (e) => {
 
     if (signUpError) {
         error.backgroundColor = 'var(--error)';
-        showError('Failed to sign up', signUpError.message);
+        showError('Failed to sign up (try again later?)', signUpError.message);
         return;
     }
 
