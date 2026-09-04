@@ -2,6 +2,7 @@
   "meta": {
     "collections": ["sssdfg", "h", "dontwear", "fromtwitter", "wtflip"],
     "types": ["shirt", "hoodie", "sock", "mug", "sticker"],
+    "promo-codes": ["20PERCENT", "FREESHIP"],
     "colorPalette": [
       {
         "code": "col-w",

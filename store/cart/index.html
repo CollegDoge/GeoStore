@@ -116,19 +116,19 @@
                     <div class="cart-info">
                         <div class="cart-info-box">
                             <p>First Name</p>
-                            <input type="text" placeholder="Required">
+                            <input type="text" placeholder="Required" id="cart-firstname" autocomplete="given-name">
                         </div>
                         <div class="cart-info-box">
                             <p>Last Name</p>
-                            <input type="text" placeholder="Required">
+                            <input type="text" placeholder="Required" id="cart-lastname" autocomplete="family-name">
                         </div>
                         <div class="cart-info-box">
                             <p>Email Address</p>
-                            <input type="email" placeholder="Required">
+                            <input type="email" placeholder="Required" id="cart-email" autocomplete="email">
                         </div>
                         <div class="cart-info-box">
                             <p>Phone Number</p>
-                            <input type="text" placeholder="Optional">
+                            <input type="text" placeholder="Optional" id="cart-phone" autocomplete="tel">
                         </div>
                     </div>
                     <div class="cart-checkbox">
@@ -192,13 +192,11 @@
                 <div class="cart-right">
                     <div class="cart-items">
                         <h2 class="nf-fa-boxes_stacked"> Your Items</h2>
-                        <div class="cart-item"> <!-- TODO: fill with actual localstorage items. we wont use this one -->
-                            <p>2x</p>
-                            <a href="">EXAMPLE PRODUCT - Shirt / Black / XL</a> <!-- TODO: fill with actual data, use products.json -->
-                            <p>$49.99</p>
+                        <div class="cart-item-list" id="cart-item-list">
+                            <!-- filled by page.js from localStorage + products.json -->
                         </div>
                         <h3 id="cartStatus">Nothing added yet!</h3>
-                        <button onclick=clearCart() style="display: none">Remove All</button>
+                        <button id="cartClearBtn" onclick=clearCart()>Remove All</button>
                     </div>
                     <div class="cart-promo">
                         <h2>Add Promo Code</h2>
@@ -214,23 +212,23 @@
                 <div class="cart-checkout-header"><h2 class="nf-fa-clipboard_check"> Review Order</h2></div>
                 <div class="cart-checkout-info">
                     <div class="cart-checkout-info-cost">
-                        <p>Base: $0.00</p>
-                        <p>GST: $0.00</p>
-                        <p>Shipping: $0.00</p>
-                        <p>Promo: $0.00</p>
+                        <p id="cost-base">Base: $0.00</p>
+                        <p id="cost-gst">GST: $0.00</p>
+                        <p id="cost-shipping">Shipping: $0.00</p>
+                        <p id="cost-promo">Promo: $0.00</p>
                     </div>
                     <div class="cart-checkout-info-total">
                         <p>Total</p>
-                        <h1>$0.00</h1>
+                        <h1 id="cost-total">$0.00</h1>
                     </div>
                 </div>
                 <div class="checkout-buttons">
                     <div class="checkout-row">
                         <a class="nf-fa-circle_o" id="checkbox-terms"> <!-- default unchecked-->
-                            I have read the <a style="text-decoration: underline;">Terms and Conditions</a>
+                            I have read the <a href="/info/terms/" style="text-decoration: underline;">Terms and Conditions</a>
                         </a>
                     </div>
-                    <a id="button-major">Complete Order</a>
+                    <a id="button-major" onclick="completeOrder()">Complete Order</a>
                 </div>
                 <div class="checkout-error">
                     <h2>Error Title</h2>

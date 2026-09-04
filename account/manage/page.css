@@ -73,7 +73,7 @@
     cursor: pointer;
 }
 .pfp-container img.active {
-    border: 2px solid var(--text-color);
+    border: 3px solid var(--accent-secondary);
 }
 
 #signout-btn {

@@ -1,3 +1,29 @@
+// PERSONAL DETAILS AUTOFILL (signed-in users only)
+async function autofillPersonalDetails() {
+    await window.sbReady;
+    const { data } = await sb.auth.getSession();
+    const user = data.session?.user;
+    if (!user) return;
+
+    const emailInput = document.getElementById('cart-email');
+    if (emailInput) emailInput.value = user.email || '';
+
+    const { data: profile } = await sb
+        .from('profiles')
+        .select('first_name, last_name')
+        .eq('id', user.id)
+        .single();
+
+    if (profile) {
+        const firstInput = document.getElementById('cart-firstname');
+        const lastInput = document.getElementById('cart-lastname');
+        if (firstInput) firstInput.value = profile.first_name || '';
+        if (lastInput) lastInput.value = profile.last_name || '';
+    }
+}
+
+autofillPersonalDetails();
+
 // temp email checkbox change
 const emailCheckbox = document.getElementById('checkbox-email');
 
@@ -61,22 +87,6 @@ promoInput.addEventListener('keyup', (e) => {
     }
 });
 
-// list of promo codes (WILL BE MOVED TO DATABASE LATER)
-const promoCodes = [
-    'TEST-CODE-1',
-]
-
-// if valid code, apply discount
-function applyPromo(code) {
-    if (promoCodes.includes(code)) {
-        promoStatus.textContent = 'Promo Code Applied';
-        promoStatus.style.color = 'var(--success)';
-    } else {
-        promoStatus.textContent = 'Invalid Promo Code';
-        promoStatus.style.color = 'var(--error)';
-    }
-}
-
 // temp error message on submit
 const error = document.querySelector('.checkout-error');
 const errorTitle = document.querySelector('.checkout-error h2');
@@ -99,14 +109,163 @@ function hideError() {
 // CART
 const CART_KEY = 'cart';
 const cartStatus = document.getElementById('cartStatus');
-const cartItem = document.getElementById('cart-item');
+const cartClearBtn = document.getElementById('cartClearBtn');
+const cartItemList = document.getElementById('cart-item-list');
 
-// cart status
-if (localStorage.getItem(CART_KEY)) {
-    cartStatus.style.display = 'none';
-}
+const PRODUCTS_JSON_URL = '/assets/database/products.json';
+const SHIPPING_FLAT_RATE = 20;
+
+let productsDb = null;
+let appliedPromoIndex = null; // null = no promo, 0 = percent-off code, 1 = free-shipping code
 
 // CLEAR CART
 function clearCart() {
     localStorage.removeItem(CART_KEY);
+    location.reload();
 }
+
+function getCart() {
+    try {
+        return JSON.parse(localStorage.getItem(CART_KEY)) || [];
+    } catch {
+        return [];
+    }
+}
+
+async function loadProducts() {
+    const res = await fetch(PRODUCTS_JSON_URL);
+    if (!res.ok) throw new Error('Failed to load product data');
+    return res.json();
+}
+
+function typeLabel(type) {
+    return type.charAt(0).toUpperCase() + type.slice(1);
+}
+
+function colorLabel(db, code) {
+    const entry = db.meta.colorPalette.find((c) => c.code === code);
+    return entry ? entry.label : null;
+}
+
+function sizeLabel(db, type, value) {
+    const options = db.meta.sizeOptions[type];
+    if (!options) return null;
+    const entry = options.find((s) => s.value === value);
+    return entry ? entry.label : null;
+}
+
+// builds one .cart-item row for a single localStorage cart entry
+function renderCartItem(db, item) {
+    const product = db.products.find((p) => p.id === item.productId);
+    if (!product) return null; // product no longer exists in the catalog — skip it
+
+    const variant = [typeLabel(product.type)];
+    const cLabel = colorLabel(db, item.color);
+    if (cLabel) variant.push(cLabel);
+    const sLabel = sizeLabel(db, product.type, item.size);
+    if (sLabel) variant.push(sLabel);
+
+    const el = document.createElement('div');
+    el.className = 'cart-item';
+
+    const qty = document.createElement('p');
+    qty.textContent = `${item.quantity}x`;
+
+    const link = document.createElement('a');
+    link.href = `/product/${product.id}`;
+    link.textContent = `${product.name} - ${variant.join(' / ')}`;
+
+    const price = document.createElement('p');
+    price.textContent = `$${(product.price * item.quantity).toFixed(2)}`;
+
+    el.append(qty, link, price);
+    return el;
+}
+
+function renderCartItems() {
+    const cart = getCart();
+    cartItemList.innerHTML = '';
+
+    if (cart.length === 0) {
+        cartStatus.style.display = '';
+        cartClearBtn.style.display = 'none';
+        return;
+    }
+
+    cartStatus.style.display = 'none';
+    cartClearBtn.style.display = '';
+
+    cart.forEach((item) => {
+        const el = renderCartItem(productsDb, item);
+        if (el) cartItemList.appendChild(el);
+    });
+}
+
+// items total = GST-inclusive sum of everything in the cart, before shipping/promo
+function itemsTotal() {
+    if (!productsDb) return 0;
+    return getCart().reduce((sum, item) => {
+        const product = productsDb.products.find((p) => p.id === item.productId);
+        return product ? sum + product.price * item.quantity : sum;
+    }, 0);
+}
+
+function updateTotals() {
+    const cart = getCart();
+    const total = itemsTotal();
+
+    const base = total * 0.85;
+    const gst = total * 0.15;
+
+    let shipping = cart.length > 0 ? SHIPPING_FLAT_RATE : 0;
+    let promo = 0;
+
+    if (appliedPromoIndex === 0) {
+        promo = -(total * 0.10);
+    } else if (appliedPromoIndex === 1) {
+        promo = -20;
+        shipping = 0;
+    }
+
+    const grandTotal = base + gst + shipping + promo;
+    const promoText = promo < 0 ? `-$${Math.abs(promo).toFixed(2)}` : `$${promo.toFixed(2)}`;
+
+    document.getElementById('cost-base').textContent = `Base: $${base.toFixed(2)}`;
+    document.getElementById('cost-gst').textContent = `GST: $${gst.toFixed(2)}`;
+    document.getElementById('cost-shipping').textContent = `Shipping: $${shipping.toFixed(2)}`;
+    document.getElementById('cost-promo').textContent = `Promo: ${promoText}`;
+    document.getElementById('cost-total').textContent = `$${grandTotal.toFixed(2)}`;
+}
+
+// APPLY PROMO
+function applyPromo(code) {
+    const codes = (productsDb && productsDb.meta['promo-codes']) || [];
+    const idx = codes.indexOf(code.trim().toUpperCase());
+
+    if (idx === -1) {
+        appliedPromoIndex = null;
+        promoStatus.textContent = 'Invalid Promo Code';
+        promoStatus.style.color = 'var(--error)';
+    } else {
+        appliedPromoIndex = idx;
+        promoStatus.textContent = 'Promo Code Applied';
+        promoStatus.style.color = 'var(--success)';
+    }
+
+    updateTotals();
+}
+
+async function init() {
+    try {
+        productsDb = await loadProducts();
+    } catch (err) {
+        cartItemList.innerHTML = '<p>Could not load product data — try refreshing.</p>';
+        updateTotals();
+        return;
+    }
+
+    renderCartItems();
+    updateTotals();
+}
+
+init();
