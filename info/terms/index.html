@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions - GeoStore</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
+    <link href="/style.css" rel="stylesheet" type="text/css">
+    <link href="page.css" rel="stylesheet" type="text/css">
+    <script src="/script.js" defer type="text/javascript" ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght,GRAD,ROND,slnt@400..900,0..100,0..100,-10..0&display=swap" rel="stylesheet">
+</head>
+
+<body class="preload">
+    <header>
+        <div class="header-container">
+            <div class="header-left">
+                <a href="/"><img alt="Logo" src="/assets/favicon.png"></a>
+                <a href="/"><h2 class="font-gsansflex font-hround">GeoStore</h2></a>
+            </div>
+            <div class="header-center">
+                <div class="nav-item" data-section="collections">COLLECTIONS</div>
+                <div class="nav-item" data-section="specials">SPECIALS</div>
+                <div class="nav-item" data-section="byproduct">BY PRODUCT</div>
+            </div>
+            <div class="header-right">
+                <section id="searchbar">
+                    <a class="nf-oct-search"></a> 
+                    <input type="text" placeholder="Search" id="search">
+                </section>
+                <section id="menuswitch">
+                    <a class="nf-oct-search" id="searchbtn-mid"></a> 
+                    <a class="nf-oct-three_bars" id="hamburger-open"></a>
+                </section>
+                <a class="nf-oct-person" href="/account/signin/"></a>
+                <a class="nf-md-cart_variant" href="/store/cart/"></a>
+                <section id="themeswitch">
+                    <a class="nf-oct-moon"></a> 
+                    <a class="nf-fa-sun"></a>
+                </section>
+            </div>
+        </div>
+    </header>
+    
+    <div class="regnav-dropdown">
+        <div class="regnav-container">
+            <div class="regnav-title">
+                <h2 class="font-gsansflex font-hround">
+                    <!-- filled by js -->
+                </h2>
+            </div>
+            <div class="regnav-inner">
+                <!-- filled by js -->
+            </div>
+        </div>
+    </div>
+
+    <div class="hamburger-overlay">
+        <div class="hamburger-container">
+            <div class="ham-topbar">
+                <a class="font-gsansflex font-hround">GeoStore Navigation</a>
+                <a class="nf-fa-close" id="hamburger-close"></a>
+            </div>
+            <div class="ham-search">
+                <section id="searchbar-mobile">
+                    <a class="nf-oct-search"></a> 
+                    <input type="text" placeholder="Search" id="search-mobile">
+                    <a class="nf-fa-chevron_right"></a>
+                </section>
+            </div>
+            <div class="ham-body" id="ham-body">
+                <div class="ham-body-section">
+                    <div class="ham-section-title">
+                        <a id="ham-collections">Collections</a>
+                        <a class="nf-fa-angle_down"></a>
+                    </div>
+                    <div class="ham-section-items">
+                        <!-- filled by js -->
+                    </div>
+                </div>
+                <div class="ham-body-section">
+                    <div class="ham-section-title">
+                        <a id="ham-specials">Specials</a>
+                        <a class="nf-fa-angle_down"></a>
+                    </div>
+                    <div class="ham-section-items">
+                        <!-- filled by js -->
+                    </div>
+                </div>
+                <div class="ham-body-section">
+                    <div class="ham-section-title">
+                        <a id="ham-byproduct">By Product</a>
+                        <a class="nf-fa-angle_down"></a>
+                    </div>
+                    <div class="ham-section-items">
+                        <!-- filled by js -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="page-container">
+        <div class="content-container">
+            <div class="info-title">
+                <h1>Terms &amp; Conditions</h1>
+                <p><em>Last updated: September 2026</em></p>
+            </div>
+            <div class="legal-content">
+
+ 
+                <p>GeoStore is a school assessment project. A fictional store built for fun, not a real business. Nothing you "buy" here is real, nothing ships, and no money changes hands. This page exists anyway, because a proper checkout flow should have one, and because it's a good place to be upfront about what account data the site actually collects.</p>
+ 
+                <h2>Account Information</h2>
+                <p>Creating an account collects your first name, last name, email address, and password, plus whichever profile picture (1-6) you choose. Passwords are handled entirely by Supabase Auth — GeoStore never sees or stores your password directly, only a session token proving you're signed in.</p>
+ 
+                <h2>What We Don't Collect</h2>
+                <p>No billing information, credit card details, or payment data of any kind are collected or stored. There's no payment processor connected to this site at all. The shipping and billing address fields shown at checkout are there for the sake of a realistic-looking flow only; nothing typed into them is saved or sent anywhere.</p>
+ 
+                <h2>Order Information</h2>
+                <p>Completing an order stores a record of it: the name and email you entered at checkout, the items and quantities ordered, the price paid, and the total. This lets you look back at past orders. Every order is marked with a status of "Destroyed," since nothing is actually fulfilled or shipped.</p>
+ 
+                <h2>Cart Data</h2>
+                <p>Items you add to your cart are stored only in your browser's local storage. They're never sent to our servers until — and unless — you complete an order.</p>
+ 
+                <h2>Third-Party Services</h2>
+                <p>GeoStore uses <a href="https://supabase.com" target="_blank" rel="noopener">Supabase</a> to handle account authentication and to store account and order data in a hosted database. Confirmation emails are sent through a third-party email delivery service. Neither service is given anything beyond what's described above. GeoStore doesn't share data with anyone for advertising or analytics.</p>
+ 
+                <h2>Cookies &amp; Local Storage</h2>
+                <p>Signing in stores a session in your browser (via Supabase Auth) so you stay signed in between visits. Your cart, as noted above, lives in local storage the same way. Neither is used for tracking.</p>
+ 
+                <h2>Deleting Your Data</h2>
+                <p>There's no self-serve "delete my account" button yet (im simply too lazy). If you'd like your account and order history removed, <a href="https://github.com/CollegDoge/GeoStore/issues">open an issue on GitHub</a> and it'll do it myself</p>
+ 
+                <h2>Changes to These Terms</h2>
+                <p>This page may be updated as the site changes. Since GeoStore is a hobby project rather than a company, there's no formal notice process. Check back here if you're curious.</p>
+ 
+                <h2>The Fine Print</h2>
+                <p>This is a joke store maintained for fun, provided as-is, with no warranty of any kind- mostly because there's nothing to warranty. Nothing on this page should be read as a substitute for real legal advice; it's just a plain-language description of what the site actually does with your data.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <div class="footer-title">
+                    <h2>GeoStore</h2>
+                    <p>&copy; 2026 - Geodes Crappy Web Designs</p>
+                </div>
+                <div class="footer-access">
+                    <a href="/info/accessibility/" class="nf-fa-universal_access"> Accessibility</a>
+                </div>
+            </div>
+            <div class="footer-social">
+                <a class="nf-fa-twitter" href="https://x.com/GeodeArc"></a>
+                <a class="nf-fa-youtube" href="https://youtube.com/@GeodeArc"></a>
+                <a class="nf-md-source_repository" href="https://github.com/CollegDoge/GeoStore"></a>
+                <a class="nf-fa-github" href="https://github.com/GeodeArc"></a>
+            </div>
+            <div class="footer-right">
+                <div class="footer-links">
+                    <a href="/info/about/">About GeoStore</a>
+                    <a href="/info/help/">Help & Support</a>
+                    <a href="/info/terms/">Terms & Conditions</a>
+                    <a href="https://github.com/CollegDoge/GeoStore/issues">Suggestions/Issues</a>
+                    <a href="https://github.com/CollegDoge/GeoStore">View Page Source</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="pageblur"></div>
+</body>

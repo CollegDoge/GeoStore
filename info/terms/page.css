@@ -1,0 +1,15 @@
+.info-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.legal-content {
+    max-width: 1000px;
+    margin: 50px 0;
+}
+.legal-content h2 {
+    margin-top: 20px;
+    font-size: 1.2em;
+}

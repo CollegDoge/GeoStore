@@ -1,0 +1,20 @@
+.info-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.info-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    width: 100%;
+    margin: 50px 0;
+    gap: 10px;
+}
+.info-content a {
+    text-decoration: underline;
+    font-size: 1.2em;
+}
