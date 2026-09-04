@@ -1,0 +1,87 @@
+.completedorder-title, .completedorder-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.completedorder-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 30px 0;
+}
+
+.completedorder-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    width: 100%;
+    margin: 30px 0;
+}
+
+.order-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.order-box.active {
+    background-color: var(--primary-item);
+}
+.order-box-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+    gap: 10px;
+}
+.order-box a {
+    display: flex;
+    text-align: center;
+    padding: 7px 10px;
+    margin: 10px 0;
+    border: 1px solid var(--text-color);
+    border-radius: 100px;
+    background-color: var(--primary-item);
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+.order-box-expanded {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    background-color: var(--primary-item);
+    padding: 10px;
+    border: 1px solid var(--text-color);
+    border-radius: 10px;
+}
+.order-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    gap: 5px;
+}
+.order-box-expanded-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* price */
+.order-item-price {
+    margin-left: auto;
+}

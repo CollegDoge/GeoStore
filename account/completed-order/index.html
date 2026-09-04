@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Complete - GeoStore</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
+    <link href="/style.css" rel="stylesheet" type="text/css">
+    <link href="/account/completed-order/page.css" rel="stylesheet" type="text/css">
+    <script src="/script.js" defer type="text/javascript" ></script>
+    <script src="/account/completed-order/page.js" defer type="text/javascript" ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght,GRAD,ROND,slnt@400..900,0..100,0..100,-10..0&display=swap" rel="stylesheet">
+</head>
+
+<body class="preload">
+    <header>
+        <div class="header-container">
+            <div class="header-left">
+                <a href="/"><img alt="Logo" src="/assets/favicon.png"></a>
+                <a href="/"><h2 class="font-gsansflex font-hround">GeoStore</h2></a>
+            </div>
+            <div class="header-center">
+                <div class="nav-item" data-section="collections">COLLECTIONS</div>
+                <div class="nav-item" data-section="specials">SPECIALS</div>
+                <div class="nav-item" data-section="byproduct">BY PRODUCT</div>
+            </div>
+            <div class="header-right">
+                <section id="searchbar">
+                    <a class="nf-oct-search"></a> 
+                    <input type="text" placeholder="Search" id="search">
+                </section>
+                <section id="menuswitch">
+                    <a class="nf-oct-search" id="searchbtn-mid"></a> 
+                    <a class="nf-oct-three_bars" id="hamburger-open"></a>
+                </section>
+                <a class="nf-oct-person" href="/account/manage/"></a>
+                <a class="nf-md-cart_variant" href="/account/signin/"></a> <!-- updated by script.js based on auth state -->
+                <section id="themeswitch">
+                    <a class="nf-oct-moon"></a> 
+                    <a class="nf-fa-sun"></a>
+                </section>
+            </div>
+        </div>
+    </header>
+    
+    <div class="regnav-dropdown">
+        <div class="regnav-container">
+            <div class="regnav-title">
+                <h2 class="font-gsansflex font-hround">
+                    <!-- filled by js -->
+                </h2>
+            </div>
+            <div class="regnav-inner">
+                <!-- filled by js -->
+            </div>
+        </div>
+    </div>
+
+    <div class="hamburger-overlay">
+        <div class="hamburger-container">
+            <div class="ham-topbar">
+                <a class="font-gsansflex font-hround">GeoStore Navigation</a>
+                <a class="nf-fa-close" id="hamburger-close"></a>
+            </div>
+            <div class="ham-search">
+                <section id="searchbar-mobile">
+                    <a class="nf-oct-search"></a> 
+                    <input type="text" placeholder="Search" id="search-mobile">
+                    <a class="nf-fa-chevron_right"></a>
+                </section>
+            </div>
+            <div class="ham-body" id="ham-body">
+                <div class="ham-body-section">
+                    <div class="ham-section-title">
+                        <a id="ham-collections">Collections</a>
+                        <a class="nf-fa-angle_down"></a>
+                    </div>
+                    <div class="ham-section-items">
+                        <!-- filled by js -->
+                    </div>
+                </div>
+                <div class="ham-body-section">
+                    <div class="ham-section-title">
+                        <a id="ham-specials">Specials</a>
+                        <a class="nf-fa-angle_down"></a>
+                    </div>
+                    <div class="ham-section-items">
+                        <!-- filled by js -->
+                    </div>
+                </div>
+                <div class="ham-body-section">
+                    <div class="ham-section-title">
+                        <a id="ham-byproduct">By Product</a>
+                        <a class="nf-fa-angle_down"></a>
+                    </div>
+                    <div class="ham-section-items">
+                        <!-- filled by js -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="page-container">
+        <div class="content-container">
+            <div class="completedorder-title">
+                <h1>Thanks for shopping with us!</h1>
+                <a href="/" class="nf-fa-home" id="button-reg"> Back Home</a>
+            </div>
+            <div class="completedorder-top">
+                <h2>Order ID: <span id="orderID">Loading…</span></h2>
+                <h2>Status: <span id="orderStatus">Loading…</span></h2>
+            </div>
+            <div class="completedorder-main">
+                <div class="completedorder-status">
+                    <!--TODO LATER-->
+                </div>
+                <div class="completedorder-items">
+                    <div class="order-box">
+                        <div class="order-box-expanded" id="order-box-expanded">
+                            <div class="order-box-expanded-title">
+                                <b>Amount / Name - Type - Size - Color</b>
+                                <b>Price</b>
+                            </div>
+                            <!-- filled by page.js -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="completedorder-error" style="display: none">
+                <h2>Error Title</h2>
+                <p>Error Message</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <div class="footer-title">
+                    <h2>GeoStore</h2>
+                    <p>&copy; 2026 - Geodes Crappy Web Designs</p>
+                </div>
+                <div class="footer-access">
+                    <a href="/info/accessibility/" class="nf-fa-universal_access"> Accessibility</a>
+                </div>
+            </div>
+            <div class="footer-social">
+                <a class="nf-fa-twitter" href="https://x.com/GeodeArc"></a>
+                <a class="nf-fa-youtube" href="https://youtube.com/@GeodeArc"></a>
+                <a class="nf-md-source_repository" href="https://github.com/CollegDoge/GeodesLinuxGuide"></a>
+                <a class="nf-fa-github" href="https://github.com/GeodeArc"></a>
+            </div>
+            <div class="footer-right">
+                <div class="footer-links">
+                    <a href="/info/about/">About GeoStore</a>
+                    <a href="/info/help/">Help & Support</a>
+                    <a href="/info/terms/">Terms & Conditions</a>
+                    <a href="https://github.com/CollegDoge/GeoStore/issues">Suggestions/Issues</a>
+                    <a href="https://github.com/CollegDoge/GeoStore">View Page Source</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="pageblur"></div>
+</body>
+</html>

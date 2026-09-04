@@ -48,19 +48,23 @@ const signinSub = document.getElementById('signin-submit');
 signinSub.addEventListener('click', async (e) => {
     e.preventDefault();
 
+    // get user info
     const email = document.getElementById('signin-email').value.trim();
     const password = document.getElementById('signin-password').value;
 
+    // if any info is missing, show error and return
     if (!email || !password) {
         showError('Missing info', 'Enter both your email and password.');
         return;
     }
 
+    // wait until auth is ready
     await window.sbReady;
     signinSub.classList.add('loading');
     const { error: signInError } = await sb.auth.signInWithPassword({ email, password });
     signinSub.classList.remove('loading');
 
+    // error prevention
     if (signInError) {
         showError('Failed to sign in', signInError.message);
         return;
@@ -74,17 +78,22 @@ const signupSub = document.getElementById('signup-submit');
 signupSub.addEventListener('click', async (e) => {
     e.preventDefault();
 
+    // get user info
     const firstName = document.getElementById('signup-firstname').value.trim();
     const lastName = document.getElementById('signup-lastname').value.trim();
     const email = document.getElementById('signup-email').value.trim();
     const password = document.getElementById('signup-password').value;
 
+    // if any info is missing, show error and return
     if (!firstName || !lastName || !email || !password) {
         showError('Missing info', 'Fill out every field to create an account.');
         return;
     }
 
+    // wait until auth is ready
     await window.sbReady;
+
+    // sign up data for sql db (supabase)
     signupSub.classList.add('loading');
     const { data, error: signUpError } = await sb.auth.signUp({
         email,
@@ -100,6 +109,7 @@ signupSub.addEventListener('click', async (e) => {
     });
     signupSub.classList.remove('loading');
 
+    // error prevention
     if (signUpError) {
         error.backgroundColor = 'var(--error)';
         showError('Failed to sign up (try again later?)', signUpError.message);
@@ -111,5 +121,6 @@ signupSub.addEventListener('click', async (e) => {
         return;
     }
 
+    // redirect to manage page
     window.location.href = '/account/manage/';
 });

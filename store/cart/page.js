@@ -93,7 +93,7 @@ const errorTitle = document.querySelector('.checkout-error h2');
 const errorMsg = document.querySelector('.checkout-error p');
 
 orderBtn.addEventListener('click', () => {
-    showError('Failed to place order', 'Havent implemented yet :(');
+    completeOrder();
 });
 
 function showError(title, msg) {
@@ -119,9 +119,9 @@ let productsDb = null;
 let appliedPromoIndex = null; // null = no promo, 0 = percent-off code, 1 = free-shipping code
 
 // CLEAR CART
-function clearCart() {
+function clearCart(reload = true) {
     localStorage.removeItem(CART_KEY);
-    location.reload();
+    if (reload) location.reload();
 }
 
 function getCart() {
@@ -210,34 +210,39 @@ function itemsTotal() {
     }, 0);
 }
 
-function updateTotals() {
+// pure calculation — returns the numbers, doesn't touch the DOM.
+// Shared by updateTotals() (for display) and completeOrder() (for the order total).
+function calculateTotals() {
     const cart = getCart();
     const total = itemsTotal();
 
     const base = total * 0.85;
     const gst = total * 0.15;
+    const shipping = cart.length > 0 ? SHIPPING_FLAT_RATE : 0; // flat rate, unaffected by promo
 
-    let shipping = cart.length > 0 ? SHIPPING_FLAT_RATE : 0;
     let promo = 0;
-
     if (appliedPromoIndex === 0) {
         promo = -(total * 0.10);
     } else if (appliedPromoIndex === 1) {
-        promo = -20;
-        shipping = 0;
+        promo = -SHIPPING_FLAT_RATE; // effectively cancels the shipping line out
     }
 
-    const grandTotal = base + gst + shipping + promo;
+    return { base, gst, shipping, promo, total: base + gst + shipping + promo };
+}
+
+function updateTotals() {
+    const { base, gst, shipping, promo, total } = calculateTotals();
     const promoText = promo < 0 ? `-$${Math.abs(promo).toFixed(2)}` : `$${promo.toFixed(2)}`;
 
     document.getElementById('cost-base').textContent = `Base: $${base.toFixed(2)}`;
     document.getElementById('cost-gst').textContent = `GST: $${gst.toFixed(2)}`;
     document.getElementById('cost-shipping').textContent = `Shipping: $${shipping.toFixed(2)}`;
     document.getElementById('cost-promo').textContent = `Promo: ${promoText}`;
-    document.getElementById('cost-total').textContent = `$${grandTotal.toFixed(2)}`;
+    document.getElementById('cost-total').textContent = `$${total.toFixed(2)}`;
 }
 
-// APPLY PROMO
+// if valid code, apply discount (position in products.json's promo-codes list decides the effect:
+// index 0 = 10% off, index 1 = free-shipping-ish)
 function applyPromo(code) {
     const codes = (productsDb && productsDb.meta['promo-codes']) || [];
     const idx = codes.indexOf(code.trim().toUpperCase());
@@ -269,3 +274,94 @@ async function init() {
 }
 
 init();
+
+// ORDER SUBMISSION
+async function completeOrder() {
+    if (!termsCheckbox.classList.contains('nf-fa-circle_check')) {
+        showError('Terms required', 'Please accept the Terms and Conditions first.');
+        return;
+    }
+
+    const cart = getCart();
+
+    if (cart.length === 0 || !productsDb) {
+        showError('Cart is empty', 'Add something to your cart before checking out.');
+        return;
+    }
+
+    const resolvedItems = [];
+    for (const item of cart) {
+        const product = productsDb.products.find((p) => p.id === item.productId);
+        if (!product) {
+            showError('Item unavailable', 'One or more items in your cart could no longer be found. Remove them and try again.');
+            return;
+        }
+        resolvedItems.push({ item, product });
+    }
+
+    const firstName = document.getElementById('cart-firstname').value.trim();
+    const lastName = document.getElementById('cart-lastname').value.trim();
+    const email = document.getElementById('cart-email').value.trim();
+
+    if (!firstName || !lastName || !email) {
+        showError('Missing info', 'Fill in your first name, last name, and email.');
+        return;
+    }
+
+    // COMMENTS FOR ASSESSMENT
+    await window.sbReady; // wait until auth is ready
+    const { data: sessionData } = await sb.auth.getSession(); // get session data
+    const user = sessionData.session?.user; // get user data
+
+    // if not signed in, show error and return
+    if (!user) {
+        showError('Not signed in', 'Please sign in to complete your order.');
+        return;
+    }
+
+    // get totals
+    const totals = calculateTotals();
+
+    // insert user info into sql db (supabase)
+    const { data: order, error: orderError } = await sb
+        .from('orders')
+        .insert({
+            user_id: user.id,
+            first_name: firstName,
+            last_name: lastName,
+            email: email,
+            total_cost: Number(totals.total.toFixed(2)),
+        })
+        .select()
+        .single();
+
+    // if user info insert failed, show error and return
+    if (orderError || !order) {
+        showError('Failed to place order', orderError ? orderError.message : 'Something went wrong.');
+        return;
+    }
+
+    // insert order items into sql db (supabase)
+    const orderItemsPayload = resolvedItems.map(({ item, product }) => ({
+        order_id: order.id,
+        quantity: item.quantity,
+        item_name: product.name,
+        item_type: product.type,
+        item_size: sizeLabel(productsDb, product.type, item.size) || item.size || null,
+        item_color: colorLabel(productsDb, item.color) || item.color || null,
+        item_price: product.price,
+    }));
+
+    // if order items insert failed, show error and return
+    const { error: itemsError } = await sb.from('order_items').insert(orderItemsPayload);
+    if (itemsError) {
+        showError('Failed to place order', itemsError.message);
+        return;
+    }
+
+    // update cart
+    clearCart(false);
+
+    // redirect to completed order page
+    window.location.href = `/account/completed-order/?order=${order.id}`;
+}
