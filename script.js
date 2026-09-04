@@ -35,6 +35,37 @@ document.addEventListener("DOMContentLoaded", () => { // theme switching
     });
 });
 
+// ACCESSIBILITY
+function setHighContrast(enabled) {
+    document.body.classList.toggle("highcontrast", enabled);
+    localStorage.setItem("highcontrast", enabled);
+ 
+    const btn = document.getElementById("highcontrastbtn");
+    if (btn) btn.textContent = enabled ? "Disable High Contrast" : "Enable High Contrast";
+}
+ 
+function setLargeText(enabled) {
+    document.body.classList.toggle("largetext", enabled);
+    localStorage.setItem("largetext", enabled);
+ 
+    const btn = document.getElementById("largetextbtn");
+    if (btn) btn.textContent = enabled ? "Disable Large Text" : "Enable Large Text";
+}
+ 
+// these are the ones the buttons' onclick= attributes call directly
+function highContrastToggle() {
+    setHighContrast(!document.body.classList.contains("highcontrast"));
+}
+ 
+function largeTextToggle() {
+    setLargeText(!document.body.classList.contains("largetext"));
+}
+ 
+document.addEventListener("DOMContentLoaded", () => { // apply saved accessibility prefs on every page
+    setHighContrast(localStorage.getItem("highcontrast") === "true");
+    setLargeText(localStorage.getItem("largetext") === "true");
+});
+
 // ENABLE ANIMATIONS (flash mitigation) + SPECIAL NAV ITEMS
 window.addEventListener("load", () => {
     document.body.classList.remove("preload");

@@ -13,3 +13,10 @@
     margin-top: 20px;
     font-size: 1.2em;
 }
+
+@media (max-width: 768px) {
+    .info-title {
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+}

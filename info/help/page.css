@@ -23,3 +23,11 @@
 .issue-form a {
     text-decoration: underline;
 }
+
+@media (max-width: 768px) {
+    .info-title {
+        flex-direction: column;
+        margin-bottom: 20px;
+        gap: 10px;
+    }
+}

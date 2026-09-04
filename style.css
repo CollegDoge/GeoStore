@@ -112,23 +112,28 @@ body {
 /* accessibility */
 .largetext p,
 .largetext a,
-.largetext h2,
 .largetext h3,
 .largetext button {
-    font-size: 1.3em !important;
+    font-size: 1.2em !important;
 }
 .largetext .footer-access, .footer-social {
     font-size: 2em !important;
 }
+.largetext .product-title, .largetext .product-title h2{
+    font-size: 1.2em !important;
+}
+.largetext .nav-item {
+    font-size: 1.1em !important;
+}
 .highcontrast { 
-    --text-color: #fff;
-    --text-secondary: #fff;
-    --primary-color: #000;
-    --primary-item: #000000;
-    --accent-primary: #fff;
-    --accent-primary-dim: rgba(255, 255, 255, 0.5);
-    --accent-secondary: #fff;
-    --banner: rgba(0,0,0,0.7);
+    --text-color: #fff !important;
+    --text-secondary: #fff !important;
+    --primary-color: #000 !important;
+    --primary-item: #222 !important;
+    --accent-primary: #2f2f2f !important;
+    --accent-primary-dim: rgba(50, 50, 50, 0.5) !important;
+    --accent-secondary: #777777 !important;
+    --banner: rgba(0,0,0,0.7) !important;
 }
 
 /* buttons */
