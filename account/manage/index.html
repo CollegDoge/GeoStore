@@ -106,18 +106,18 @@
 
     <main class="page-container">
         <div class="content-container">
-            <div class="account-header-main">
+            <div class="account-header">
                 <h1 class="nf-md-account"> Your Account</h1>
                 <a href="/" class="nf-fa-home" id="button-reg"> Back Home</a>
             </div>
             <div class="account-container">
-                <div class="account-header">
+                <div class="account-header-main">
                     <h2>Account Details</h2>
                     <a class="nf-fa-sign_out" id="signout-btn"> Sign Out</a>
                 </div>
                 <div class="account-item" data-field="firstName">
                     <h3>First Name: </h3>
-                    <p id="currentFName">Loading..</p>
+                    <p id="currentFName">PLACEHOLDER</p>
                     <div class="account-item-right">
                         <input type="text" placeholder="New First Name" style="display: none">
                         <button class="nf-fa-close field-cancel" style="display: none"></button>
@@ -126,7 +126,7 @@
                 </div>
                 <div class="account-item" data-field="lastName">
                     <h3>Last Name: </h3>
-                    <p id="currentLName">Loading..</p>
+                    <p id="currentLName">PLACEHOLDER</p>
                     <div class="account-item-right">
                         <input type="text" placeholder="New Last Name" style="display: none">
                         <button class="nf-fa-close field-cancel" style="display: none"></button>
@@ -134,8 +134,8 @@
                     </div>
                 </div>
                 <div class="account-item" data-field="email">
-                    <h3>Email: </h3>
-                    <p id="currentEmail">Loading..</p>
+                    <h3>Email Address: </h3>
+                    <p id="currentEmail">PLACEHOLDER</p>
                     <div class="account-item-right">
                         <input type="email" placeholder="New Email" style="display: none">
                         <button class="nf-fa-close field-cancel" style="display: none"></button>
@@ -163,59 +163,9 @@
                     </div>
                 </div>
                 <button class="nf-fa-save" id="save-edits" style="display: none"> Submit Changes</button>
-                <p>Note: Changing your email requires confirmation. You will receive a confirmation link via email.</p>
             </div>
             <div class="orders-container">
                 <h2>Your Orders</h2>
-                
-                <div class="order-box">
-                    <div class="order-box-header">
-                        <h3>Order ID: </h3>
-                        <p id="orderID">PLACEHOLDER</p>
-                        <a id="expandOrder">View Order</a>
-                    </div>
-                    <div class="order-box-expanded" style="display: none">
-                        <div class="order-item">
-                            <p id="orderQuantity">3</h3>x
-                            <p id="orderName">The Creature</p> -
-                            <p id="orderType">Shirt</p> -
-                            <p id="orderSize">M</p> - 
-                            <p id="orderColor">Black</p>
-                            <p id="orderPrice" class="order-item-price">$0.00</p>
-                        </div>
-                        <div class="order-item">
-                            <p id="orderQuantity">3</h3>x
-                            <p id="orderName">The Creature</p> -
-                            <p id="orderType">Shirt</p> -
-                            <p id="orderSize">M</p> - 
-                            <p id="orderColor">Black</p>
-                            <p id="orderPrice" class="order-item-price">$0.00</p>
-                        </div>
-                        <div class="order-item">
-                            <p id="orderQuantity">3</h3>x
-                            <p id="orderName">The Creature</p> -
-                            <p id="orderType">Shirt</p> -
-                            <p id="orderSize">M</p> - 
-                            <p id="orderColor">Black</p>
-                            <p id="orderPrice" class="order-item-price">$0.00</p>
-                        </div>
-                        <div class="order-item">
-                            <p id="orderQuantity">3</h3>x
-                            <p id="orderName">The Creature</p> -
-                            <p id="orderType">Shirt</p> -
-                            <p id="orderSize">M</p> - 
-                            <p id="orderColor">Black</p>
-                            <p id="orderPrice" class="order-item-price">$0.00</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="order-box">
-                   <div class="order-box-header">
-                        <h3>Order ID: </h3>
-                        <p id="orderID">PLACEHOLDER</p>
-                        <a id="expandOrder">View Order</a>
-                   </div>
-                </div> 
             </div>
         </div>
     </main>

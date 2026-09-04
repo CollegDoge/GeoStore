@@ -275,15 +275,18 @@ async function init() {
 
 init();
 
-// ORDER SUBMISSION
+// ORDER SUBMISSION (revised)
+let orderSubmitting = false;
+
 async function completeOrder() {
+    if (orderSubmitting) return;
+
     if (!termsCheckbox.classList.contains('nf-fa-circle_check')) {
         showError('Terms required', 'Please accept the Terms and Conditions first.');
         return;
     }
 
     const cart = getCart();
-
     if (cart.length === 0 || !productsDb) {
         showError('Cart is empty', 'Add something to your cart before checking out.');
         return;
@@ -302,66 +305,74 @@ async function completeOrder() {
     const firstName = document.getElementById('cart-firstname').value.trim();
     const lastName = document.getElementById('cart-lastname').value.trim();
     const email = document.getElementById('cart-email').value.trim();
-
     if (!firstName || !lastName || !email) {
         showError('Missing info', 'Fill in your first name, last name, and email.');
         return;
     }
 
-    // COMMENTS FOR ASSESSMENT
     await window.sbReady; // wait until auth is ready
     const { data: sessionData } = await sb.auth.getSession(); // get session data
     const user = sessionData.session?.user; // get user data
 
-    // if not signed in, show error and return
+    // if not signed in, show error
     if (!user) {
         showError('Not signed in', 'Please sign in to complete your order.');
         return;
     }
 
-    // get totals
-    const totals = calculateTotals();
+    // update submit status
+    orderSubmitting = true;
+    orderBtn.classList.add('disabled');
 
-    // insert user info into sql db (supabase)
-    const { data: order, error: orderError } = await sb
-        .from('orders')
-        .insert({
-            user_id: user.id,
-            first_name: firstName,
-            last_name: lastName,
-            email: email,
-            total_cost: Number(totals.total.toFixed(2)),
-        })
-        .select()
-        .single();
+    try {
+        // calculate total cost
+        const totals = calculateTotals();
 
-    // if user info insert failed, show error and return
-    if (orderError || !order) {
-        showError('Failed to place order', orderError ? orderError.message : 'Something went wrong.');
-        return;
+        // insert user data into the orders table (supabase sql)
+        const { data: order, error: orderError } = await sb
+            .from('orders')
+            .insert({
+                user_id: user.id,
+                first_name: firstName,
+                last_name: lastName,
+                email: email,
+                total_cost: Number(totals.total.toFixed(2)),
+            })
+            .select()
+            .single();
+
+        // if order insert failed, show error and return
+        if (orderError || !order) {
+            showError('Failed to place order', orderError ? orderError.message : 'Something went wrong.');
+            return;
+        }
+
+        // insert order items into the order_items table (supabase sql)
+        const orderItemsPayload = resolvedItems.map(({ item, product }) => ({
+            order_id: order.id,
+            quantity: item.quantity,
+            item_name: product.name,
+            item_type: product.type,
+            item_size: sizeLabel(productsDb, product.type, item.size) || item.size || null,
+            item_color: colorLabel(productsDb, item.color) || item.color || null,
+            item_price: product.price,
+        }));
+
+        // if order items insert failed, show error and return
+        const { error: itemsError } = await sb.from('order_items').insert(orderItemsPayload);
+
+        // further error prevention
+        if (itemsError) {
+            await sb.from('orders').delete().eq('id', order.id);
+            showError('Failed to place order', itemsError.message);
+            return;
+        }
+
+        // update cart
+        clearCart(false);
+        window.location.href = `/account/completed-order/?order=${order.id}`; // redirect to completed order page
+    } finally {
+        orderSubmitting = false; // prevents multiple clicks
+        orderBtn.classList.remove('disabled');
     }
-
-    // insert order items into sql db (supabase)
-    const orderItemsPayload = resolvedItems.map(({ item, product }) => ({
-        order_id: order.id,
-        quantity: item.quantity,
-        item_name: product.name,
-        item_type: product.type,
-        item_size: sizeLabel(productsDb, product.type, item.size) || item.size || null,
-        item_color: colorLabel(productsDb, item.color) || item.color || null,
-        item_price: product.price,
-    }));
-
-    // if order items insert failed, show error and return
-    const { error: itemsError } = await sb.from('order_items').insert(orderItemsPayload);
-    if (itemsError) {
-        showError('Failed to place order', itemsError.message);
-        return;
-    }
-
-    // update cart
-    clearCart(false);
-
-    // redirect to completed order page
-    window.location.href = `/account/completed-order/?order=${order.id}`;
 }
