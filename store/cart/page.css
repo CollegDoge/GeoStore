@@ -223,6 +223,12 @@
     background-color: var(--text-color);
     color: var(--primary-color);
 }
+#button-major.disabled {
+    background-color: var(--primary-item);
+    color: var(--text-color);
+    border: 2px solid var(--primary-item);
+    pointer-events: none;
+}
 
 
 @media screen and (max-width: 768px) {
