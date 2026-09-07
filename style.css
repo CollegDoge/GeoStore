@@ -91,6 +91,7 @@
 }
 html {
     font-family: "Google Sans Flex", "NerdFontsSymbols Nerd Font", Arial, sans-serif;
+    font-display: swap;
     overflow-x: hidden;
     max-width: 100%;
 }
