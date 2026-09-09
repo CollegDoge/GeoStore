@@ -106,6 +106,8 @@
 }
 .productpage-info-row .cartbtn {
     height: 60px;
+    -webkit-user-select: none;
+    user-select: none;
 }
 .productpage-info-row .cartbtn p {
     font-size: 25px;

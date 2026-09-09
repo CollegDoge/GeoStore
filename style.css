@@ -130,11 +130,17 @@ body {
     --text-color: #fff !important;
     --text-secondary: #fff !important;
     --primary-color: #000 !important;
-    --primary-item: #222 !important;
-    --accent-primary: #2f2f2f !important;
+    --primary-item: #333 !important;
+    --accent-primary: #222222 !important;
     --accent-primary-dim: rgba(50, 50, 50, 0.5) !important;
-    --accent-secondary: #777777 !important;
+    --accent-secondary: #666 !important;
     --banner: rgba(0,0,0,0.7) !important;
+}
+.highcontrast .wave-container1, .highcontrast .wave-container2 {
+    display: none;
+}
+.highcontrast .product-box, .highcontrast .regnav-item {
+    border: 1px solid var(--text-color);
 }
 
 /* buttons */
