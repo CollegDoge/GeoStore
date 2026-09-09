@@ -114,14 +114,14 @@ body {
 .largetext p,
 .largetext a,
 .largetext h3,
+.largetext select,
+.largetext .product-title h2,
+.largetext .product-title,
 .largetext button {
     font-size: 1.2em !important;
 }
 .largetext .footer-access, .footer-social {
-    font-size: 2em !important;
-}
-.largetext .product-title, .largetext .product-title h2{
-    font-size: 1.2em !important;
+    font-size: 1.7em !important;
 }
 .largetext .nav-item {
     font-size: 1.1em !important;
@@ -131,7 +131,7 @@ body {
     --text-secondary: #fff !important;
     --primary-color: #000 !important;
     --primary-item: #333 !important;
-    --accent-primary: #222222 !important;
+    --accent-primary: #222 !important;
     --accent-primary-dim: rgba(50, 50, 50, 0.5) !important;
     --accent-secondary: #666 !important;
     --banner: rgba(0,0,0,0.7) !important;
